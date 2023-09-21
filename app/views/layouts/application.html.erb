@@ -10,9 +10,16 @@
     <%= javascript_importmap_tags %>
   </head>
   <body>
+  <% unless user_signed_in? %>
+    <p>Sign in or Create an account</p>
+    <%= link_to "sign in", new_user_session_path %>
+    <%= link_to "Sign up", new_user_registration_path %>
+    <% else %>
+      <%= link_to "logout", destroy_user_session_path %> 
+    <% end %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    
+
     <%= yield %>
   </body>
 </html>
