@@ -10,9 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_21_184558) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_22_135447) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "block_movies", force: :cascade do |t|
+    t.bigint "block_id", null: false
+    t.bigint "movie_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["block_id"], name: "index_block_movies_on_block_id"
+    t.index ["movie_id"], name: "index_block_movies_on_movie_id"
+  end
+
+  create_table "blocks", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "suggestion_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["suggestion_id"], name: "index_likes_on_suggestion_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
 
   create_table "movies", force: :cascade do |t|
     t.string "name", default: "", null: false
@@ -24,6 +48,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_21_184558) do
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_movies_on_name"
     t.index ["tmdb_ref"], name: "index_movies_on_tmdb_ref", unique: true
+  end
+
+  create_table "suggestions", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "movie_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["movie_id"], name: "index_suggestions_on_movie_id"
+    t.index ["user_id"], name: "index_suggestions_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -40,4 +73,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_21_184558) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "block_movies", "blocks"
+  add_foreign_key "block_movies", "movies"
+  add_foreign_key "likes", "suggestions"
+  add_foreign_key "likes", "users"
+  add_foreign_key "suggestions", "movies"
+  add_foreign_key "suggestions", "users"
 end
