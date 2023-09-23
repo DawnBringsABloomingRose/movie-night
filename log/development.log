@@ -612,3 +612,986 @@ Completed 200 OK in 12ms (Views: 8.4ms | ActiveRecord: 3.3ms | Allocations: 4359
   [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies" INNER JOIN "block_movies" ON "movies"."id" = "block_movies"."movie_id" WHERE "block_movies"."block_id" = $1[0m  [["block_id", 1]]
   [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT "movies".* FROM "movies" ORDER BY "movies"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
   [1m[36mBlock Load (0.2ms)[0m  [1m[34mSELECT "blocks".* FROM "blocks" INNER JOIN "block_movies" ON "blocks"."id" = "block_movies"."block_id" WHERE "block_movies"."movie_id" = $1[0m  [["movie_id", 1]]
+Started GET "/" for ::1 at 2023-09-22 10:25:27 -0400
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:1
+  Rendered collection of movies/_movie.html.erb [1 times] (Duration: 0.3ms | Allocations: 185)
+  Rendered movies/index.html.erb within layouts/application (Duration: 16.6ms | Allocations: 8243)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+  Rendered layout layouts/application.html.erb (Duration: 31.9ms | Allocations: 26051)
+Completed 200 OK in 38ms (Views: 26.7ms | ActiveRecord: 8.2ms | Allocations: 30131)
+
+
+Started GET "/" for ::1 at 2023-09-22 11:11:07 -0400
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:1
+  Rendered collection of movies/_movie.html.erb [1 times] (Duration: 2.3ms | Allocations: 133)
+  Rendered movies/index.html.erb within layouts/application (Duration: 15.4ms | Allocations: 4186)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+  Rendered layouts/_searchbar.html.erb (Duration: 0.2ms | Allocations: 98)
+  Rendered layout layouts/application.html.erb (Duration: 23.7ms | Allocations: 8598)
+Completed 200 OK in 27ms (Views: 24.0ms | ActiveRecord: 3.0ms | Allocations: 9589)
+
+
+Started GET "/" for ::1 at 2023-09-22 12:33:32 -0400
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:1
+  Rendered collection of movies/_movie.html.erb [1 times] (Duration: 0.4ms | Allocations: 139)
+  Rendered movies/index.html.erb within layouts/application (Duration: 17.1ms | Allocations: 6189)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+  Rendered layouts/_searchbar.html.erb (Duration: 0.7ms | Allocations: 1424)
+  Rendered layout layouts/application.html.erb (Duration: 36.0ms | Allocations: 25856)
+Completed 200 OK in 54ms (Views: 34.3ms | ActiveRecord: 2.8ms | Allocations: 30109)
+
+
+Started GET "/" for ::1 at 2023-09-22 12:40:02 -0400
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:1
+  Rendered collection of movies/_movie.html.erb [1 times] (Duration: 0.1ms | Allocations: 33)
+  Rendered movies/index.html.erb within layouts/application (Duration: 15.0ms | Allocations: 5850)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+  Rendered layouts/_searchbar.html.erb (Duration: 0.5ms | Allocations: 1252)
+  Rendered layout layouts/application.html.erb (Duration: 39.8ms | Allocations: 25003)
+Completed 200 OK in 44ms (Views: 34.8ms | ActiveRecord: 5.8ms | Allocations: 28791)
+
+
+Started GET "/search?movie_name=DSDS&commit=Search" for ::1 at 2023-09-22 12:40:08 -0400
+Processing by SearchsController#show as HTML
+  Parameters: {"movie_name"=>"DSDS", "commit"=>"Search"}
+Completed 406 Not Acceptable in 178ms (ActiveRecord: 0.0ms | Allocations: 2007)
+
+
+  
+ActionController::MissingExactTemplate (SearchsController#show is missing a template for request formats: text/html):
+  
+actionpack (7.0.8) lib/action_controller/metal/implicit_render.rb:45:in `default_render'
+actionpack (7.0.8) lib/action_controller/metal/basic_implicit_render.rb:7:in `send_action'
+actionpack (7.0.8) lib/abstract_controller/base.rb:215:in `process_action'
+actionpack (7.0.8) lib/action_controller/metal/rendering.rb:165:in `process_action'
+actionpack (7.0.8) lib/abstract_controller/callbacks.rb:234:in `block in process_action'
+activesupport (7.0.8) lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+actiontext (7.0.8) lib/action_text/rendering.rb:20:in `with_renderer'
+actiontext (7.0.8) lib/action_text/engine.rb:69:in `block (4 levels) in <class:Engine>'
+activesupport (7.0.8) lib/active_support/callbacks.rb:127:in `instance_exec'
+activesupport (7.0.8) lib/active_support/callbacks.rb:127:in `block in run_callbacks'
+activesupport (7.0.8) lib/active_support/callbacks.rb:138:in `run_callbacks'
+actionpack (7.0.8) lib/abstract_controller/callbacks.rb:233:in `process_action'
+actionpack (7.0.8) lib/action_controller/metal/rescue.rb:23:in `process_action'
+actionpack (7.0.8) lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+activesupport (7.0.8) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.8) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.8) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.0.8) lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+actionpack (7.0.8) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.0.8) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (7.0.8) lib/abstract_controller/base.rb:151:in `process'
+actionview (7.0.8) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.8) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.8) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.8) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.8) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.8) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.8) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.8) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.8) lib/action_dispatch/routing/route_set.rb:852:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (2.2.8) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.8) lib/rack/etag.rb:27:in `call'
+rack (2.2.8) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.8) lib/rack/head.rb:12:in `call'
+actionpack (7.0.8) lib/action_dispatch/http/permissions_policy.rb:38:in `call'
+actionpack (7.0.8) lib/action_dispatch/http/content_security_policy.rb:36:in `call'
+rack (2.2.8) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.8) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.8) lib/action_dispatch/middleware/cookies.rb:704:in `call'
+activerecord (7.0.8) lib/active_record/migration.rb:638:in `call'
+actionpack (7.0.8) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.8) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.8) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.8) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.8) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.8) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.8) lib/action_dispatch/middleware/show_exceptions.rb:29:in `call'
+railties (7.0.8) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.8) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.8) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.8) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.8) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.8) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.8) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.8) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.8) lib/rack/method_override.rb:24:in `call'
+rack (2.2.8) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.8) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.8) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.8) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.8) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.8) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.8) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.8) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.8) lib/action_dispatch/middleware/host_authorization.rb:138:in `call'
+railties (7.0.8) lib/rails/engine.rb:530:in `call'
+puma (5.6.7) lib/puma/configuration.rb:252:in `call'
+puma (5.6.7) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.7) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.7) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.7) lib/puma/server.rb:443:in `process_client'
+puma (5.6.7) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/" for ::1 at 2023-09-22 12:40:08 -0400
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:1
+  Rendered collection of movies/_movie.html.erb [1 times] (Duration: 0.0ms | Allocations: 25)
+  Rendered movies/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 786)
+  [1m[36mUser Load (3.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+  Rendered layouts/_searchbar.html.erb (Duration: 0.4ms | Allocations: 1257)
+  Rendered layout layouts/application.html.erb (Duration: 14.2ms | Allocations: 5787)
+Completed 200 OK in 17ms (Views: 13.0ms | ActiveRecord: 3.5ms | Allocations: 6093)
+
+
+Started GET "/" for ::1 at 2023-09-22 12:46:47 -0400
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:1
+  Rendered collection of movies/_movie.html.erb [1 times] (Duration: 0.1ms | Allocations: 33)
+  Rendered movies/index.html.erb within layouts/application (Duration: 19.8ms | Allocations: 5907)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+  Rendered layouts/_searchbar.html.erb (Duration: 0.6ms | Allocations: 1288)
+  Rendered layout layouts/application.html.erb (Duration: 66.2ms | Allocations: 25063)
+Completed 200 OK in 79ms (Views: 61.9ms | ActiveRecord: 9.2ms | Allocations: 28875)
+
+
+Started GET "/search?movie_name=harry+potter&commit=Search" for ::1 at 2023-09-22 12:46:52 -0400
+Processing by SearchsController#show as HTML
+  Parameters: {"movie_name"=>"harry potter", "commit"=>"Search"}
+Completed 406 Not Acceptable in 223ms (ActiveRecord: 0.0ms | Allocations: 1587)
+
+
+  
+ActionController::MissingExactTemplate (SearchsController#show is missing a template for request formats: text/html):
+  
+actionpack (7.0.8) lib/action_controller/metal/implicit_render.rb:45:in `default_render'
+actionpack (7.0.8) lib/action_controller/metal/basic_implicit_render.rb:7:in `send_action'
+actionpack (7.0.8) lib/abstract_controller/base.rb:215:in `process_action'
+actionpack (7.0.8) lib/action_controller/metal/rendering.rb:165:in `process_action'
+actionpack (7.0.8) lib/abstract_controller/callbacks.rb:234:in `block in process_action'
+activesupport (7.0.8) lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+actiontext (7.0.8) lib/action_text/rendering.rb:20:in `with_renderer'
+actiontext (7.0.8) lib/action_text/engine.rb:69:in `block (4 levels) in <class:Engine>'
+activesupport (7.0.8) lib/active_support/callbacks.rb:127:in `instance_exec'
+activesupport (7.0.8) lib/active_support/callbacks.rb:127:in `block in run_callbacks'
+activesupport (7.0.8) lib/active_support/callbacks.rb:138:in `run_callbacks'
+actionpack (7.0.8) lib/abstract_controller/callbacks.rb:233:in `process_action'
+actionpack (7.0.8) lib/action_controller/metal/rescue.rb:23:in `process_action'
+actionpack (7.0.8) lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+activesupport (7.0.8) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.8) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.8) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.0.8) lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+actionpack (7.0.8) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.0.8) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (7.0.8) lib/abstract_controller/base.rb:151:in `process'
+actionview (7.0.8) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.8) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.8) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.8) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.8) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.8) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.8) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.8) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.8) lib/action_dispatch/routing/route_set.rb:852:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (2.2.8) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.8) lib/rack/etag.rb:27:in `call'
+rack (2.2.8) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.8) lib/rack/head.rb:12:in `call'
+actionpack (7.0.8) lib/action_dispatch/http/permissions_policy.rb:38:in `call'
+actionpack (7.0.8) lib/action_dispatch/http/content_security_policy.rb:36:in `call'
+rack (2.2.8) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.8) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.8) lib/action_dispatch/middleware/cookies.rb:704:in `call'
+activerecord (7.0.8) lib/active_record/migration.rb:638:in `call'
+actionpack (7.0.8) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.8) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.8) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.8) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.8) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.8) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.8) lib/action_dispatch/middleware/show_exceptions.rb:29:in `call'
+railties (7.0.8) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.8) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.8) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.8) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.8) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.8) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.8) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.8) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.8) lib/rack/method_override.rb:24:in `call'
+rack (2.2.8) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.8) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.8) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.8) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.8) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.8) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.8) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.8) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.8) lib/action_dispatch/middleware/host_authorization.rb:138:in `call'
+railties (7.0.8) lib/rails/engine.rb:530:in `call'
+puma (5.6.7) lib/puma/configuration.rb:252:in `call'
+puma (5.6.7) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.7) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.7) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.7) lib/puma/server.rb:443:in `process_client'
+puma (5.6.7) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/" for ::1 at 2023-09-22 12:46:53 -0400
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:1
+  Rendered collection of movies/_movie.html.erb [1 times] (Duration: 0.0ms | Allocations: 25)
+  Rendered movies/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 786)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+  Rendered layouts/_searchbar.html.erb (Duration: 0.5ms | Allocations: 1257)
+  Rendered layout layouts/application.html.erb (Duration: 12.5ms | Allocations: 5775)
+Completed 200 OK in 13ms (Views: 12.5ms | ActiveRecord: 0.4ms | Allocations: 6080)
+
+
+Started GET "/" for ::1 at 2023-09-22 12:50:08 -0400
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:1
+  Rendered collection of movies/_movie.html.erb [1 times] (Duration: 0.7ms | Allocations: 138)
+  Rendered movies/index.html.erb within layouts/application (Duration: 11.4ms | Allocations: 3429)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+  Rendered layouts/_searchbar.html.erb (Duration: 0.8ms | Allocations: 1416)
+  Rendered layout layouts/application.html.erb (Duration: 34.8ms | Allocations: 23473)
+Completed 200 OK in 42ms (Views: 31.9ms | ActiveRecord: 4.6ms | Allocations: 27725)
+
+
+Started GET "/search?movie_name=harry+potter&commit=Search" for ::1 at 2023-09-22 12:50:10 -0400
+Processing by SearchsController#show as HTML
+  Parameters: {"movie_name"=>"harry potter", "commit"=>"Search"}
+  Rendering layout layouts/application.html.erb
+  Rendering searchs/show.html.erb within layouts/application
+  Rendered searchs/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 139)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+  Rendered layouts/_searchbar.html.erb (Duration: 2.3ms | Allocations: 1288)
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | Allocations: 5419)
+Completed 200 OK in 246ms (Views: 8.2ms | ActiveRecord: 0.2ms | Allocations: 7142)
+
+
+Started GET "/search?movie_name=harry+potter&commit=Search" for ::1 at 2023-09-22 12:50:19 -0400
+Processing by SearchsController#show as HTML
+  Parameters: {"movie_name"=>"harry potter", "commit"=>"Search"}
+  Rendering layout layouts/application.html.erb
+  Rendering searchs/show.html.erb within layouts/application
+  Rendered searchs/show.html.erb within layouts/application (Duration: 1.8ms | Allocations: 2380)
+  Rendered layout layouts/application.html.erb (Duration: 2.7ms | Allocations: 2468)
+Completed 500 Internal Server Error in 211ms (ActiveRecord: 0.0ms | Allocations: 4360)
+
+
+  
+ActionView::Template::Error (undefined method `read_body' for #<ActionDispatch::Response:0x00007f753a72eaa0 @mon_data=#<Monitor:0x00007f753a72e988>, @mon_data_owner_object_id=107920, @header={"X-Frame-Options"=>"SAMEORIGIN", "X-XSS-Protection"=>"0", "X-Content-Type-Options"=>"nosniff", "X-Download-Options"=>"noopen", "X-Permitted-Cross-Domain-Policies"=>"none", "Referrer-Policy"=>"strict-origin-when-cross-origin"}, @stream=#<ActionDispatch::Response::Buffer:0x00007f753a72e8c0 @response=#<ActionDispatch::Response:0x00007f753a72eaa0 ...>, @buf=[], @closed=false, @str_body=nil>, @status=200, @cv=#<MonitorMixin::ConditionVariable:0x00007f753a72e820 @monitor=#<Monitor:0x00007f753a72e988>, @cond=#<Thread::ConditionVariable:0x00007f753a72e7d0>>, @committed=false, @sending=false, @sent=false, @cache_control={}, @request=#<ActionDispatch::Request GET "http://localhost:3000/search?movie_name=harry+potter&commit=Search" for ::1>>
+
+            @virtual_path = "searchs/show";;@output_buffer.append=( response.read_body );
+                                                                            ^^^^^^^^^^
+Did you mean?  reset_body!):
+    1: <%= response.read_body %>
+  
+app/views/searchs/show.html.erb:1
+Started GET "/search?movie_name=harry+potter&commit=Search" for ::1 at 2023-09-22 12:50:42 -0400
+Processing by SearchsController#show as HTML
+  Parameters: {"movie_name"=>"harry potter", "commit"=>"Search"}
+  Rendering layout layouts/application.html.erb
+  Rendering searchs/show.html.erb within layouts/application
+  Rendered searchs/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 132)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+  Rendered layouts/_searchbar.html.erb (Duration: 0.6ms | Allocations: 1453)
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | Allocations: 5945)
+Completed 200 OK in 158ms (Views: 8.3ms | ActiveRecord: 0.2ms | Allocations: 7855)
+
+
+Started GET "/search?movie_name=harry+potter&commit=Search" for ::1 at 2023-09-22 12:59:16 -0400
+Processing by SearchsController#show as HTML
+  Parameters: {"movie_name"=>"harry potter", "commit"=>"Search"}
+  Rendering layout layouts/application.html.erb
+  Rendering searchs/show.html.erb within layouts/application
+  Rendered searchs/show.html.erb within layouts/application (Duration: 2.5ms | Allocations: 2658)
+  Rendered layout layouts/application.html.erb (Duration: 3.4ms | Allocations: 2746)
+Completed 500 Internal Server Error in 169ms (ActiveRecord: 0.0ms | Allocations: 4630)
+
+
+  
+ActionView::Template::Error (undefined method `each' for "{\"page\":1,\"results\":[{\"adult\":false,\"backdrop_path\":\"/hziiv14OpD73u9gAak4XDDfBKa2.jpg\",\"genre_ids\":[12,14],\"id\":671,\"original_language\":\"en\",\"original_title\":\"Harry Potter and the Philosopher's Stone\",\"overview\":\"Harry Potter has lived under the stairs at his aunt and uncle's house his whole life. But on his 11th birthday, he learns he's a powerful wizard\xE2\x80\x94with a place waiting for him at the Hogwarts School of Witchcraft and Wizardry. As he learns to harness his newfound powers with the help of the school's kindly headmaster, Harry uncovers the truth about his parents' deaths\xE2\x80\x94and about the villain who's to blame.\",\"popularity\":133.642,\"poster_path\":\"/wuMc08IPKEatf9rnMNXvIDxqP4W.jpg\",\"release_date\":\"2001-11-16\",\"title\":\"Harry Potter and the Philosopher's Stone\",\"video\":false,\"vote_average\":7.916,\"vote_count\":25354},{\"adult\":false,\"backdrop_path\":\"/urDWNffjwmNi5IQaezw9GwqkUXa.jpg\",\"genre_ids\":[12,14],\"id\":767,\"original_language\":\"en\",\"original_title\":\"Harry Potter and the Half-Blood Prince\",\"overview\":\"As Lord Voldemort tightens his grip on both the Muggle and wizarding worlds, Hogwarts is no longer a safe haven. Harry suspects perils may even lie within the castle, but Dumbledore is more intent upon preparing him for the final battle fast approaching. Together they work to find the key to unlock Voldemorts defenses and to this end, Dumbledore recruits his old friend and colleague Horace Slughorn, whom he believes holds crucial information. Even as the decisive showdown looms, romance blossoms for Harry, Ron, Hermione and their classmates. Love is in the air, but danger lies ahead and Hogwarts may never be the same again.\",\"popularity\":126.333,\"poster_path\":\"/z7uo9zmQdQwU5ZJHFpv2Upl30i1.jpg\",\"release_date\":\"2009-07-15\",\"title\":\"Harry Potter and the Half-Blood Prince\",\"video\":false,\"vote_average\":7.697,\"vote_count\":18108},{\"adult\":false,\"backdrop_path\":\"/5rrGVmRUuCKVbqUu41XIWTXJmNA.jpg\",\"genre_ids\":[12,14],\"id\":674,\"original_language\":\"en\",\"original_title\":\"Harry Potter and the Goblet of Fire\",\"overview\":\"When Harry Potter's name emerges from the Goblet of Fire, he becomes a competitor in a grueling battle for glory among three wizarding schools\xE2\x80\x94the Triwizard Tournament. But since Harry never submitted his name for the Tournament, who did? Now Harry must confront a deadly dragon, fierce water demons and an enchanted maze only to find himself in the cruel grasp of He Who Must Not Be Named.\",\"popularity\":134.593,\"poster_path\":\"/fECBtHlr0RB3foNHDiCBXeg9Bv9.jpg\",\"release_date\":\"2005-11-16\",\"title\":\"Harry Potter and the Goblet of Fire\",\"video\":false,\"vote_average\":7.816,\"vote_count\":19261},{\"adult\":false,\"backdrop_path\":\"/obKmfNexgL4ZP5cAmzdL4KbHHYX.jpg\",\"genre_ids\":[12,14],\"id\":673,\"original_language\":\"en\",\"original_title\":\"Harry Potter and the Prisoner of Azkaban\",\"overview\":\"Year three at Hogwarts means new fun and challenges as Harry learns the delicate art of approaching a Hippogriff, transforming shape-shifting Boggarts into hilarity and even turning back time. But the term also brings danger: soul-sucking Dementors hover over the school, an ally of the accursed He-Who-Cannot-Be-Named lurks within the castle walls, and fearsome wizard Sirius Black escapes Azkaban. And Harry will confront them all.\",\"popularity\":136.507,\"poster_path\":\"/aWxwnYoe8p2d2fcxOqtvAtJ72Rw.jpg\",\"release_date\":\"2004-05-31\",\"title\":\"Harry Potter and the Prisoner of Azkaban\",\"video\":false,\"vote_average\":8.021,\"vote_count\":20015},{\"adult\":false,\"backdrop_path\":\"/1stUIsjawROZxjiCMtqqXqgfZWC.jpg\",\"genre_ids\":[12,14],\"id\":672,\"original_language\":\"en\",\"original_title\":\"Harry Potter and the Chamber of Secrets\",\"overview\":\"Cars fly, trees fight back, and a mysterious house-elf comes to warn Harry Potter at the start of his second year at Hogwarts. Adventure and danger await when bloody writing on a wall announces: The Chamber Of Secrets Has Been Opened. To save Hogwarts will require all of Harry, Ron and Hermione\xE2\x80\x99s magical abilities and courage.\",\"popularity\":138.2,\"poster_path\":\"/sdEOH0992YZ0QSxgXNIGLq1ToUi.jpg\",\"release_date\":\"2002-11-13\",\"title\":\"Harry Potter and the Chamber of Secrets\",\"video\":false,\"vote_average\":7.721,\"vote_count\":20371},{\"adult\":false,\"backdrop_path\":\"/pkxPkHOPJjOvzfQOclANEBT8OfK.jpg\",\"genre_ids\":[12,14],\"id\":675,\"original_language\":\"en\",\"original_title\":\"Harry Potter and the Order of the Phoenix\",\"overview\":\"Returning for his fifth year of study at Hogwarts, Harry is stunned to find that his warnings about the return of Lord Voldemort have been ignored. Left with no choice, Harry takes matters into his own hands, training a small group of students to defend themselves against the dark arts.\",\"popularity\":126.757,\"poster_path\":\"/5aOyriWkPec0zUDxmHFP9qMmBaj.jpg\",\"release_date\":\"2007-07-08\",\"title\":\"Harry Potter and the Order of the Phoenix\",\"video\":false,\"vote_average\":7.686,\"vote_count\":18157},{\"adult\":false,\"backdrop_path\":\"/AqLcLsGGTzAjm3pCCq0CZCQrp6m.jpg\",\"genre_ids\":[12,14],\"id\":12444,\"original_language\":\"en\",\"original_title\":\"Harry Potter and the Deathly Hallows: Part 1\",\"overview\":\"Harry, Ron and Hermione walk away from their last year at Hogwarts to find and destroy the remaining Horcruxes, putting an end to Voldemort's bid for immortality. But with Harry's beloved Dumbledore dead and Voldemort's unscrupulous Death Eaters on the loose, the world is more dangerous than ever.\",\"popularity\":120.97,\"poster_path\":\"/iGoXIpQb7Pot00EEdwpwPajheZ5.jpg\",\"release_date\":\"2010-11-17\",\"title\":\"Harry Potter and the Deathly Hallows: Part 1\",\"video\":false,\"vote_average\":7.764,\"vote_count\":17761},{\"adult\":false,\"backdrop_path\":\"/n5A7brJCjejceZmHyujwUTVgQNC.jpg\",\"genre_ids\":[14,12],\"id\":12445,\"original_language\":\"en\",\"original_title\":\"Harry Potter and the Deathly Hallows: Part 2\",\"overview\":\"Harry, Ron and Hermione continue their quest to vanquish the evil Voldemort once and for all. Just as things begin to look hopeless for the young wizards, Harry discovers a trio of magical objects that endow him with powers to rival Voldemort's formidable skills.\",\"popularity\":110.835,\"poster_path\":\"/c54HpQmuwXjHq2C9wmoACjxoom3.jpg\",\"release_date\":\"2011-07-12\",\"title\":\"Harry Potter and the Deathly Hallows: Part 2\",\"video\":false,\"vote_average\":8.106,\"vote_count\":19164},{\"adult\":false,\"backdrop_path\":\"/8rft8A9nH43IReybFtYt21ezfMK.jpg\",\"genre_ids\":[99],\"id\":899082,\"original_language\":\"en\",\"original_title\":\"Harry Potter 20th Anniversary: Return to Hogwarts\",\"overview\":\"An enchanting making-of story told through all-new in-depth interviews and cast conversations, inviting fans on a magical first-person journey through one of the most beloved film franchises of all time.\",\"popularity\":57.839,\"poster_path\":\"/jntLBq0MLR3hrwKaTQswxACRPMs.jpg\",\"release_date\":\"2022-01-01\",\"title\":\"Harry Potter 20th Anniversary: Return to Hogwarts\",\"video\":false,\"vote_average\":7.289,\"vote_count\":3060},{\"adult\":false,\"backdrop_path\":\"/4LOxoeZWt5wr9mooxEZRFK96lDd.jpg\",\"genre_ids\":[99],\"id\":483898,\"original_language\":\"en\",\"original_title\":\"50 Greatest Harry Potter Moments\",\"overview\":\"To mark the release two weeks ago of the eighth and final movie in the series, Robbie Coltrane narrates a countdown of the movie franchise's best moments. From Harry's first meeting with Ron and Hermione aboard the Hogwarts Express through to magical mysteries.\",\"popularity\":24.423,\"poster_path\":\"/g1xiBoLD6v3ZaXPa4QtuXiQeYKW.jpg\",\"release_date\":\"2011-07-27\",\"title\":\"50 Greatest Harry Potter Moments\",\"video\":false,\"vote_average\":7.315,\"vote_count\":108},{\"adult\":false,\"backdrop_path\":\"/mjCYpJXCBYDZgMr1U1KZcFgFDfC.jpg\",\"genre_ids\":[99],\"id\":482408,\"original_language\":\"en\",\"original_title\":\"Harry Potter: A History Of Magic\",\"overview\":\"A thrilling journey through legends, belief and folklore, this film goes behind the scenes with the British Library as they search to tell that story through objects in their collection, in an ambitious new exhibition: Harry Potter: A History Of Magic.  J.K. Rowling, who is lending unseen manuscripts, drawings and drafts from her private archives (which will sit alongside treasures from the British Library, as well as original drafts and drawings from Jim Kay) talks about some of the personal items she has lent to the exhibition and gives new insight into her writing, looking at some of the objects from the exhibition that have fired her imagination.\",\"popularity\":17.566,\"poster_path\":\"/geike7VgTrftxwzcvND4dRdZdAv.jpg\",\"release_date\":\"2017-10-28\",\"title\":\"Harry Potter: A History Of Magic\",\"video\":false,\"vote_average\":7.217,\"vote_count\":83},{\"adult\":false,\"backdrop_path\":null,\"genre_ids\":[],\"id\":919590,\"original_language\":\"de\",\"original_title\":\"Phantastische Harry Potter Momente - Das gro\xC3\x9Fe SAT.1 Spezial\",\"overview\":\"\",\"popularity\":9.729,\"poster_path\":\"/1Ci05BbrRgc8qwKSvliJH6gqzol.jpg\",\"release_date\":\"2021-10-31\",\"title\":\"Phantastische Harry Potter Momente - Das gro\xC3\x9Fe SAT.1 Spezial\",\"video\":false,\"vote_average\":6.283,\"vote_count\":23},{\"adult\":false,\"backdrop_path\":null,\"genre_ids\":[99],\"id\":1082707,\"original_language\":\"en\",\"original_title\":\"The Magic Touch of Harry Potter\",\"overview\":\"A 2004 documentary on the first three \xE2\x80\x9CHarry Potter\xE2\x80\x9D films detailing the behind-the-scenes journey of making them.\",\"popularity\":8.296,\"poster_path\":\"/gwFARNYf1Odv3E8ESVHyikXmMIY.jpg\",\"release_date\":\"2004-06-11\",\"title\":\"The Magic Touch of Harry Potter\",\"video\":false,\"vote_average\":7.5,\"vote_count\":10},{\"adult\":false,\"backdrop_path\":null,\"genre_ids\":[99],\"id\":918078,\"original_language\":\"en\",\"original_title\":\"Daniel Radcliffe: Being Harry Potter\",\"overview\":\"BBC docuemntary about Daniel Radcliffe and his role as the main character in Harry potter\",\"popularity\":6.571,\"poster_path\":\"/4keobTsQVrMS2JwE3TRod0SrYTD.jpg\",\"release_date\":\"2012-10-10\",\"title\":\"Daniel Radcliffe: Being Harry Potter\",\"video\":false,\"vote_average\":6.1,\"vote_count\":20},{\"adult\":false,\"backdrop_path\":\"/zikoNIlodwkPhAU9iAwN17sOTrD.jpg\",\"genre_ids\":[99],\"id\":1118680,\"original_language\":\"fr\",\"original_title\":\"Harry Potter : les secrets du ph\xC3\xA9nom\xC3\xA8ne\",\"overview\":\"\",\"popularity\":7.128,\"poster_path\":\"/7iJ20z09sZpbl0vgj4NIbnUDcfN.jpg\",\"release_date\":\"2023-04-26\",\"title\":\"Harry Potter : les secrets du ph\xC3\xA9nom\xC3\xA8ne\",\"video\":false,\"vote_average\":5.5,\"vote_count\":1},{\"adult\":false,\"backdrop_path\":null,\"genre_ids\":[99],\"id\":1039274,\"original_language\":\"en\",\"original_title\":\"Harry Potter: A Spirit Conspiracy?\",\"overview\":\"The Occult Agenda documentary series is designed to awaken the church and non-believers alike to the spiritual warfare happening in the world today. Part I focuses on the Harry Potter phenomenon that has swept the world since author J.K. Rowling introduced her best-selling book series. But is Potter-mania merely the result of imaginative writing and clever marketing? Or could there be a hidden power behind the craze that has cast a spell on adults and children alike?\",\"popularity\":4.563,\"poster_path\":\"/e8jvqpVbVeVlSOV216sOIZmykGA.jpg\",\"release_date\":\"2005-09-22\",\"title\":\"Harry Potter: A Spirit Conspiracy?\",\"video\":true,\"vote_average\":6.3,\"vote_count\":9},{\"adult\":false,\"backdrop_path\":null,\"genre_ids\":[99],\"id\":256050,\"original_language\":\"en\",\"original_title\":\"The Magical World of Harry Potter: The Unauthorized Story of J.K. Rowling\",\"overview\":\"The unauthorized story of J.K. Rowling--creator of Harry Potter.\",\"popularity\":1.694,\"poster_path\":null,\"release_date\":\"2000-08-08\",\"title\":\"The Magical World of Harry Potter: The Unauthorized Story of J.K. Rowling\",\"video\":false,\"vote_average\":7.2,\"vote_count\":6},{\"adult\":false,\"backdrop_path\":null,\"genre_ids\":[99],\"id\":319391,\"original_language\":\"en\",\"original_title\":\"J.K. Rowling and the Birth of Harry Potter\",\"overview\":\"In this fascinating (unauthorized) biographical documentary, you'll get the inside scoop on the creative force behind one of the greatest publishing phenomena in the last 100 years -- J.K. Rowling, author of the Harry Potter series of books. Explore Rowling's meteoric rise from obscurity into the ranks of the world's richest women (via her books), and visit the people and places that played a significant role in her life.\",\"popularity\":3.309,\"poster_path\":\"/hY6Ndq1O4JiEngZ7xIOtcLUCDTX.jpg\",\"release_date\":\"2004-12-07\",\"title\":\"J.K. Rowling and the Birth of Harry Potter\",\"video\":true,\"vote_average\":6.8,\"vote_count\":19},{\"adult\":false,\"backdrop_path\":null,\"genre_ids\":[10751,99],\"id\":116972,\"original_language\":\"en\",\"original_title\":\"Discovering the Real World of Harry Potter\",\"overview\":\"Explore the myths and legends that inhabit the real world of Harry Potter. Follow award-winning documentary filmmakers as they offer insights to witches, wizards, Greek gods, ancient Celts, ghosts, magical creatures, alchemy, and ancient spells. Narrated by British actor Hugh Laurie, this fascinating documentary brings new dimensions to the historical and scientific world behind the Harry Potter series.\",\"popularity\":2.45,\"poster_path\":\"/yLpnOqKw3ZycFu8t5Gil1BqTbnB.jpg\",\"release_date\":\"2001-12-10\",\"title\":\"Discovering the Real World of Harry Potter\",\"video\":false,\"vote_average\":6.5,\"vote_count\":21},{\"adult\":false,\"backdrop_path\":null,\"genre_ids\":[99],\"id\":500008,\"original_language\":\"en\",\"original_title\":\"Harry Potter: The Making of Diagon Alley\",\"overview\":\"An inside look into the creation of Universal Studio's Diagon Alley attraction.\",\"popularity\":2.077,\"poster_path\":null,\"release_date\":\"2014-06-30\",\"title\":\"Harry Potter: The Making of Diagon Alley\",\"video\":false,\"vote_average\":4.4,\"vote_count\":11}],\"total_pages\":2,\"total_results\":24}":String
+
+            @virtual_path = "searchs/show";; @response.read_body.each do |result|  
+                                                                ^^^^^):
+    1: <% @response.read_body.each do |result| %> 
+    2:   <%= result %>
+    3: <% end %>
+  
+app/views/searchs/show.html.erb:1
+Started GET "/" for ::1 at 2023-09-22 12:59:25 -0400
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:1
+  Rendered collection of movies/_movie.html.erb [1 times] (Duration: 0.3ms | Allocations: 133)
+  Rendered movies/index.html.erb within layouts/application (Duration: 13.9ms | Allocations: 4198)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+  Rendered layouts/_searchbar.html.erb (Duration: 0.8ms | Allocations: 1452)
+  Rendered layout layouts/application.html.erb (Duration: 28.2ms | Allocations: 9938)
+Completed 200 OK in 29ms (Views: 20.1ms | ActiveRecord: 8.9ms | Allocations: 10624)
+
+
+Started GET "/search?movie_name=harry+potter&commit=Search" for ::1 at 2023-09-22 12:59:27 -0400
+Processing by SearchsController#show as HTML
+  Parameters: {"movie_name"=>"harry potter", "commit"=>"Search"}
+  Rendering layout layouts/application.html.erb
+  Rendering searchs/show.html.erb within layouts/application
+  Rendered searchs/show.html.erb within layouts/application (Duration: 1.9ms | Allocations: 2497)
+  Rendered layout layouts/application.html.erb (Duration: 2.2ms | Allocations: 2576)
+Completed 500 Internal Server Error in 123ms (ActiveRecord: 0.0ms | Allocations: 3786)
+
+
+  
+ActionView::Template::Error (undefined method `each' for "{\"page\":1,\"results\":[{\"adult\":false,\"backdrop_path\":\"/hziiv14OpD73u9gAak4XDDfBKa2.jpg\",\"genre_ids\":[12,14],\"id\":671,\"original_language\":\"en\",\"original_title\":\"Harry Potter and the Philosopher's Stone\",\"overview\":\"Harry Potter has lived under the stairs at his aunt and uncle's house his whole life. But on his 11th birthday, he learns he's a powerful wizard\xE2\x80\x94with a place waiting for him at the Hogwarts School of Witchcraft and Wizardry. As he learns to harness his newfound powers with the help of the school's kindly headmaster, Harry uncovers the truth about his parents' deaths\xE2\x80\x94and about the villain who's to blame.\",\"popularity\":133.642,\"poster_path\":\"/wuMc08IPKEatf9rnMNXvIDxqP4W.jpg\",\"release_date\":\"2001-11-16\",\"title\":\"Harry Potter and the Philosopher's Stone\",\"video\":false,\"vote_average\":7.916,\"vote_count\":25354},{\"adult\":false,\"backdrop_path\":\"/urDWNffjwmNi5IQaezw9GwqkUXa.jpg\",\"genre_ids\":[12,14],\"id\":767,\"original_language\":\"en\",\"original_title\":\"Harry Potter and the Half-Blood Prince\",\"overview\":\"As Lord Voldemort tightens his grip on both the Muggle and wizarding worlds, Hogwarts is no longer a safe haven. Harry suspects perils may even lie within the castle, but Dumbledore is more intent upon preparing him for the final battle fast approaching. Together they work to find the key to unlock Voldemorts defenses and to this end, Dumbledore recruits his old friend and colleague Horace Slughorn, whom he believes holds crucial information. Even as the decisive showdown looms, romance blossoms for Harry, Ron, Hermione and their classmates. Love is in the air, but danger lies ahead and Hogwarts may never be the same again.\",\"popularity\":126.333,\"poster_path\":\"/z7uo9zmQdQwU5ZJHFpv2Upl30i1.jpg\",\"release_date\":\"2009-07-15\",\"title\":\"Harry Potter and the Half-Blood Prince\",\"video\":false,\"vote_average\":7.697,\"vote_count\":18108},{\"adult\":false,\"backdrop_path\":\"/5rrGVmRUuCKVbqUu41XIWTXJmNA.jpg\",\"genre_ids\":[12,14],\"id\":674,\"original_language\":\"en\",\"original_title\":\"Harry Potter and the Goblet of Fire\",\"overview\":\"When Harry Potter's name emerges from the Goblet of Fire, he becomes a competitor in a grueling battle for glory among three wizarding schools\xE2\x80\x94the Triwizard Tournament. But since Harry never submitted his name for the Tournament, who did? Now Harry must confront a deadly dragon, fierce water demons and an enchanted maze only to find himself in the cruel grasp of He Who Must Not Be Named.\",\"popularity\":134.593,\"poster_path\":\"/fECBtHlr0RB3foNHDiCBXeg9Bv9.jpg\",\"release_date\":\"2005-11-16\",\"title\":\"Harry Potter and the Goblet of Fire\",\"video\":false,\"vote_average\":7.816,\"vote_count\":19261},{\"adult\":false,\"backdrop_path\":\"/obKmfNexgL4ZP5cAmzdL4KbHHYX.jpg\",\"genre_ids\":[12,14],\"id\":673,\"original_language\":\"en\",\"original_title\":\"Harry Potter and the Prisoner of Azkaban\",\"overview\":\"Year three at Hogwarts means new fun and challenges as Harry learns the delicate art of approaching a Hippogriff, transforming shape-shifting Boggarts into hilarity and even turning back time. But the term also brings danger: soul-sucking Dementors hover over the school, an ally of the accursed He-Who-Cannot-Be-Named lurks within the castle walls, and fearsome wizard Sirius Black escapes Azkaban. And Harry will confront them all.\",\"popularity\":136.507,\"poster_path\":\"/aWxwnYoe8p2d2fcxOqtvAtJ72Rw.jpg\",\"release_date\":\"2004-05-31\",\"title\":\"Harry Potter and the Prisoner of Azkaban\",\"video\":false,\"vote_average\":8.021,\"vote_count\":20015},{\"adult\":false,\"backdrop_path\":\"/1stUIsjawROZxjiCMtqqXqgfZWC.jpg\",\"genre_ids\":[12,14],\"id\":672,\"original_language\":\"en\",\"original_title\":\"Harry Potter and the Chamber of Secrets\",\"overview\":\"Cars fly, trees fight back, and a mysterious house-elf comes to warn Harry Potter at the start of his second year at Hogwarts. Adventure and danger await when bloody writing on a wall announces: The Chamber Of Secrets Has Been Opened. To save Hogwarts will require all of Harry, Ron and Hermione\xE2\x80\x99s magical abilities and courage.\",\"popularity\":138.2,\"poster_path\":\"/sdEOH0992YZ0QSxgXNIGLq1ToUi.jpg\",\"release_date\":\"2002-11-13\",\"title\":\"Harry Potter and the Chamber of Secrets\",\"video\":false,\"vote_average\":7.721,\"vote_count\":20371},{\"adult\":false,\"backdrop_path\":\"/pkxPkHOPJjOvzfQOclANEBT8OfK.jpg\",\"genre_ids\":[12,14],\"id\":675,\"original_language\":\"en\",\"original_title\":\"Harry Potter and the Order of the Phoenix\",\"overview\":\"Returning for his fifth year of study at Hogwarts, Harry is stunned to find that his warnings about the return of Lord Voldemort have been ignored. Left with no choice, Harry takes matters into his own hands, training a small group of students to defend themselves against the dark arts.\",\"popularity\":126.757,\"poster_path\":\"/5aOyriWkPec0zUDxmHFP9qMmBaj.jpg\",\"release_date\":\"2007-07-08\",\"title\":\"Harry Potter and the Order of the Phoenix\",\"video\":false,\"vote_average\":7.686,\"vote_count\":18157},{\"adult\":false,\"backdrop_path\":\"/AqLcLsGGTzAjm3pCCq0CZCQrp6m.jpg\",\"genre_ids\":[12,14],\"id\":12444,\"original_language\":\"en\",\"original_title\":\"Harry Potter and the Deathly Hallows: Part 1\",\"overview\":\"Harry, Ron and Hermione walk away from their last year at Hogwarts to find and destroy the remaining Horcruxes, putting an end to Voldemort's bid for immortality. But with Harry's beloved Dumbledore dead and Voldemort's unscrupulous Death Eaters on the loose, the world is more dangerous than ever.\",\"popularity\":120.97,\"poster_path\":\"/iGoXIpQb7Pot00EEdwpwPajheZ5.jpg\",\"release_date\":\"2010-11-17\",\"title\":\"Harry Potter and the Deathly Hallows: Part 1\",\"video\":false,\"vote_average\":7.764,\"vote_count\":17761},{\"adult\":false,\"backdrop_path\":\"/n5A7brJCjejceZmHyujwUTVgQNC.jpg\",\"genre_ids\":[14,12],\"id\":12445,\"original_language\":\"en\",\"original_title\":\"Harry Potter and the Deathly Hallows: Part 2\",\"overview\":\"Harry, Ron and Hermione continue their quest to vanquish the evil Voldemort once and for all. Just as things begin to look hopeless for the young wizards, Harry discovers a trio of magical objects that endow him with powers to rival Voldemort's formidable skills.\",\"popularity\":110.835,\"poster_path\":\"/c54HpQmuwXjHq2C9wmoACjxoom3.jpg\",\"release_date\":\"2011-07-12\",\"title\":\"Harry Potter and the Deathly Hallows: Part 2\",\"video\":false,\"vote_average\":8.106,\"vote_count\":19164},{\"adult\":false,\"backdrop_path\":\"/8rft8A9nH43IReybFtYt21ezfMK.jpg\",\"genre_ids\":[99],\"id\":899082,\"original_language\":\"en\",\"original_title\":\"Harry Potter 20th Anniversary: Return to Hogwarts\",\"overview\":\"An enchanting making-of story told through all-new in-depth interviews and cast conversations, inviting fans on a magical first-person journey through one of the most beloved film franchises of all time.\",\"popularity\":57.839,\"poster_path\":\"/jntLBq0MLR3hrwKaTQswxACRPMs.jpg\",\"release_date\":\"2022-01-01\",\"title\":\"Harry Potter 20th Anniversary: Return to Hogwarts\",\"video\":false,\"vote_average\":7.289,\"vote_count\":3060},{\"adult\":false,\"backdrop_path\":\"/4LOxoeZWt5wr9mooxEZRFK96lDd.jpg\",\"genre_ids\":[99],\"id\":483898,\"original_language\":\"en\",\"original_title\":\"50 Greatest Harry Potter Moments\",\"overview\":\"To mark the release two weeks ago of the eighth and final movie in the series, Robbie Coltrane narrates a countdown of the movie franchise's best moments. From Harry's first meeting with Ron and Hermione aboard the Hogwarts Express through to magical mysteries.\",\"popularity\":24.423,\"poster_path\":\"/g1xiBoLD6v3ZaXPa4QtuXiQeYKW.jpg\",\"release_date\":\"2011-07-27\",\"title\":\"50 Greatest Harry Potter Moments\",\"video\":false,\"vote_average\":7.315,\"vote_count\":108},{\"adult\":false,\"backdrop_path\":\"/mjCYpJXCBYDZgMr1U1KZcFgFDfC.jpg\",\"genre_ids\":[99],\"id\":482408,\"original_language\":\"en\",\"original_title\":\"Harry Potter: A History Of Magic\",\"overview\":\"A thrilling journey through legends, belief and folklore, this film goes behind the scenes with the British Library as they search to tell that story through objects in their collection, in an ambitious new exhibition: Harry Potter: A History Of Magic.  J.K. Rowling, who is lending unseen manuscripts, drawings and drafts from her private archives (which will sit alongside treasures from the British Library, as well as original drafts and drawings from Jim Kay) talks about some of the personal items she has lent to the exhibition and gives new insight into her writing, looking at some of the objects from the exhibition that have fired her imagination.\",\"popularity\":17.566,\"poster_path\":\"/geike7VgTrftxwzcvND4dRdZdAv.jpg\",\"release_date\":\"2017-10-28\",\"title\":\"Harry Potter: A History Of Magic\",\"video\":false,\"vote_average\":7.217,\"vote_count\":83},{\"adult\":false,\"backdrop_path\":null,\"genre_ids\":[],\"id\":919590,\"original_language\":\"de\",\"original_title\":\"Phantastische Harry Potter Momente - Das gro\xC3\x9Fe SAT.1 Spezial\",\"overview\":\"\",\"popularity\":9.729,\"poster_path\":\"/1Ci05BbrRgc8qwKSvliJH6gqzol.jpg\",\"release_date\":\"2021-10-31\",\"title\":\"Phantastische Harry Potter Momente - Das gro\xC3\x9Fe SAT.1 Spezial\",\"video\":false,\"vote_average\":6.283,\"vote_count\":23},{\"adult\":false,\"backdrop_path\":null,\"genre_ids\":[99],\"id\":1082707,\"original_language\":\"en\",\"original_title\":\"The Magic Touch of Harry Potter\",\"overview\":\"A 2004 documentary on the first three \xE2\x80\x9CHarry Potter\xE2\x80\x9D films detailing the behind-the-scenes journey of making them.\",\"popularity\":8.296,\"poster_path\":\"/gwFARNYf1Odv3E8ESVHyikXmMIY.jpg\",\"release_date\":\"2004-06-11\",\"title\":\"The Magic Touch of Harry Potter\",\"video\":false,\"vote_average\":7.5,\"vote_count\":10},{\"adult\":false,\"backdrop_path\":null,\"genre_ids\":[99],\"id\":918078,\"original_language\":\"en\",\"original_title\":\"Daniel Radcliffe: Being Harry Potter\",\"overview\":\"BBC docuemntary about Daniel Radcliffe and his role as the main character in Harry potter\",\"popularity\":6.571,\"poster_path\":\"/4keobTsQVrMS2JwE3TRod0SrYTD.jpg\",\"release_date\":\"2012-10-10\",\"title\":\"Daniel Radcliffe: Being Harry Potter\",\"video\":false,\"vote_average\":6.1,\"vote_count\":20},{\"adult\":false,\"backdrop_path\":\"/zikoNIlodwkPhAU9iAwN17sOTrD.jpg\",\"genre_ids\":[99],\"id\":1118680,\"original_language\":\"fr\",\"original_title\":\"Harry Potter : les secrets du ph\xC3\xA9nom\xC3\xA8ne\",\"overview\":\"\",\"popularity\":7.128,\"poster_path\":\"/7iJ20z09sZpbl0vgj4NIbnUDcfN.jpg\",\"release_date\":\"2023-04-26\",\"title\":\"Harry Potter : les secrets du ph\xC3\xA9nom\xC3\xA8ne\",\"video\":false,\"vote_average\":5.5,\"vote_count\":1},{\"adult\":false,\"backdrop_path\":null,\"genre_ids\":[99],\"id\":1039274,\"original_language\":\"en\",\"original_title\":\"Harry Potter: A Spirit Conspiracy?\",\"overview\":\"The Occult Agenda documentary series is designed to awaken the church and non-believers alike to the spiritual warfare happening in the world today. Part I focuses on the Harry Potter phenomenon that has swept the world since author J.K. Rowling introduced her best-selling book series. But is Potter-mania merely the result of imaginative writing and clever marketing? Or could there be a hidden power behind the craze that has cast a spell on adults and children alike?\",\"popularity\":4.563,\"poster_path\":\"/e8jvqpVbVeVlSOV216sOIZmykGA.jpg\",\"release_date\":\"2005-09-22\",\"title\":\"Harry Potter: A Spirit Conspiracy?\",\"video\":true,\"vote_average\":6.3,\"vote_count\":9},{\"adult\":false,\"backdrop_path\":null,\"genre_ids\":[99],\"id\":256050,\"original_language\":\"en\",\"original_title\":\"The Magical World of Harry Potter: The Unauthorized Story of J.K. Rowling\",\"overview\":\"The unauthorized story of J.K. Rowling--creator of Harry Potter.\",\"popularity\":1.694,\"poster_path\":null,\"release_date\":\"2000-08-08\",\"title\":\"The Magical World of Harry Potter: The Unauthorized Story of J.K. Rowling\",\"video\":false,\"vote_average\":7.2,\"vote_count\":6},{\"adult\":false,\"backdrop_path\":null,\"genre_ids\":[99],\"id\":319391,\"original_language\":\"en\",\"original_title\":\"J.K. Rowling and the Birth of Harry Potter\",\"overview\":\"In this fascinating (unauthorized) biographical documentary, you'll get the inside scoop on the creative force behind one of the greatest publishing phenomena in the last 100 years -- J.K. Rowling, author of the Harry Potter series of books. Explore Rowling's meteoric rise from obscurity into the ranks of the world's richest women (via her books), and visit the people and places that played a significant role in her life.\",\"popularity\":3.309,\"poster_path\":\"/hY6Ndq1O4JiEngZ7xIOtcLUCDTX.jpg\",\"release_date\":\"2004-12-07\",\"title\":\"J.K. Rowling and the Birth of Harry Potter\",\"video\":true,\"vote_average\":6.8,\"vote_count\":19},{\"adult\":false,\"backdrop_path\":null,\"genre_ids\":[10751,99],\"id\":116972,\"original_language\":\"en\",\"original_title\":\"Discovering the Real World of Harry Potter\",\"overview\":\"Explore the myths and legends that inhabit the real world of Harry Potter. Follow award-winning documentary filmmakers as they offer insights to witches, wizards, Greek gods, ancient Celts, ghosts, magical creatures, alchemy, and ancient spells. Narrated by British actor Hugh Laurie, this fascinating documentary brings new dimensions to the historical and scientific world behind the Harry Potter series.\",\"popularity\":2.45,\"poster_path\":\"/yLpnOqKw3ZycFu8t5Gil1BqTbnB.jpg\",\"release_date\":\"2001-12-10\",\"title\":\"Discovering the Real World of Harry Potter\",\"video\":false,\"vote_average\":6.5,\"vote_count\":21},{\"adult\":false,\"backdrop_path\":null,\"genre_ids\":[99],\"id\":500008,\"original_language\":\"en\",\"original_title\":\"Harry Potter: The Making of Diagon Alley\",\"overview\":\"An inside look into the creation of Universal Studio's Diagon Alley attraction.\",\"popularity\":2.077,\"poster_path\":null,\"release_date\":\"2014-06-30\",\"title\":\"Harry Potter: The Making of Diagon Alley\",\"video\":false,\"vote_average\":4.4,\"vote_count\":11}],\"total_pages\":2,\"total_results\":24}":String
+
+            @virtual_path = "searchs/show";; @response.read_body.each do |result|  
+                                                                ^^^^^):
+    1: <% @response.read_body.each do |result| %> 
+    2:   <%= result %>
+    3: <% end %>
+  
+app/views/searchs/show.html.erb:1
+Started GET "/" for ::1 at 2023-09-22 12:59:57 -0400
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:1
+  Rendered collection of movies/_movie.html.erb [1 times] (Duration: 2.0ms | Allocations: 166)
+  Rendered movies/index.html.erb within layouts/application (Duration: 5.1ms | Allocations: 1138)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+  Rendered layouts/_searchbar.html.erb (Duration: 0.8ms | Allocations: 1452)
+  Rendered layout layouts/application.html.erb (Duration: 19.4ms | Allocations: 6858)
+Completed 200 OK in 22ms (Views: 20.6ms | ActiveRecord: 0.4ms | Allocations: 7787)
+
+
+Started GET "/search?movie_name=harry+potter&commit=Search" for ::1 at 2023-09-22 12:59:59 -0400
+Processing by SearchsController#show as HTML
+  Parameters: {"movie_name"=>"harry potter", "commit"=>"Search"}
+  Rendering layout layouts/application.html.erb
+  Rendering searchs/show.html.erb within layouts/application
+  Rendered searchs/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 223)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+  Rendered layouts/_searchbar.html.erb (Duration: 0.5ms | Allocations: 1288)
+  Rendered layout layouts/application.html.erb (Duration: 7.1ms | Allocations: 5468)
+Completed 200 OK in 119ms (Views: 7.6ms | ActiveRecord: 0.4ms | Allocations: 7079)
+
+
+Started GET "/search?movie_name=harry+potter&commit=Search" for ::1 at 2023-09-22 13:00:24 -0400
+Processing by SearchsController#show as HTML
+  Parameters: {"movie_name"=>"harry potter", "commit"=>"Search"}
+  Rendering layout layouts/application.html.erb
+  Rendering searchs/show.html.erb within layouts/application
+  Rendered searchs/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 67)
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+  Rendered layouts/_searchbar.html.erb (Duration: 1.7ms | Allocations: 1253)
+  Rendered layout layouts/application.html.erb (Duration: 44.4ms | Allocations: 19898)
+Completed 200 OK in 200ms (Views: 39.2ms | ActiveRecord: 7.1ms | Allocations: 22343)
+
+
+Started GET "/search?movie_name=harry+potter&commit=Search" for ::1 at 2023-09-22 13:02:07 -0400
+Processing by SearchsController#show as HTML
+  Parameters: {"movie_name"=>"harry potter", "commit"=>"Search"}
+  Rendering layout layouts/application.html.erb
+  Rendering searchs/show.html.erb within layouts/application
+  Rendered searchs/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 67)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+  Rendered layouts/_searchbar.html.erb (Duration: 0.5ms | Allocations: 1252)
+  Rendered layout layouts/application.html.erb (Duration: 21.2ms | Allocations: 19672)
+Completed 200 OK in 186ms (Views: 20.5ms | ActiveRecord: 1.7ms | Allocations: 22099)
+
+
+Started GET "/search?movie_name=harry+potter&commit=Search" for ::1 at 2023-09-22 13:02:57 -0400
+Processing by SearchsController#show as HTML
+  Parameters: {"movie_name"=>"harry potter", "commit"=>"Search"}
+  Rendering layout layouts/application.html.erb
+  Rendering searchs/show.html.erb within layouts/application
+  Rendered searchs/show.html.erb within layouts/application (Duration: 0.0ms | Allocations: 67)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+  Rendered layouts/_searchbar.html.erb (Duration: 0.5ms | Allocations: 1253)
+  Rendered layout layouts/application.html.erb (Duration: 52.1ms | Allocations: 19770)
+Completed 200 OK in 188ms (Views: 51.4ms | ActiveRecord: 1.8ms | Allocations: 22208)
+
+
+Started GET "/search?movie_name=harry+potter&commit=Search" for ::1 at 2023-09-22 13:04:31 -0400
+Processing by SearchsController#show as HTML
+  Parameters: {"movie_name"=>"harry potter", "commit"=>"Search"}
+  Rendering layout layouts/application.html.erb
+  Rendering searchs/show.html.erb within layouts/application
+  Rendered searchs/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 67)
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+  Rendered layouts/_searchbar.html.erb (Duration: 0.5ms | Allocations: 1253)
+  Rendered layout layouts/application.html.erb (Duration: 35.0ms | Allocations: 19759)
+Completed 200 OK in 198ms (Views: 23.1ms | ActiveRecord: 13.2ms | Allocations: 22196)
+
+
+Started GET "/search?movie_name=harry+potter&commit=Search" for ::1 at 2023-09-22 13:04:49 -0400
+Processing by SearchsController#show as HTML
+  Parameters: {"movie_name"=>"harry potter", "commit"=>"Search"}
+  Rendering layout layouts/application.html.erb
+  Rendering searchs/show.html.erb within layouts/application
+  Rendered searchs/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 67)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+  Rendered layouts/_searchbar.html.erb (Duration: 0.6ms | Allocations: 1288)
+  Rendered layout layouts/application.html.erb (Duration: 50.7ms | Allocations: 19708)
+Completed 200 OK in 193ms (Views: 45.6ms | ActiveRecord: 6.0ms | Allocations: 22160)
+
+
+Started GET "/search?movie_name=harry+potter&commit=Search" for ::1 at 2023-09-22 13:06:06 -0400
+Processing by SearchsController#show as HTML
+  Parameters: {"movie_name"=>"harry potter", "commit"=>"Search"}
+  Rendering layout layouts/application.html.erb
+  Rendering searchs/show.html.erb within layouts/application
+  Rendered searchs/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 67)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+  Rendered layouts/_searchbar.html.erb (Duration: 0.6ms | Allocations: 1253)
+  Rendered layout layouts/application.html.erb (Duration: 34.3ms | Allocations: 19829)
+Completed 200 OK in 198ms (Views: 32.0ms | ActiveRecord: 3.6ms | Allocations: 22260)
+
+
+Started GET "/search?movie_name=harry+potter&commit=Search" for ::1 at 2023-09-22 13:06:25 -0400
+Processing by SearchsController#show as HTML
+  Parameters: {"movie_name"=>"harry potter", "commit"=>"Search"}
+  Rendering layout layouts/application.html.erb
+  Rendering searchs/show.html.erb within layouts/application
+  Rendered searchs/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 67)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+  Rendered layouts/_searchbar.html.erb (Duration: 2.0ms | Allocations: 1289)
+  Rendered layout layouts/application.html.erb (Duration: 47.9ms | Allocations: 19802)
+Completed 200 OK in 188ms (Views: 40.6ms | ActiveRecord: 9.2ms | Allocations: 22287)
+
+
+Started GET "/search?movie_name=harry+potter&commit=Search" for ::1 at 2023-09-22 13:07:52 -0400
+Processing by SearchsController#show as HTML
+  Parameters: {"movie_name"=>"harry potter", "commit"=>"Search"}
+Completed 500 Internal Server Error in 159ms (ActiveRecord: 0.0ms | Allocations: 3800)
+
+
+  
+NoMethodError (undefined method `to_hash' for "{\"page\":1,\"results\":[{\"adult\":false,\"backdrop_path\":\"/hziiv14OpD73u9gAak4XDDfBKa2.jpg\",\"genre_ids\":[12,14],\"id\":671,\"original_language\":\"en\",\"original_title\":\"Harry Potter and the Philosopher's Stone\",\"overview\":\"Harry Potter has lived under the stairs at his aunt and uncle's house his whole life. But on his 11th birthday, he learns he's a powerful wizard\xE2\x80\x94with a place waiting for him at the Hogwarts School of Witchcraft and Wizardry. As he learns to harness his newfound powers with the help of the school's kindly headmaster, Harry uncovers the truth about his parents' deaths\xE2\x80\x94and about the villain who's to blame.\",\"popularity\":133.642,\"poster_path\":\"/wuMc08IPKEatf9rnMNXvIDxqP4W.jpg\",\"release_date\":\"2001-11-16\",\"title\":\"Harry Potter and the Philosopher's Stone\",\"video\":false,\"vote_average\":7.916,\"vote_count\":25354},{\"adult\":false,\"backdrop_path\":\"/urDWNffjwmNi5IQaezw9GwqkUXa.jpg\",\"genre_ids\":[12,14],\"id\":767,\"original_language\":\"en\",\"original_title\":\"Harry Potter and the Half-Blood Prince\",\"overview\":\"As Lord Voldemort tightens his grip on both the Muggle and wizarding worlds, Hogwarts is no longer a safe haven. Harry suspects perils may even lie within the castle, but Dumbledore is more intent upon preparing him for the final battle fast approaching. Together they work to find the key to unlock Voldemorts defenses and to this end, Dumbledore recruits his old friend and colleague Horace Slughorn, whom he believes holds crucial information. Even as the decisive showdown looms, romance blossoms for Harry, Ron, Hermione and their classmates. Love is in the air, but danger lies ahead and Hogwarts may never be the same again.\",\"popularity\":126.333,\"poster_path\":\"/z7uo9zmQdQwU5ZJHFpv2Upl30i1.jpg\",\"release_date\":\"2009-07-15\",\"title\":\"Harry Potter and the Half-Blood Prince\",\"video\":false,\"vote_average\":7.697,\"vote_count\":18108},{\"adult\":false,\"backdrop_path\":\"/5rrGVmRUuCKVbqUu41XIWTXJmNA.jpg\",\"genre_ids\":[12,14],\"id\":674,\"original_language\":\"en\",\"original_title\":\"Harry Potter and the Goblet of Fire\",\"overview\":\"When Harry Potter's name emerges from the Goblet of Fire, he becomes a competitor in a grueling battle for glory among three wizarding schools\xE2\x80\x94the Triwizard Tournament. But since Harry never submitted his name for the Tournament, who did? Now Harry must confront a deadly dragon, fierce water demons and an enchanted maze only to find himself in the cruel grasp of He Who Must Not Be Named.\",\"popularity\":134.593,\"poster_path\":\"/fECBtHlr0RB3foNHDiCBXeg9Bv9.jpg\",\"release_date\":\"2005-11-16\",\"title\":\"Harry Potter and the Goblet of Fire\",\"video\":false,\"vote_average\":7.816,\"vote_count\":19261},{\"adult\":false,\"backdrop_path\":\"/obKmfNexgL4ZP5cAmzdL4KbHHYX.jpg\",\"genre_ids\":[12,14],\"id\":673,\"original_language\":\"en\",\"original_title\":\"Harry Potter and the Prisoner of Azkaban\",\"overview\":\"Year three at Hogwarts means new fun and challenges as Harry learns the delicate art of approaching a Hippogriff, transforming shape-shifting Boggarts into hilarity and even turning back time. But the term also brings danger: soul-sucking Dementors hover over the school, an ally of the accursed He-Who-Cannot-Be-Named lurks within the castle walls, and fearsome wizard Sirius Black escapes Azkaban. And Harry will confront them all.\",\"popularity\":136.507,\"poster_path\":\"/aWxwnYoe8p2d2fcxOqtvAtJ72Rw.jpg\",\"release_date\":\"2004-05-31\",\"title\":\"Harry Potter and the Prisoner of Azkaban\",\"video\":false,\"vote_average\":8.021,\"vote_count\":20015},{\"adult\":false,\"backdrop_path\":\"/1stUIsjawROZxjiCMtqqXqgfZWC.jpg\",\"genre_ids\":[12,14],\"id\":672,\"original_language\":\"en\",\"original_title\":\"Harry Potter and the Chamber of Secrets\",\"overview\":\"Cars fly, trees fight back, and a mysterious house-elf comes to warn Harry Potter at the start of his second year at Hogwarts. Adventure and danger await when bloody writing on a wall announces: The Chamber Of Secrets Has Been Opened. To save Hogwarts will require all of Harry, Ron and Hermione\xE2\x80\x99s magical abilities and courage.\",\"popularity\":138.2,\"poster_path\":\"/sdEOH0992YZ0QSxgXNIGLq1ToUi.jpg\",\"release_date\":\"2002-11-13\",\"title\":\"Harry Potter and the Chamber of Secrets\",\"video\":false,\"vote_average\":7.721,\"vote_count\":20371},{\"adult\":false,\"backdrop_path\":\"/pkxPkHOPJjOvzfQOclANEBT8OfK.jpg\",\"genre_ids\":[12,14],\"id\":675,\"original_language\":\"en\",\"original_title\":\"Harry Potter and the Order of the Phoenix\",\"overview\":\"Returning for his fifth year of study at Hogwarts, Harry is stunned to find that his warnings about the return of Lord Voldemort have been ignored. Left with no choice, Harry takes matters into his own hands, training a small group of students to defend themselves against the dark arts.\",\"popularity\":126.757,\"poster_path\":\"/5aOyriWkPec0zUDxmHFP9qMmBaj.jpg\",\"release_date\":\"2007-07-08\",\"title\":\"Harry Potter and the Order of the Phoenix\",\"video\":false,\"vote_average\":7.686,\"vote_count\":18157},{\"adult\":false,\"backdrop_path\":\"/AqLcLsGGTzAjm3pCCq0CZCQrp6m.jpg\",\"genre_ids\":[12,14],\"id\":12444,\"original_language\":\"en\",\"original_title\":\"Harry Potter and the Deathly Hallows: Part 1\",\"overview\":\"Harry, Ron and Hermione walk away from their last year at Hogwarts to find and destroy the remaining Horcruxes, putting an end to Voldemort's bid for immortality. But with Harry's beloved Dumbledore dead and Voldemort's unscrupulous Death Eaters on the loose, the world is more dangerous than ever.\",\"popularity\":120.97,\"poster_path\":\"/iGoXIpQb7Pot00EEdwpwPajheZ5.jpg\",\"release_date\":\"2010-11-17\",\"title\":\"Harry Potter and the Deathly Hallows: Part 1\",\"video\":false,\"vote_average\":7.764,\"vote_count\":17761},{\"adult\":false,\"backdrop_path\":\"/n5A7brJCjejceZmHyujwUTVgQNC.jpg\",\"genre_ids\":[14,12],\"id\":12445,\"original_language\":\"en\",\"original_title\":\"Harry Potter and the Deathly Hallows: Part 2\",\"overview\":\"Harry, Ron and Hermione continue their quest to vanquish the evil Voldemort once and for all. Just as things begin to look hopeless for the young wizards, Harry discovers a trio of magical objects that endow him with powers to rival Voldemort's formidable skills.\",\"popularity\":110.835,\"poster_path\":\"/c54HpQmuwXjHq2C9wmoACjxoom3.jpg\",\"release_date\":\"2011-07-12\",\"title\":\"Harry Potter and the Deathly Hallows: Part 2\",\"video\":false,\"vote_average\":8.106,\"vote_count\":19164},{\"adult\":false,\"backdrop_path\":\"/8rft8A9nH43IReybFtYt21ezfMK.jpg\",\"genre_ids\":[99],\"id\":899082,\"original_language\":\"en\",\"original_title\":\"Harry Potter 20th Anniversary: Return to Hogwarts\",\"overview\":\"An enchanting making-of story told through all-new in-depth interviews and cast conversations, inviting fans on a magical first-person journey through one of the most beloved film franchises of all time.\",\"popularity\":57.839,\"poster_path\":\"/jntLBq0MLR3hrwKaTQswxACRPMs.jpg\",\"release_date\":\"2022-01-01\",\"title\":\"Harry Potter 20th Anniversary: Return to Hogwarts\",\"video\":false,\"vote_average\":7.289,\"vote_count\":3060},{\"adult\":false,\"backdrop_path\":\"/4LOxoeZWt5wr9mooxEZRFK96lDd.jpg\",\"genre_ids\":[99],\"id\":483898,\"original_language\":\"en\",\"original_title\":\"50 Greatest Harry Potter Moments\",\"overview\":\"To mark the release two weeks ago of the eighth and final movie in the series, Robbie Coltrane narrates a countdown of the movie franchise's best moments. From Harry's first meeting with Ron and Hermione aboard the Hogwarts Express through to magical mysteries.\",\"popularity\":24.423,\"poster_path\":\"/g1xiBoLD6v3ZaXPa4QtuXiQeYKW.jpg\",\"release_date\":\"2011-07-27\",\"title\":\"50 Greatest Harry Potter Moments\",\"video\":false,\"vote_average\":7.315,\"vote_count\":108},{\"adult\":false,\"backdrop_path\":\"/mjCYpJXCBYDZgMr1U1KZcFgFDfC.jpg\",\"genre_ids\":[99],\"id\":482408,\"original_language\":\"en\",\"original_title\":\"Harry Potter: A History Of Magic\",\"overview\":\"A thrilling journey through legends, belief and folklore, this film goes behind the scenes with the British Library as they search to tell that story through objects in their collection, in an ambitious new exhibition: Harry Potter: A History Of Magic.  J.K. Rowling, who is lending unseen manuscripts, drawings and drafts from her private archives (which will sit alongside treasures from the British Library, as well as original drafts and drawings from Jim Kay) talks about some of the personal items she has lent to the exhibition and gives new insight into her writing, looking at some of the objects from the exhibition that have fired her imagination.\",\"popularity\":17.566,\"poster_path\":\"/geike7VgTrftxwzcvND4dRdZdAv.jpg\",\"release_date\":\"2017-10-28\",\"title\":\"Harry Potter: A History Of Magic\",\"video\":false,\"vote_average\":7.217,\"vote_count\":83},{\"adult\":false,\"backdrop_path\":null,\"genre_ids\":[],\"id\":919590,\"original_language\":\"de\",\"original_title\":\"Phantastische Harry Potter Momente - Das gro\xC3\x9Fe SAT.1 Spezial\",\"overview\":\"\",\"popularity\":9.729,\"poster_path\":\"/1Ci05BbrRgc8qwKSvliJH6gqzol.jpg\",\"release_date\":\"2021-10-31\",\"title\":\"Phantastische Harry Potter Momente - Das gro\xC3\x9Fe SAT.1 Spezial\",\"video\":false,\"vote_average\":6.283,\"vote_count\":23},{\"adult\":false,\"backdrop_path\":null,\"genre_ids\":[99],\"id\":1082707,\"original_language\":\"en\",\"original_title\":\"The Magic Touch of Harry Potter\",\"overview\":\"A 2004 documentary on the first three \xE2\x80\x9CHarry Potter\xE2\x80\x9D films detailing the behind-the-scenes journey of making them.\",\"popularity\":8.296,\"poster_path\":\"/gwFARNYf1Odv3E8ESVHyikXmMIY.jpg\",\"release_date\":\"2004-06-11\",\"title\":\"The Magic Touch of Harry Potter\",\"video\":false,\"vote_average\":7.5,\"vote_count\":10},{\"adult\":false,\"backdrop_path\":null,\"genre_ids\":[99],\"id\":918078,\"original_language\":\"en\",\"original_title\":\"Daniel Radcliffe: Being Harry Potter\",\"overview\":\"BBC docuemntary about Daniel Radcliffe and his role as the main character in Harry potter\",\"popularity\":6.571,\"poster_path\":\"/4keobTsQVrMS2JwE3TRod0SrYTD.jpg\",\"release_date\":\"2012-10-10\",\"title\":\"Daniel Radcliffe: Being Harry Potter\",\"video\":false,\"vote_average\":6.1,\"vote_count\":20},{\"adult\":false,\"backdrop_path\":\"/zikoNIlodwkPhAU9iAwN17sOTrD.jpg\",\"genre_ids\":[99],\"id\":1118680,\"original_language\":\"fr\",\"original_title\":\"Harry Potter : les secrets du ph\xC3\xA9nom\xC3\xA8ne\",\"overview\":\"\",\"popularity\":7.128,\"poster_path\":\"/7iJ20z09sZpbl0vgj4NIbnUDcfN.jpg\",\"release_date\":\"2023-04-26\",\"title\":\"Harry Potter : les secrets du ph\xC3\xA9nom\xC3\xA8ne\",\"video\":false,\"vote_average\":5.5,\"vote_count\":1},{\"adult\":false,\"backdrop_path\":null,\"genre_ids\":[99],\"id\":1039274,\"original_language\":\"en\",\"original_title\":\"Harry Potter: A Spirit Conspiracy?\",\"overview\":\"The Occult Agenda documentary series is designed to awaken the church and non-believers alike to the spiritual warfare happening in the world today. Part I focuses on the Harry Potter phenomenon that has swept the world since author J.K. Rowling introduced her best-selling book series. But is Potter-mania merely the result of imaginative writing and clever marketing? Or could there be a hidden power behind the craze that has cast a spell on adults and children alike?\",\"popularity\":4.563,\"poster_path\":\"/e8jvqpVbVeVlSOV216sOIZmykGA.jpg\",\"release_date\":\"2005-09-22\",\"title\":\"Harry Potter: A Spirit Conspiracy?\",\"video\":true,\"vote_average\":6.3,\"vote_count\":9},{\"adult\":false,\"backdrop_path\":null,\"genre_ids\":[99],\"id\":256050,\"original_language\":\"en\",\"original_title\":\"The Magical World of Harry Potter: The Unauthorized Story of J.K. Rowling\",\"overview\":\"The unauthorized story of J.K. Rowling--creator of Harry Potter.\",\"popularity\":1.694,\"poster_path\":null,\"release_date\":\"2000-08-08\",\"title\":\"The Magical World of Harry Potter: The Unauthorized Story of J.K. Rowling\",\"video\":false,\"vote_average\":7.2,\"vote_count\":6},{\"adult\":false,\"backdrop_path\":null,\"genre_ids\":[99],\"id\":319391,\"original_language\":\"en\",\"original_title\":\"J.K. Rowling and the Birth of Harry Potter\",\"overview\":\"In this fascinating (unauthorized) biographical documentary, you'll get the inside scoop on the creative force behind one of the greatest publishing phenomena in the last 100 years -- J.K. Rowling, author of the Harry Potter series of books. Explore Rowling's meteoric rise from obscurity into the ranks of the world's richest women (via her books), and visit the people and places that played a significant role in her life.\",\"popularity\":3.309,\"poster_path\":\"/hY6Ndq1O4JiEngZ7xIOtcLUCDTX.jpg\",\"release_date\":\"2004-12-07\",\"title\":\"J.K. Rowling and the Birth of Harry Potter\",\"video\":true,\"vote_average\":6.8,\"vote_count\":19},{\"adult\":false,\"backdrop_path\":null,\"genre_ids\":[10751,99],\"id\":116972,\"original_language\":\"en\",\"original_title\":\"Discovering the Real World of Harry Potter\",\"overview\":\"Explore the myths and legends that inhabit the real world of Harry Potter. Follow award-winning documentary filmmakers as they offer insights to witches, wizards, Greek gods, ancient Celts, ghosts, magical creatures, alchemy, and ancient spells. Narrated by British actor Hugh Laurie, this fascinating documentary brings new dimensions to the historical and scientific world behind the Harry Potter series.\",\"popularity\":2.45,\"poster_path\":\"/yLpnOqKw3ZycFu8t5Gil1BqTbnB.jpg\",\"release_date\":\"2001-12-10\",\"title\":\"Discovering the Real World of Harry Potter\",\"video\":false,\"vote_average\":6.5,\"vote_count\":21},{\"adult\":false,\"backdrop_path\":null,\"genre_ids\":[99],\"id\":500008,\"original_language\":\"en\",\"original_title\":\"Harry Potter: The Making of Diagon Alley\",\"overview\":\"An inside look into the creation of Universal Studio's Diagon Alley attraction.\",\"popularity\":2.077,\"poster_path\":null,\"release_date\":\"2014-06-30\",\"title\":\"Harry Potter: The Making of Diagon Alley\",\"video\":false,\"vote_average\":4.4,\"vote_count\":11}],\"total_pages\":2,\"total_results\":24}":String
+
+    puts @response.body.to_hash
+                       ^^^^^^^^
+Did you mean?  to_s):
+  
+app/controllers/searchs_controller.rb:17:in `show'
+Started GET "/search?movie_name=harry+potter&commit=Search" for ::1 at 2023-09-22 13:12:17 -0400
+Processing by SearchsController#show as HTML
+  Parameters: {"movie_name"=>"harry potter", "commit"=>"Search"}
+  Rendering layout layouts/application.html.erb
+  Rendering searchs/show.html.erb within layouts/application
+  Rendered searchs/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 67)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+  Rendered layouts/_searchbar.html.erb (Duration: 0.6ms | Allocations: 1253)
+  Rendered layout layouts/application.html.erb (Duration: 69.0ms | Allocations: 19844)
+Completed 200 OK in 245ms (Views: 67.0ms | ActiveRecord: 3.7ms | Allocations: 23049)
+
+
+Started GET "/search?movie_name=harry+potter&commit=Search" for ::1 at 2023-09-22 13:12:33 -0400
+Processing by SearchsController#show as HTML
+  Parameters: {"movie_name"=>"harry potter", "commit"=>"Search"}
+  Rendering layout layouts/application.html.erb
+  Rendering searchs/show.html.erb within layouts/application
+  Rendered searchs/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 67)
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+  Rendered layouts/_searchbar.html.erb (Duration: 0.5ms | Allocations: 1288)
+  Rendered layout layouts/application.html.erb (Duration: 60.7ms | Allocations: 19788)
+Completed 200 OK in 177ms (Views: 57.8ms | ActiveRecord: 5.5ms | Allocations: 22448)
+
+
+Started GET "/search?movie_name=harry+potter&commit=Search" for ::1 at 2023-09-22 13:14:15 -0400
+Processing by SearchsController#show as HTML
+  Parameters: {"movie_name"=>"harry potter", "commit"=>"Search"}
+  Rendering layout layouts/application.html.erb
+  Rendering searchs/show.html.erb within layouts/application
+  Rendered searchs/show.html.erb within layouts/application (Duration: 0.5ms | Allocations: 765)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+  Rendered layouts/_searchbar.html.erb (Duration: 0.7ms | Allocations: 1417)
+  Rendered layout layouts/application.html.erb (Duration: 22.2ms | Allocations: 21074)
+Completed 200 OK in 215ms (Views: 17.2ms | ActiveRecord: 6.2ms | Allocations: 24147)
+
+
+Started GET "/search?movie_name=harry+potter&commit=Search" for ::1 at 2023-09-22 13:14:30 -0400
+Processing by SearchsController#show as HTML
+  Parameters: {"movie_name"=>"harry potter", "commit"=>"Search"}
+  Rendering layout layouts/application.html.erb
+  Rendering searchs/show.html.erb within layouts/application
+  Rendered searchs/show.html.erb within layouts/application (Duration: 0.6ms | Allocations: 749)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+  Rendered layouts/_searchbar.html.erb (Duration: 0.8ms | Allocations: 1452)
+  Rendered layout layouts/application.html.erb (Duration: 6.5ms | Allocations: 6534)
+Completed 200 OK in 147ms (Views: 8.4ms | ActiveRecord: 0.1ms | Allocations: 8606)
+
+
+Started GET "/search?movie_name=harry+potter&commit=Search" for ::1 at 2023-09-22 13:14:47 -0400
+Processing by SearchsController#show as HTML
+  Parameters: {"movie_name"=>"harry potter", "commit"=>"Search"}
+  Rendering layout layouts/application.html.erb
+  Rendering searchs/show.html.erb within layouts/application
+  Rendered searchs/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 180)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+  Rendered layouts/_searchbar.html.erb (Duration: 0.7ms | Allocations: 1452)
+  Rendered layout layouts/application.html.erb (Duration: 7.2ms | Allocations: 5962)
+Completed 200 OK in 135ms (Views: 8.3ms | ActiveRecord: 0.1ms | Allocations: 8054)
+
+
+Started GET "/search?movie_name=harry+potter&commit=Search" for ::1 at 2023-09-22 13:15:02 -0400
+Processing by SearchsController#show as HTML
+  Parameters: {"movie_name"=>"harry potter", "commit"=>"Search"}
+  Rendering layout layouts/application.html.erb
+  Rendering searchs/show.html.erb within layouts/application
+  Rendered searchs/show.html.erb within layouts/application (Duration: 0.6ms | Allocations: 757)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+  Rendered layouts/_searchbar.html.erb (Duration: 0.5ms | Allocations: 1452)
+  Rendered layout layouts/application.html.erb (Duration: 6.6ms | Allocations: 6551)
+Completed 200 OK in 218ms (Views: 7.7ms | ActiveRecord: 0.1ms | Allocations: 8613)
+
+
+Started GET "/search?movie_name=harry+potter&commit=Search" for ::1 at 2023-09-22 13:15:18 -0400
+Processing by SearchsController#show as HTML
+  Parameters: {"movie_name"=>"harry potter", "commit"=>"Search"}
+  Rendering layout layouts/application.html.erb
+  Rendering searchs/show.html.erb within layouts/application
+  Rendered searchs/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 169)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+  Rendered layouts/_searchbar.html.erb (Duration: 0.6ms | Allocations: 1453)
+  Rendered layout layouts/application.html.erb (Duration: 6.0ms | Allocations: 5957)
+Completed 200 OK in 133ms (Views: 7.9ms | ActiveRecord: 0.2ms | Allocations: 8053)
+
+
+Started GET "/search?movie_name=harry+potter&commit=Search" for ::1 at 2023-09-22 13:15:23 -0400
+Processing by SearchsController#show as HTML
+  Parameters: {"movie_name"=>"harry potter", "commit"=>"Search"}
+  Rendering layout layouts/application.html.erb
+  Rendering searchs/show.html.erb within layouts/application
+  Rendered searchs/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 169)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+  Rendered layouts/_searchbar.html.erb (Duration: 0.7ms | Allocations: 1453)
+  Rendered layout layouts/application.html.erb (Duration: 5.7ms | Allocations: 5954)
+Completed 200 OK in 145ms (Views: 6.8ms | ActiveRecord: 0.1ms | Allocations: 8040)
+
+
+Started GET "/search?movie_name=harry+potter&commit=Search" for ::1 at 2023-09-22 13:15:27 -0400
+Processing by SearchsController#show as HTML
+  Parameters: {"movie_name"=>"harry potter", "commit"=>"Search"}
+  Rendering layout layouts/application.html.erb
+  Rendering searchs/show.html.erb within layouts/application
+  Rendered searchs/show.html.erb within layouts/application (Duration: 0.5ms | Allocations: 749)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+  Rendered layouts/_searchbar.html.erb (Duration: 0.8ms | Allocations: 1452)
+  Rendered layout layouts/application.html.erb (Duration: 7.6ms | Allocations: 6540)
+Completed 200 OK in 171ms (Views: 9.2ms | ActiveRecord: 0.1ms | Allocations: 8610)
+
+
+Started GET "/search?movie_name=harry+potter&commit=Search" for ::1 at 2023-09-22 13:15:38 -0400
+Processing by SearchsController#show as HTML
+  Parameters: {"movie_name"=>"harry potter", "commit"=>"Search"}
+  Rendering layout layouts/application.html.erb
+  Rendering searchs/show.html.erb within layouts/application
+  Rendered searchs/show.html.erb within layouts/application (Duration: 0.4ms | Allocations: 174)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+  Rendered layouts/_searchbar.html.erb (Duration: 0.7ms | Allocations: 1452)
+  Rendered layout layouts/application.html.erb (Duration: 8.1ms | Allocations: 5971)
+Completed 200 OK in 152ms (Views: 9.2ms | ActiveRecord: 0.2ms | Allocations: 8035)
+
+
+Started GET "/search?movie_name=harry+potter&commit=Search" for ::1 at 2023-09-22 13:19:40 -0400
+Processing by SearchsController#show as HTML
+  Parameters: {"movie_name"=>"harry potter", "commit"=>"Search"}
+  Rendering layout layouts/application.html.erb
+  Rendering searchs/show.html.erb within layouts/application
+  Rendered searchs/show.html.erb within layouts/application (Duration: 1.1ms | Allocations: 757)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+  Rendered layouts/_searchbar.html.erb (Duration: 0.6ms | Allocations: 1420)
+  Rendered layout layouts/application.html.erb (Duration: 26.7ms | Allocations: 21041)
+Completed 200 OK in 183ms (Views: 26.2ms | ActiveRecord: 1.5ms | Allocations: 24083)
+
+
+Started GET "/search?movie_name=harry+potter&commit=Search" for ::1 at 2023-09-22 13:20:05 -0400
+Processing by SearchsController#show as HTML
+  Parameters: {"movie_name"=>"harry potter", "commit"=>"Search"}
+  Rendering layout layouts/application.html.erb
+  Rendering searchs/show.html.erb within layouts/application
+  Rendered searchs/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 178)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+  Rendered layouts/_searchbar.html.erb (Duration: 0.8ms | Allocations: 1453)
+  Rendered layout layouts/application.html.erb (Duration: 6.2ms | Allocations: 5957)
+Completed 200 OK in 163ms (Views: 7.1ms | ActiveRecord: 0.2ms | Allocations: 8057)
+
+
+Started GET "/search?movie_name=harry+potter&commit=Search" for ::1 at 2023-09-22 13:20:09 -0400
+Processing by SearchsController#show as HTML
+  Parameters: {"movie_name"=>"harry potter", "commit"=>"Search"}
+  Rendering layout layouts/application.html.erb
+  Rendering searchs/show.html.erb within layouts/application
+  Rendered searchs/show.html.erb within layouts/application (Duration: 0.5ms | Allocations: 760)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+  Rendered layouts/_searchbar.html.erb (Duration: 0.8ms | Allocations: 1452)
+  Rendered layout layouts/application.html.erb (Duration: 7.2ms | Allocations: 6557)
+Completed 200 OK in 131ms (Views: 9.2ms | ActiveRecord: 0.1ms | Allocations: 8624)
+
+
+Started GET "/search?movie_name=harry+potter&commit=Search" for ::1 at 2023-09-22 13:20:24 -0400
+Processing by SearchsController#show as HTML
+  Parameters: {"movie_name"=>"harry potter", "commit"=>"Search"}
+  Rendering layout layouts/application.html.erb
+  Rendering searchs/show.html.erb within layouts/application
+  Rendered searchs/show.html.erb within layouts/application (Duration: 0.4ms | Allocations: 179)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+  Rendered layouts/_searchbar.html.erb (Duration: 0.7ms | Allocations: 1454)
+  Rendered layout layouts/application.html.erb (Duration: 9.7ms | Allocations: 5957)
+Completed 200 OK in 139ms (Views: 10.2ms | ActiveRecord: 0.8ms | Allocations: 8021)
+
+
+Started GET "/search?movie_name=harry+potter&commit=Search" for ::1 at 2023-09-22 13:20:36 -0400
+Processing by SearchsController#show as HTML
+  Parameters: {"movie_name"=>"harry potter", "commit"=>"Search"}
+  Rendering layout layouts/application.html.erb
+  Rendering searchs/show.html.erb within layouts/application
+  Rendered searchs/show.html.erb within layouts/application (Duration: 1.9ms | Allocations: 3049)
+  Rendered layout layouts/application.html.erb (Duration: 2.1ms | Allocations: 3137)
+Completed 500 Internal Server Error in 123ms (ActiveRecord: 0.0ms | Allocations: 5213)
+
+
+  
+ActionView::Template::Error (undefined method `results' for {"page"=>1, "results"=>[{"adult"=>false, "backdrop_path"=>"/hziiv14OpD73u9gAak4XDDfBKa2.jpg", "genre_ids"=>[12, 14], "id"=>671, "original_language"=>"en", "original_title"=>"Harry Potter and the Philosopher's Stone", "overview"=>"Harry Potter has lived under the stairs at his aunt and uncle's house his whole life. But on his 11th birthday, he learns he's a powerful wizard—with a place waiting for him at the Hogwarts School of Witchcraft and Wizardry. As he learns to harness his newfound powers with the help of the school's kindly headmaster, Harry uncovers the truth about his parents' deaths—and about the villain who's to blame.", "popularity"=>133.642, "poster_path"=>"/wuMc08IPKEatf9rnMNXvIDxqP4W.jpg", "release_date"=>"2001-11-16", "title"=>"Harry Potter and the Philosopher's Stone", "video"=>false, "vote_average"=>7.916, "vote_count"=>25354}, {"adult"=>false, "backdrop_path"=>"/urDWNffjwmNi5IQaezw9GwqkUXa.jpg", "genre_ids"=>[12, 14], "id"=>767, "original_language"=>"en", "original_title"=>"Harry Potter and the Half-Blood Prince", "overview"=>"As Lord Voldemort tightens his grip on both the Muggle and wizarding worlds, Hogwarts is no longer a safe haven. Harry suspects perils may even lie within the castle, but Dumbledore is more intent upon preparing him for the final battle fast approaching. Together they work to find the key to unlock Voldemorts defenses and to this end, Dumbledore recruits his old friend and colleague Horace Slughorn, whom he believes holds crucial information. Even as the decisive showdown looms, romance blossoms for Harry, Ron, Hermione and their classmates. Love is in the air, but danger lies ahead and Hogwarts may never be the same again.", "popularity"=>126.333, "poster_path"=>"/z7uo9zmQdQwU5ZJHFpv2Upl30i1.jpg", "release_date"=>"2009-07-15", "title"=>"Harry Potter and the Half-Blood Prince", "video"=>false, "vote_average"=>7.697, "vote_count"=>18108}, {"adult"=>false, "backdrop_path"=>"/5rrGVmRUuCKVbqUu41XIWTXJmNA.jpg", "genre_ids"=>[12, 14], "id"=>674, "original_language"=>"en", "original_title"=>"Harry Potter and the Goblet of Fire", "overview"=>"When Harry Potter's name emerges from the Goblet of Fire, he becomes a competitor in a grueling battle for glory among three wizarding schools—the Triwizard Tournament. But since Harry never submitted his name for the Tournament, who did? Now Harry must confront a deadly dragon, fierce water demons and an enchanted maze only to find himself in the cruel grasp of He Who Must Not Be Named.", "popularity"=>134.593, "poster_path"=>"/fECBtHlr0RB3foNHDiCBXeg9Bv9.jpg", "release_date"=>"2005-11-16", "title"=>"Harry Potter and the Goblet of Fire", "video"=>false, "vote_average"=>7.816, "vote_count"=>19261}, {"adult"=>false, "backdrop_path"=>"/obKmfNexgL4ZP5cAmzdL4KbHHYX.jpg", "genre_ids"=>[12, 14], "id"=>673, "original_language"=>"en", "original_title"=>"Harry Potter and the Prisoner of Azkaban", "overview"=>"Year three at Hogwarts means new fun and challenges as Harry learns the delicate art of approaching a Hippogriff, transforming shape-shifting Boggarts into hilarity and even turning back time. But the term also brings danger: soul-sucking Dementors hover over the school, an ally of the accursed He-Who-Cannot-Be-Named lurks within the castle walls, and fearsome wizard Sirius Black escapes Azkaban. And Harry will confront them all.", "popularity"=>136.507, "poster_path"=>"/aWxwnYoe8p2d2fcxOqtvAtJ72Rw.jpg", "release_date"=>"2004-05-31", "title"=>"Harry Potter and the Prisoner of Azkaban", "video"=>false, "vote_average"=>8.021, "vote_count"=>20015}, {"adult"=>false, "backdrop_path"=>"/1stUIsjawROZxjiCMtqqXqgfZWC.jpg", "genre_ids"=>[12, 14], "id"=>672, "original_language"=>"en", "original_title"=>"Harry Potter and the Chamber of Secrets", "overview"=>"Cars fly, trees fight back, and a mysterious house-elf comes to warn Harry Potter at the start of his second year at Hogwarts. Adventure and danger await when bloody writing on a wall announces: The Chamber Of Secrets Has Been Opened. To save Hogwarts will require all of Harry, Ron and Hermione’s magical abilities and courage.", "popularity"=>138.2, "poster_path"=>"/sdEOH0992YZ0QSxgXNIGLq1ToUi.jpg", "release_date"=>"2002-11-13", "title"=>"Harry Potter and the Chamber of Secrets", "video"=>false, "vote_average"=>7.721, "vote_count"=>20371}, {"adult"=>false, "backdrop_path"=>"/pkxPkHOPJjOvzfQOclANEBT8OfK.jpg", "genre_ids"=>[12, 14], "id"=>675, "original_language"=>"en", "original_title"=>"Harry Potter and the Order of the Phoenix", "overview"=>"Returning for his fifth year of study at Hogwarts, Harry is stunned to find that his warnings about the return of Lord Voldemort have been ignored. Left with no choice, Harry takes matters into his own hands, training a small group of students to defend themselves against the dark arts.", "popularity"=>126.757, "poster_path"=>"/5aOyriWkPec0zUDxmHFP9qMmBaj.jpg", "release_date"=>"2007-07-08", "title"=>"Harry Potter and the Order of the Phoenix", "video"=>false, "vote_average"=>7.686, "vote_count"=>18157}, {"adult"=>false, "backdrop_path"=>"/AqLcLsGGTzAjm3pCCq0CZCQrp6m.jpg", "genre_ids"=>[12, 14], "id"=>12444, "original_language"=>"en", "original_title"=>"Harry Potter and the Deathly Hallows: Part 1", "overview"=>"Harry, Ron and Hermione walk away from their last year at Hogwarts to find and destroy the remaining Horcruxes, putting an end to Voldemort's bid for immortality. But with Harry's beloved Dumbledore dead and Voldemort's unscrupulous Death Eaters on the loose, the world is more dangerous than ever.", "popularity"=>120.97, "poster_path"=>"/iGoXIpQb7Pot00EEdwpwPajheZ5.jpg", "release_date"=>"2010-11-17", "title"=>"Harry Potter and the Deathly Hallows: Part 1", "video"=>false, "vote_average"=>7.764, "vote_count"=>17761}, {"adult"=>false, "backdrop_path"=>"/n5A7brJCjejceZmHyujwUTVgQNC.jpg", "genre_ids"=>[14, 12], "id"=>12445, "original_language"=>"en", "original_title"=>"Harry Potter and the Deathly Hallows: Part 2", "overview"=>"Harry, Ron and Hermione continue their quest to vanquish the evil Voldemort once and for all. Just as things begin to look hopeless for the young wizards, Harry discovers a trio of magical objects that endow him with powers to rival Voldemort's formidable skills.", "popularity"=>110.835, "poster_path"=>"/c54HpQmuwXjHq2C9wmoACjxoom3.jpg", "release_date"=>"2011-07-12", "title"=>"Harry Potter and the Deathly Hallows: Part 2", "video"=>false, "vote_average"=>8.106, "vote_count"=>19164}, {"adult"=>false, "backdrop_path"=>"/8rft8A9nH43IReybFtYt21ezfMK.jpg", "genre_ids"=>[99], "id"=>899082, "original_language"=>"en", "original_title"=>"Harry Potter 20th Anniversary: Return to Hogwarts", "overview"=>"An enchanting making-of story told through all-new in-depth interviews and cast conversations, inviting fans on a magical first-person journey through one of the most beloved film franchises of all time.", "popularity"=>57.839, "poster_path"=>"/jntLBq0MLR3hrwKaTQswxACRPMs.jpg", "release_date"=>"2022-01-01", "title"=>"Harry Potter 20th Anniversary: Return to Hogwarts", "video"=>false, "vote_average"=>7.289, "vote_count"=>3060}, {"adult"=>false, "backdrop_path"=>"/4LOxoeZWt5wr9mooxEZRFK96lDd.jpg", "genre_ids"=>[99], "id"=>483898, "original_language"=>"en", "original_title"=>"50 Greatest Harry Potter Moments", "overview"=>"To mark the release two weeks ago of the eighth and final movie in the series, Robbie Coltrane narrates a countdown of the movie franchise's best moments. From Harry's first meeting with Ron and Hermione aboard the Hogwarts Express through to magical mysteries.", "popularity"=>24.423, "poster_path"=>"/g1xiBoLD6v3ZaXPa4QtuXiQeYKW.jpg", "release_date"=>"2011-07-27", "title"=>"50 Greatest Harry Potter Moments", "video"=>false, "vote_average"=>7.315, "vote_count"=>108}, {"adult"=>false, "backdrop_path"=>"/mjCYpJXCBYDZgMr1U1KZcFgFDfC.jpg", "genre_ids"=>[99], "id"=>482408, "original_language"=>"en", "original_title"=>"Harry Potter: A History Of Magic", "overview"=>"A thrilling journey through legends, belief and folklore, this film goes behind the scenes with the British Library as they search to tell that story through objects in their collection, in an ambitious new exhibition: Harry Potter: A History Of Magic.  J.K. Rowling, who is lending unseen manuscripts, drawings and drafts from her private archives (which will sit alongside treasures from the British Library, as well as original drafts and drawings from Jim Kay) talks about some of the personal items she has lent to the exhibition and gives new insight into her writing, looking at some of the objects from the exhibition that have fired her imagination.", "popularity"=>17.566, "poster_path"=>"/geike7VgTrftxwzcvND4dRdZdAv.jpg", "release_date"=>"2017-10-28", "title"=>"Harry Potter: A History Of Magic", "video"=>false, "vote_average"=>7.217, "vote_count"=>83}, {"adult"=>false, "backdrop_path"=>nil, "genre_ids"=>[], "id"=>919590, "original_language"=>"de", "original_title"=>"Phantastische Harry Potter Momente - Das große SAT.1 Spezial", "overview"=>"", "popularity"=>9.729, "poster_path"=>"/1Ci05BbrRgc8qwKSvliJH6gqzol.jpg", "release_date"=>"2021-10-31", "title"=>"Phantastische Harry Potter Momente - Das große SAT.1 Spezial", "video"=>false, "vote_average"=>6.283, "vote_count"=>23}, {"adult"=>false, "backdrop_path"=>nil, "genre_ids"=>[99], "id"=>1082707, "original_language"=>"en", "original_title"=>"The Magic Touch of Harry Potter", "overview"=>"A 2004 documentary on the first three “Harry Potter” films detailing the behind-the-scenes journey of making them.", "popularity"=>8.296, "poster_path"=>"/gwFARNYf1Odv3E8ESVHyikXmMIY.jpg", "release_date"=>"2004-06-11", "title"=>"The Magic Touch of Harry Potter", "video"=>false, "vote_average"=>7.5, "vote_count"=>10}, {"adult"=>false, "backdrop_path"=>nil, "genre_ids"=>[99], "id"=>918078, "original_language"=>"en", "original_title"=>"Daniel Radcliffe: Being Harry Potter", "overview"=>"BBC docuemntary about Daniel Radcliffe and his role as the main character in Harry potter", "popularity"=>6.571, "poster_path"=>"/4keobTsQVrMS2JwE3TRod0SrYTD.jpg", "release_date"=>"2012-10-10", "title"=>"Daniel Radcliffe: Being Harry Potter", "video"=>false, "vote_average"=>6.1, "vote_count"=>20}, {"adult"=>false, "backdrop_path"=>"/zikoNIlodwkPhAU9iAwN17sOTrD.jpg", "genre_ids"=>[99], "id"=>1118680, "original_language"=>"fr", "original_title"=>"Harry Potter : les secrets du phénomène", "overview"=>"", "popularity"=>7.128, "poster_path"=>"/7iJ20z09sZpbl0vgj4NIbnUDcfN.jpg", "release_date"=>"2023-04-26", "title"=>"Harry Potter : les secrets du phénomène", "video"=>false, "vote_average"=>5.5, "vote_count"=>1}, {"adult"=>false, "backdrop_path"=>nil, "genre_ids"=>[99], "id"=>1039274, "original_language"=>"en", "original_title"=>"Harry Potter: A Spirit Conspiracy?", "overview"=>"The Occult Agenda documentary series is designed to awaken the church and non-believers alike to the spiritual warfare happening in the world today. Part I focuses on the Harry Potter phenomenon that has swept the world since author J.K. Rowling introduced her best-selling book series. But is Potter-mania merely the result of imaginative writing and clever marketing? Or could there be a hidden power behind the craze that has cast a spell on adults and children alike?", "popularity"=>4.563, "poster_path"=>"/e8jvqpVbVeVlSOV216sOIZmykGA.jpg", "release_date"=>"2005-09-22", "title"=>"Harry Potter: A Spirit Conspiracy?", "video"=>true, "vote_average"=>6.3, "vote_count"=>9}, {"adult"=>false, "backdrop_path"=>nil, "genre_ids"=>[99], "id"=>256050, "original_language"=>"en", "original_title"=>"The Magical World of Harry Potter: The Unauthorized Story of J.K. Rowling", "overview"=>"The unauthorized story of J.K. Rowling--creator of Harry Potter.", "popularity"=>1.694, "poster_path"=>nil, "release_date"=>"2000-08-08", "title"=>"The Magical World of Harry Potter: The Unauthorized Story of J.K. Rowling", "video"=>false, "vote_average"=>7.2, "vote_count"=>6}, {"adult"=>false, "backdrop_path"=>nil, "genre_ids"=>[99], "id"=>319391, "original_language"=>"en", "original_title"=>"J.K. Rowling and the Birth of Harry Potter", "overview"=>"In this fascinating (unauthorized) biographical documentary, you'll get the inside scoop on the creative force behind one of the greatest publishing phenomena in the last 100 years -- J.K. Rowling, author of the Harry Potter series of books. Explore Rowling's meteoric rise from obscurity into the ranks of the world's richest women (via her books), and visit the people and places that played a significant role in her life.", "popularity"=>3.309, "poster_path"=>"/hY6Ndq1O4JiEngZ7xIOtcLUCDTX.jpg", "release_date"=>"2004-12-07", "title"=>"J.K. Rowling and the Birth of Harry Potter", "video"=>true, "vote_average"=>6.8, "vote_count"=>19}, {"adult"=>false, "backdrop_path"=>nil, "genre_ids"=>[10751, 99], "id"=>116972, "original_language"=>"en", "original_title"=>"Discovering the Real World of Harry Potter", "overview"=>"Explore the myths and legends that inhabit the real world of Harry Potter. Follow award-winning documentary filmmakers as they offer insights to witches, wizards, Greek gods, ancient Celts, ghosts, magical creatures, alchemy, and ancient spells. Narrated by British actor Hugh Laurie, this fascinating documentary brings new dimensions to the historical and scientific world behind the Harry Potter series.", "popularity"=>2.45, "poster_path"=>"/yLpnOqKw3ZycFu8t5Gil1BqTbnB.jpg", "release_date"=>"2001-12-10", "title"=>"Discovering the Real World of Harry Potter", "video"=>false, "vote_average"=>6.5, "vote_count"=>21}, {"adult"=>false, "backdrop_path"=>nil, "genre_ids"=>[99], "id"=>500008, "original_language"=>"en", "original_title"=>"Harry Potter: The Making of Diagon Alley", "overview"=>"An inside look into the creation of Universal Studio's Diagon Alley attraction.", "popularity"=>2.077, "poster_path"=>nil, "release_date"=>"2014-06-30", "title"=>"Harry Potter: The Making of Diagon Alley", "video"=>false, "vote_average"=>4.4, "vote_count"=>11}], "total_pages"=>2, "total_results"=>24}:Hash
+
+'.freeze;@output_buffer.append=( @responsehash.results );
+                                              ^^^^^^^^):
+    2:   <%# result %>
+    3: <% end %>
+    4: 
+    5: <%= @responsehash.results %>
+  
+app/views/searchs/show.html.erb:5
+Started GET "/search?movie_name=harry+potter&commit=Search" for ::1 at 2023-09-22 13:20:46 -0400
+Processing by SearchsController#show as HTML
+  Parameters: {"movie_name"=>"harry potter", "commit"=>"Search"}
+  Rendering layout layouts/application.html.erb
+  Rendering searchs/show.html.erb within layouts/application
+  Rendered searchs/show.html.erb within layouts/application (Duration: 0.5ms | Allocations: 755)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+  Rendered layouts/_searchbar.html.erb (Duration: 0.8ms | Allocations: 1453)
+  Rendered layout layouts/application.html.erb (Duration: 6.1ms | Allocations: 6564)
+Completed 200 OK in 177ms (Views: 6.9ms | ActiveRecord: 0.1ms | Allocations: 8648)
+
+
+Started GET "/search?movie_name=harry+potter&commit=Search" for ::1 at 2023-09-22 13:21:17 -0400
+Processing by SearchsController#show as HTML
+  Parameters: {"movie_name"=>"harry potter", "commit"=>"Search"}
+  Rendering layout layouts/application.html.erb
+  Rendering searchs/show.html.erb within layouts/application
+  Rendered searchs/show.html.erb within layouts/application (Duration: 0.7ms | Allocations: 753)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+  Rendered layouts/_searchbar.html.erb (Duration: 0.9ms | Allocations: 1452)
+  Rendered layout layouts/application.html.erb (Duration: 16.2ms | Allocations: 6542)
+Completed 200 OK in 170ms (Views: 17.3ms | ActiveRecord: 0.1ms | Allocations: 8629)
+
+
+Started GET "/search?movie_name=harry+potter&commit=Search" for ::1 at 2023-09-22 13:21:24 -0400
+Processing by SearchsController#show as HTML
+  Parameters: {"movie_name"=>"harry potter", "commit"=>"Search"}
+  Rendering layout layouts/application.html.erb
+  Rendering searchs/show.html.erb within layouts/application
+  Rendered searchs/show.html.erb within layouts/application (Duration: 0.6ms | Allocations: 754)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+  Rendered layouts/_searchbar.html.erb (Duration: 0.8ms | Allocations: 1453)
+  Rendered layout layouts/application.html.erb (Duration: 6.3ms | Allocations: 6553)
+Completed 200 OK in 117ms (Views: 7.3ms | ActiveRecord: 0.1ms | Allocations: 8621)
+
+
+Started GET "/search?movie_name=harry+potter&commit=Search" for ::1 at 2023-09-22 13:21:44 -0400
+Processing by SearchsController#show as HTML
+  Parameters: {"movie_name"=>"harry potter", "commit"=>"Search"}
+  Rendering layout layouts/application.html.erb
+  Rendering searchs/show.html.erb within layouts/application
+  Rendered searchs/show.html.erb within layouts/application (Duration: 0.5ms | Allocations: 753)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+  Rendered layouts/_searchbar.html.erb (Duration: 0.8ms | Allocations: 1452)
+  Rendered layout layouts/application.html.erb (Duration: 7.9ms | Allocations: 6530)
+Completed 200 OK in 180ms (Views: 9.1ms | ActiveRecord: 0.1ms | Allocations: 8610)
+
+
+Started GET "/search?movie_name=harry+potter&commit=Search" for ::1 at 2023-09-22 13:22:02 -0400
+Processing by SearchsController#show as HTML
+  Parameters: {"movie_name"=>"harry potter", "commit"=>"Search"}
+  Rendering layout layouts/application.html.erb
+  Rendering searchs/show.html.erb within layouts/application
+  Rendered searchs/show.html.erb within layouts/application (Duration: 0.5ms | Allocations: 800)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+  Rendered layouts/_searchbar.html.erb (Duration: 0.8ms | Allocations: 1452)
+  Rendered layout layouts/application.html.erb (Duration: 5.8ms | Allocations: 6573)
+Completed 200 OK in 156ms (Views: 6.7ms | ActiveRecord: 0.1ms | Allocations: 8665)
+
+
+Started GET "/search?movie_name=harry+potter&commit=Search" for ::1 at 2023-09-22 13:22:09 -0400
+Processing by SearchsController#show as HTML
+  Parameters: {"movie_name"=>"harry potter", "commit"=>"Search"}
+  Rendering layout layouts/application.html.erb
+  Rendering searchs/show.html.erb within layouts/application
+  Rendered searchs/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 209)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+  Rendered layouts/_searchbar.html.erb (Duration: 0.8ms | Allocations: 1452)
+  Rendered layout layouts/application.html.erb (Duration: 6.4ms | Allocations: 6003)
+Completed 200 OK in 138ms (Views: 7.5ms | ActiveRecord: 0.1ms | Allocations: 8064)
+
+
+Started GET "/search?movie_name=harry+potter&commit=Search" for ::1 at 2023-09-22 13:22:16 -0400
+Processing by SearchsController#show as HTML
+  Parameters: {"movie_name"=>"harry potter", "commit"=>"Search"}
+  Rendering layout layouts/application.html.erb
+  Rendering searchs/show.html.erb within layouts/application
+  Rendered searchs/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 214)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+  Rendered layouts/_searchbar.html.erb (Duration: 0.7ms | Allocations: 1452)
+  Rendered layout layouts/application.html.erb (Duration: 5.5ms | Allocations: 5998)
+Completed 200 OK in 117ms (Views: 6.6ms | ActiveRecord: 0.1ms | Allocations: 8062)
+
+
+  [1m[36mMovie Load (71.6ms)[0m  [1m[34mSELECT "movies".* FROM "movies" ORDER BY "movies"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" ORDER BY "movies"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/" for ::1 at 2023-09-22 20:36:55 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (36.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:1
+  Rendered collection of movies/_movie.html.erb [1 times] (Duration: 15.2ms | Allocations: 207)
+  Rendered movies/index.html.erb within layouts/application (Duration: 47.4ms | Allocations: 7060)
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+  Rendered layouts/_searchbar.html.erb (Duration: 15.9ms | Allocations: 1762)
+  Rendered layout layouts/application.html.erb (Duration: 702.6ms | Allocations: 52905)
+Completed 200 OK in 794ms (Views: 699.7ms | ActiveRecord: 5.7ms | Allocations: 60911)
+
+
+Started GET "/search?movie_name=titanic&commit=Search" for ::1 at 2023-09-22 20:37:02 -0400
+Processing by SearchsController#show as HTML
+  Parameters: {"movie_name"=>"titanic", "commit"=>"Search"}
+  Rendering layout layouts/application.html.erb
+  Rendering searchs/show.html.erb within layouts/application
+  Rendered searchs/show.html.erb within layouts/application (Duration: 15.8ms | Allocations: 206)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+  Rendered layouts/_searchbar.html.erb (Duration: 0.3ms | Allocations: 1291)
+  Rendered layout layouts/application.html.erb (Duration: 20.1ms | Allocations: 5513)
+Completed 200 OK in 223ms (Views: 21.0ms | ActiveRecord: 0.2ms | Allocations: 7769)
+
+
+Started GET "/" for ::1 at 2023-09-22 21:25:12 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (33.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (96.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:1
+  Rendered collection of movies/_movie.html.erb [1 times] (Duration: 1.4ms | Allocations: 207)
+  Rendered movies/index.html.erb within layouts/application (Duration: 163.1ms | Allocations: 7055)
+  [1m[36mUser Load (41.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+  Rendered layouts/_searchbar.html.erb (Duration: 17.1ms | Allocations: 1774)
+  Rendered layout layouts/application.html.erb (Duration: 412.2ms | Allocations: 56781)
+Completed 200 OK in 460ms (Views: 215.2ms | ActiveRecord: 198.5ms | Allocations: 64786)
+
+
+Started GET "/" for ::1 at 2023-09-22 21:35:45 -0400
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:1
+  Rendered collection of movies/_movie.html.erb [1 times] (Duration: 0.1ms | Allocations: 33)
+  Rendered movies/index.html.erb within layouts/application (Duration: 30.6ms | Allocations: 5947)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+  Rendered layouts/_searchbar.html.erb (Duration: 2.5ms | Allocations: 1265)
+  Rendered layout layouts/application.html.erb (Duration: 68.3ms | Allocations: 25094)
+Completed 200 OK in 85ms (Views: 64.8ms | ActiveRecord: 6.4ms | Allocations: 28898)
+
+
+Started GET "/search?movie_name=titanic&commit=Search" for ::1 at 2023-09-22 21:35:49 -0400
+  
+LoadError (cannot load such file -- /home/emily/Documents/rails-projects/movie-night/app/.api_keys.rb):
+  
+app/controllers/searchs_controller.rb:3:in `require_relative'
+app/controllers/searchs_controller.rb:3:in `<main>'
+Started GET "/" for ::1 at 2023-09-22 21:37:32 -0400
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:1
+  Rendered collection of movies/_movie.html.erb [1 times] (Duration: 0.1ms | Allocations: 33)
+  Rendered movies/index.html.erb within layouts/application (Duration: 10.5ms | Allocations: 3193)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+  Rendered layouts/_searchbar.html.erb (Duration: 7.0ms | Allocations: 1264)
+  Rendered layout layouts/application.html.erb (Duration: 33.8ms | Allocations: 22697)
+Completed 200 OK in 38ms (Views: 29.1ms | ActiveRecord: 5.4ms | Allocations: 26515)
+
+
+Started GET "/search?movie_name=titanic&commit=Search" for ::1 at 2023-09-22 21:37:35 -0400
+  
+LoadError (cannot load such file -- /home/emily/Documents/rails-projects/movie-night/app/controllers/.api_keys.rb):
+  
+app/controllers/searchs_controller.rb:3:in `require_relative'
+app/controllers/searchs_controller.rb:3:in `<main>'
+Started GET "/" for ::1 at 2023-09-22 21:38:03 -0400
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:1
+  Rendered collection of movies/_movie.html.erb [1 times] (Duration: 0.1ms | Allocations: 33)
+  Rendered movies/index.html.erb within layouts/application (Duration: 12.9ms | Allocations: 3158)
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+  Rendered layouts/_searchbar.html.erb (Duration: 0.4ms | Allocations: 1302)
+  Rendered layout layouts/application.html.erb (Duration: 68.9ms | Allocations: 22715)
+Completed 200 OK in 82ms (Views: 58.5ms | ActiveRecord: 16.5ms | Allocations: 26530)
+
+
+Started GET "/search?movie_name=titanic&commit=Search" for ::1 at 2023-09-22 21:38:05 -0400
+  
+LoadError (cannot load such file -- /home/emily/Documents/rails-projects/movie-night/app/controllers/.api_keys):
+  
+app/controllers/searchs_controller.rb:3:in `require_relative'
+app/controllers/searchs_controller.rb:3:in `<main>'
+Started GET "/" for ::1 at 2023-09-22 21:38:16 -0400
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:1
+  Rendered collection of movies/_movie.html.erb [1 times] (Duration: 0.1ms | Allocations: 33)
+  Rendered movies/index.html.erb within layouts/application (Duration: 8.8ms | Allocations: 3159)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+  Rendered layouts/_searchbar.html.erb (Duration: 0.4ms | Allocations: 1302)
+  Rendered layout layouts/application.html.erb (Duration: 53.4ms | Allocations: 22684)
+Completed 200 OK in 66ms (Views: 50.7ms | ActiveRecord: 3.4ms | Allocations: 26503)
+
+
+Started GET "/search?movie_name=titanic&commit=Search" for ::1 at 2023-09-22 21:38:18 -0400
+  
+LoadError (cannot load such file -- /home/emily/Documents/rails-projects/movie-night/app/.api_keys.rb):
+  
+app/controllers/searchs_controller.rb:3:in `require_relative'
+app/controllers/searchs_controller.rb:3:in `<main>'
+Started GET "/" for ::1 at 2023-09-22 21:38:37 -0400
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:1
+  Rendered collection of movies/_movie.html.erb [1 times] (Duration: 0.0ms | Allocations: 20)
+  Rendered movies/index.html.erb within layouts/application (Duration: 4.9ms | Allocations: 721)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+  Rendered layouts/_searchbar.html.erb (Duration: 0.5ms | Allocations: 1257)
+  Rendered layout layouts/application.html.erb (Duration: 19.6ms | Allocations: 5440)
+Completed 200 OK in 28ms (Views: 27.7ms | ActiveRecord: 0.4ms | Allocations: 5742)
+
+
+Started GET "/search?movie_name=titanic&commit=Search" for ::1 at 2023-09-22 21:38:39 -0400
+Processing by SearchsController#show as HTML
+  Parameters: {"movie_name"=>"titanic", "commit"=>"Search"}
+  Rendering layout layouts/application.html.erb
+  Rendering searchs/show.html.erb within layouts/application
+  Rendered searchs/show.html.erb within layouts/application (Duration: 39.7ms | Allocations: 206)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+  Rendered layouts/_searchbar.html.erb (Duration: 0.6ms | Allocations: 1245)
+  Rendered layout layouts/application.html.erb (Duration: 44.9ms | Allocations: 5409)
+Completed 200 OK in 292ms (Views: 45.7ms | ActiveRecord: 0.2ms | Allocations: 7678)
+
+

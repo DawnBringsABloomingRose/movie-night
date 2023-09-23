@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :movies
   root "movies#index"
+  #resource :search, only: [:show]
+  get '/search', to: 'searchs#show', as: 'search'
 end

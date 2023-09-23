@@ -17,6 +17,7 @@
     <% else %>
       <%= button_to "logout", destroy_user_session_path, method: :delete %> 
     <% end %>
+    <%= render 'layouts/searchbar' %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
