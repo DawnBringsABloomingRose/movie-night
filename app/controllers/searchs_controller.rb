@@ -16,15 +16,20 @@ class SearchsController < ApplicationController
     @response = http.request(request)
     @responsehash = JSON.parse(@response.body)
 
+    @jsonadditions = {}
+    puts @responsehash
+    @responsehash["results"].each do |movie|
+      Movie.all.where(tmdb_ref: movie["id"]).first ? movie["suggested"] = true : movie["suggested"] = false
+    end
+
     respond_to do |format|
       format.html
-      format.json { renders json: @response}
+      format.json { render json: @responsehash }
     end
   end
 
   def show
     url = URI("https://api.themoviedb.org/3/movie/#{params[:id]}?language=en-US")
-
     http = Net::HTTP.new(url.host, url.port)
     http.use_ssl = true
 
@@ -36,7 +41,7 @@ class SearchsController < ApplicationController
     @responsehash = JSON.parse(@response.body)
     respond_to do |format|
       format.html
-      format.json { renders json: @response }
+      format.json { render json: @responsehash }
     end
 
   end
