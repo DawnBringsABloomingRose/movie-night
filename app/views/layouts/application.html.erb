@@ -8,6 +8,7 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <%= javascript_pack_tag 'index', defer: 'defer' %>
   </head>
   <body>
   <% unless user_signed_in? %>
@@ -20,7 +21,8 @@
     <%= render 'layouts/searchbar' %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-
+    <div id='root'>
     <%= yield %>
+    </div>
   </body>
 </html>
