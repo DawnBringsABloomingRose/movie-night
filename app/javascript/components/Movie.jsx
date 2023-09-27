@@ -17,7 +17,6 @@ class Movie extends React.Component {
     fetch(url)
       .then((data) => {
         if (data.ok) {
-          console.log(data)
           return data.json();
         }
         throw new Error("Network error.");
@@ -57,6 +56,9 @@ class Movie extends React.Component {
     line3 = <p>{this.props.movie.runtime} minutes long</p>
     if (this.state) {
       var line4 = <p>{this.state.tmdb_info.genres.map(genre => genre.name+ ',')}</p>
+    }
+    if (this.props.movie.genres) {
+      var line4 = <p>{this.props.movie.genres.map(genre => genre.name + ',')}</p>
     }
     return (
     <>

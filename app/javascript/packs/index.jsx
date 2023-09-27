@@ -9,12 +9,12 @@ import { createRoot } from 'react-dom/client';
 import PropTypes from 'prop-types'
 //import Suggestions from "../components/Suggestions";
 import Suggestions from "../components/SuggestionHome";
+import App from "../components/App"
 
 
 const container = document.getElementById("root");
-console.log(container)
 const root = createRoot(container); // createRoot(container!) if you use TypeScript
-root.render(<Suggestions />);
+root.render(<App />);
 
 /*document.addEventListener("DOMContentLoaded", () => {
   render(<App />, document.body.appendChild(document.createElement("div")));

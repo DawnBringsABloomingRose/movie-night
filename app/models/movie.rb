@@ -3,6 +3,7 @@ class Movie < ApplicationRecord
   has_many :block_movies
   has_many :blocks, through: :block_movies
   has_one :suggestion
+  has_one :user, through: :suggestion
   has_many :block_movies
   has_many :blocks, through: :block_movies
 end

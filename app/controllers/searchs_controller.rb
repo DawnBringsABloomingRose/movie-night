@@ -16,15 +16,38 @@ class SearchsController < ApplicationController
     @response = http.request(request)
     @responsehash = JSON.parse(@response.body)
 
-    @jsonadditions = {}
-    puts @responsehash
+    @jsonadditions = []
     @responsehash["results"].each do |movie|
-      Movie.all.where(tmdb_ref: movie["id"]).first ? movie["suggested"] = true : movie["suggested"] = false
+      
+      tempid = movie["id"]
+      url = URI("https://api.themoviedb.org/3/movie/#{tempid}?language=en-US")
+      http = Net::HTTP.new(url.host, url.port)
+      http.use_ssl = true
+
+      request = Net::HTTP::Get.new(url)
+      request["accept"] = 'application/json'
+      request["Authorization"] = "Bearer #{$tmdb_key}"
+
+      response = http.request(request)
+      temphash = JSON.parse(response.body)
+      temphash["name"] = temphash["title"]
+      temphash["year"] = temphash["release_date"]
+
+
+      search = Movie.all.where(tmdb_ref: movie["id"]).first 
+      if search
+        temphash["suggested"] = true
+        temphash["user"] = search.user
+      else
+         temphash["suggested"] = false
+         temphash["user"] = ''
+      end
+      @jsonadditions.push(temphash)
     end
 
     respond_to do |format|
       format.html
-      format.json { render json: @responsehash }
+      format.json { render json: @jsonadditions }
     end
   end
 
