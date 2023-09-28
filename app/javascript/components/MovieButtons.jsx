@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Form, Input, Modal, Checkbox } from 'antd';
+import { Button, Form, Input, Modal, Checkbox, Select } from 'antd';
 
 
 
@@ -7,9 +7,41 @@ class MovieButtons extends React.Component {
     formRef = React.createRef();
     //formRef = React.useRef<FormInstance>(null);
 
+    options = [];
+
     state = {
         visible: false,
+        blockOptions: [],
     }
+
+    componentDidMount() {
+      this.loadblocks();
+    }
+
+    loadblocks = () => {
+      const url = "api/v1/blocks/index";
+      fetch(url)
+        .then((data) => {
+          if (data.ok) {
+            return data.json();
+          }
+          throw new Error("Network error.");
+        })
+        .then((data) => {
+          console.log(data)
+          data.forEach((block) => {
+            const newEl = {
+              value: block.id,
+              label: block.name,
+            };
+  
+            this.setState((prevState) => ({
+              blockOptions: [...prevState.blockOptions, newEl],
+            }));
+          });
+        })
+        .catch((err) => message.error("Error: " + err));
+    };
 
     submitForm = (values) => {
         values.name = this.props.name;
@@ -33,10 +65,6 @@ class MovieButtons extends React.Component {
             }
             throw new Error("Network error.");
           })
-          .then(() => {
-            this.props.reloadsuggestions();
-          })
-          .catch((err) => console.error("Error: " + err));
     };
 
 
@@ -63,6 +91,9 @@ class MovieButtons extends React.Component {
                 <Form ref={this.formRef} name="suggestion" onFinish={this.submitForm}>
                     <Form.Item name="halloween" label="For Spooky month?" valuePropName="checked">
                         <Checkbox></Checkbox>
+                    </Form.Item>
+                    <Form.Item name="blocks" label="Suggested Blocks:">
+                      <Select mode="multiple" allowClear placeholder="None is also an option" options={this.state.blockOptions} />
                     </Form.Item>
                     <Form.Item>
 							<Button type="primary" htmlType="submit">

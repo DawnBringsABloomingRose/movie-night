@@ -22,11 +22,14 @@ class Api::V1::SuggestionsController < ApplicationController
   end
 
   def create
-    @movie = Movie.new(name: params[:name], year: params[:year], tmdb_ref: params[:tmdb_ref], halloween: params[:halloween], length_in_mins: params[:length_in_mins])
+    @movie = Movie.new(name: params[:name], year: params[:year], tmdb_ref: params[:tmdb_ref], halloween: params[:halloween], length_in_mins: params[:length_in_minutes])
     if @movie.save
       @suggestion = Suggestion.new(movie_id: @movie.id, user_id: current_user.id)
     end
     #@suggestion = Suggestion.new(suggestion_params)
+    params[:blocks].each do |block|
+      @movie.block_movies.build(block_id: block).save
+    end
 
     if @suggestion.save
       render json: @suggestion, include: [:movie, :user]

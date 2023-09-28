@@ -16,7 +16,9 @@ Rails.application.routes.draw do
       get 'suggestions/index'
       post 'suggestions/', to:  'suggestions#create'
       delete 'suggestions/:id', to: 'suggestions#destroy'
+
       post 'blocks/', to: 'blocks#create'
+      get 'blocks/index' 
     end
   end
 end
