@@ -8,7 +8,7 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-    <%= javascript_pack_tag 'index', defer: 'defer' %>
+    
   </head>
   <body>
   <% unless user_signed_in? %>
@@ -17,6 +17,7 @@
     <%= link_to "Sign up", new_user_registration_path %>
     <% else %>
       <%= button_to "logout", destroy_user_session_path, method: :delete %> 
+       <%= javascript_pack_tag 'index', defer: 'defer' %>
     <% end %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
