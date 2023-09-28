@@ -1,9 +1,8 @@
 import { Table, message, Popconfirm } from "antd";
 import React from "react";
-import AddSuggestionModal from "./AddSuggestionModal";
 import Movie from "./Movie";
 
-class suggestions extends React.Component {
+class Suggestions extends React.Component {
   columns = [
     {
       title: "Movie",
@@ -96,4 +95,4 @@ class suggestions extends React.Component {
   }
 }
 
-export default suggestions;
+export default Suggestions;

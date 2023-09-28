@@ -1,11 +1,15 @@
 import React from "react";
-import {message} from "antd";
+import {message, Button} from "antd";
 
 class Header extends React.Component {
     constructor(props){
         super(props);
         var searchQuery = "";
         this.searchResults = "";
+        this.location = "home";
+    }
+    state = {
+      location: "home",
     }
 
     getSearchResults(e) {
@@ -22,26 +26,37 @@ class Header extends React.Component {
         throw new Error("Network error.");
       })
       .then((data) => {
-        console.log(data)
         results = data;
         this.searchResults = data;
+        this.location = "search";
         this.setState((prevState) => ({
-          searchResults: data,}))
+          searchResults: data,
+          location: "search", }))
         this.props.sendResults(data);
+        this.props.sendLocation("search");
       })
       .catch((err) => message.error("Error: " + err));
-      console.log(this.searchResults);
+    }
+
+    backToHome() {
+      this.setState((prevState) => ({
+        location: "home",
+      }))
+
+      this.props.sendLocation("home");
     }
 
     render() {
-        return <>
+      //this.props.sendLocation(this.state.location);
+        return (<div className="header">
         <form method="post" onSubmit={this.getSearchResults.bind(this)}>
             <label htmlFor="movie_name">
                 Movie Name Or TMDB ID: <input name="movie_name" type="text" id="movie_name" />
             </label>
             <button type="submit" >Search</button>
         </form>
-        </>
+        <Button onClick={this.backToHome.bind(this)}>Home</Button>
+        </div>)
     }
 }
 
