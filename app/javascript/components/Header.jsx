@@ -1,5 +1,6 @@
 import React from "react";
 import {message, Button} from "antd";
+import AddBlock from "./AddBlock";
 
 class Header extends React.Component {
     constructor(props){
@@ -56,6 +57,7 @@ class Header extends React.Component {
             <button type="submit" >Search</button>
         </form>
         <Button onClick={this.backToHome.bind(this)}>Home</Button>
+        <AddBlock />
         </div>)
     }
 }
