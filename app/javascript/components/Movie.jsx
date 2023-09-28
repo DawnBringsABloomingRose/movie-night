@@ -57,7 +57,7 @@ class Movie extends React.Component {
     else {
       recdby = <MovieButtons name={this.props.movie.name} year={this.props.movie.year} runtime={this.props.movie.runtime} tmdb_ref={this.props.movie.id}></MovieButtons>;
     }
-    line3 = <p>{this.props.movie.runtime} minutes long</p>
+    line3 = <p>{this.props.movie.runtime}{this.props.movie.length_in_mins} minutes long</p>
     if (this.state) {
       var line4 = <p>{this.state.tmdb_info.genres.map(genre => genre.name+ ',')}</p>
     }

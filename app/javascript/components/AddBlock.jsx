@@ -43,7 +43,7 @@ class AddBlock extends React.Component {
 
         return (
             <>
-            <Button type="primary" onClick={this.showModal}>
+            <Button type="default" onClick={this.showModal}>
                 Add Block
             </Button>
             <Modal open={this.state.visible} title="Add Block" okText="Submit" cancelText="Cancel" onCancel={this.handleCancel} footer={null}>

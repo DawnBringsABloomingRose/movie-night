@@ -1,5 +1,6 @@
 import React from "react";
-import {message, Button} from "antd";
+import {message, Button, Space} from "antd";
+import { SearchOutlined } from '@ant-design/icons';
 import AddBlock from "./AddBlock";
 
 class Header extends React.Component {
@@ -50,14 +51,20 @@ class Header extends React.Component {
     render() {
       //this.props.sendLocation(this.state.location);
         return (<div className="header">
-        <form method="post" onSubmit={this.getSearchResults.bind(this)}>
-            <label htmlFor="movie_name">
-                Movie Name Or TMDB ID: <input name="movie_name" type="text" id="movie_name" />
-            </label>
-            <button type="submit" >Search</button>
-        </form>
-        <Button onClick={this.backToHome.bind(this)}>Home</Button>
-        <AddBlock />
+          <Space>
+            <Button type="primary" onClick={this.backToHome.bind(this)}>Home</Button>
+            <AddBlock />
+          </Space>
+          <br />
+          <Space>
+            <form method="post" onSubmit={this.getSearchResults.bind(this)}>
+              <Space>
+               <label htmlFor="movie_name">
+                  Movie Name Or TMDB ID: <input name="movie_name" type="text" id="movie_name" />
+                </label>
+                <Button type="primary" shape="circle" icon={<SearchOutlined />} htmlType="submit"/></Space>
+            </form>
+          </Space>
         </div>)
     }
 }
