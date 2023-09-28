@@ -1,2 +1,20 @@
 .header {
 }
+
+.halloween {
+    background-color: black;
+    color: orange;
+}
+
+.halloween h2 {
+    color: orange;
+}
+
+.cardtitle {
+    display: flex;
+    align-items: center;
+}
+
+.cardtitle img {
+    height: 50px;
+}

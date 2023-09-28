@@ -1,5 +1,6 @@
 import React from "react";
 import Movie from "./Movie"
+import { List } from "antd";
 
 class Results extends React.Component {
     render() {
@@ -8,7 +9,7 @@ class Results extends React.Component {
           );
       
         return <>
-        <ul>{ movies }</ul>
+        <List>{ movies }</List>
         </>
     }
 }

@@ -1,4 +1,4 @@
-import { Table, message, Popconfirm } from "antd";
+import { Table, message, Popconfirm, List } from "antd";
 import React from "react";
 import Movie from "./Movie";
 
@@ -89,7 +89,7 @@ class Suggestions extends React.Component {
         <AddSuggestionModal reloadsuggestions={this.reloadsuggestions} />
       </> */
       <>
-      <ul>{movies}</ul>
+      <List>{movies}</List>
       </> 
     );
   }

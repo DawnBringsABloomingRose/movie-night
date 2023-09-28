@@ -1,6 +1,7 @@
 import React from "react";
-import { message } from "antd";
+import { message, Card } from "antd";
 import MovieButtons from "./MovieButtons";
+import pumpkin from '../../assets/images/pumpkin.png'
 
 class Movie extends React.Component {
   constructor(props) {
@@ -44,11 +45,17 @@ class Movie extends React.Component {
     var heading;
     var recdby;
     var line3;
+    var title = <h2>{this.props.movie.name + " - " + this.props.movie.year}</h2>
+    var cardClass;
     if (this.props.movie.halloween) {
       heading =  <h2>{this.props.movie.name} - ({this.props.movie.year}) <bold>FOR HALLOWEEN</bold></h2>;
+      cardClass = "halloween";
+      title = <div className="cardtitle"> <h2>{this.props.movie.name + " - " + this.props.movie.year}</h2>
+        <img src={pumpkin} alt="A small pumpkin, signifying halloween" /></div>
     }
     else {
       heading =  <h2>{this.props.movie.name} - ({this.props.movie.year})</h2>;
+      cardClass = "card"
     }
     
     if (this.props.suggested) {
@@ -66,10 +73,11 @@ class Movie extends React.Component {
     }
     return (
     <>
-      {heading}
+    <Card style={{width: '100%'}} title={title} className={cardClass}>
       {recdby}
       {line3} 
       {line4}
+      </Card>
     </>);
   }
 }
