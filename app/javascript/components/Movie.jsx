@@ -1,5 +1,6 @@
 import React from "react";
 import { message } from "antd";
+import MovieButtons from "./MovieButtons";
 
 class Movie extends React.Component {
   constructor(props) {
@@ -52,6 +53,9 @@ class Movie extends React.Component {
     
     if (this.props.suggested) {
       recdby = <p>Recommended by {this.props.user.name}</p>;
+    }
+    else {
+      recdby = <MovieButtons name={this.props.movie.name} year={this.props.movie.year} runtime={this.props.movie.runtime} tmdb_ref={this.props.movie.id}></MovieButtons>;
     }
     line3 = <p>{this.props.movie.runtime} minutes long</p>
     if (this.state) {
