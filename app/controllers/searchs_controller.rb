@@ -12,6 +12,7 @@ class SearchsController < ApplicationController
 
     request = Net::HTTP::Get.new(url)
     request["accept"] = 'application/json'
+    $tmdb_key = "test" unless $tmdb_key
     request["Authorization"] = "Bearer #{$tmdb_key}"
     @response = http.request(request)
     @responsehash = JSON.parse(@response.body)
@@ -55,6 +56,8 @@ class SearchsController < ApplicationController
     url = URI("https://api.themoviedb.org/3/movie/#{params[:id]}?language=en-US")
     http = Net::HTTP.new(url.host, url.port)
     http.use_ssl = true
+
+    $tmdb_key = "test" unless $tmdb_key
 
     request = Net::HTTP::Get.new(url)
     request["accept"] = 'application/json'

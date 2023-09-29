@@ -4,6 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+         def will_save_change_to_email?
+          false
+        end 
+
   has_many :suggestions
   has_many :suggested_movies, through: :suggestions, source: :movie
   has_many :likes

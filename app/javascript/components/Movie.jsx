@@ -58,7 +58,7 @@ class Movie extends React.Component {
       cardClass = "card"
     }
     
-    if (this.props.suggested) {
+    if (this.props.suggested && this.props.user !== null) {
       recdby = <p>Recommended by {this.props.user.name}</p>;
     }
     else {
