@@ -2,7 +2,8 @@ import React from "react";
 import { message, Card } from "antd";
 import MovieButtons from "./MovieButtons";
 import pumpkin from '../../assets/images/pumpkin.png'
-import LikeButton from "./LikeButton"
+import LikeButton from "./LikeButton";
+import DeleteSuggestion from "./DeleteSuggestion";
 
 class Movie extends React.Component {
   constructor(props) {
@@ -48,6 +49,7 @@ class Movie extends React.Component {
     var line3;
     var title = <h2>{this.props.movie.name + " - " + this.props.movie.year}</h2>
     var cardClass;
+    var extra;
     if (this.props.movie.halloween) {
       heading =  <h2>{this.props.movie.name} - ({this.props.movie.year}) <bold>FOR HALLOWEEN</bold></h2>;
       cardClass = "halloween";
@@ -63,7 +65,11 @@ class Movie extends React.Component {
     
     if (this.props.suggested && this.props.user !== null) {
       recdby = <p>Recommended by {this.props.user.name}</p>;
+      if (this.props.user.id == this.props.currentUser) {
+        extra = <DeleteSuggestion id={this.props.id}/>
+      }
     }
+
     else {
       recdby = <MovieButtons name={this.props.movie.name} year={this.props.movie.year} runtime={this.props.movie.runtime} tmdb_ref={this.props.movie.id}></MovieButtons>;
     }
@@ -76,7 +82,7 @@ class Movie extends React.Component {
     }
     return (
     <>
-    <Card style={{width: '100%'}} title={title} className={cardClass}>
+    <Card style={{width: '100%'}} title={title} className={cardClass} extra={extra}>
       {recdby}
       {line3} 
       {line4}

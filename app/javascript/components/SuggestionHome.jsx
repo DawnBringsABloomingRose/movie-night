@@ -1,4 +1,4 @@
-import { Table, message, Popconfirm, List } from "antd";
+import { message, Popconfirm, List } from "antd";
 import React from "react";
 import Movie from "./Movie";
 
@@ -82,7 +82,7 @@ class Suggestions extends React.Component {
   render() {
     console.log(this.state.suggestions)
     var movies = this.state.suggestions.map(movie => 
-      <li key={movie.id}><Movie movie = { movie.movie } suggested = {true} user = { movie.user } likes={movie.likes} currentUser={this.props.currentUser}/></li>
+      <li key={movie.id}><Movie movie = { movie.movie } suggested = {true} user = { movie.user } likes={movie.likes} currentUser={this.props.currentUser} id={movie.id}/></li>
     );
     return (
       /*<>

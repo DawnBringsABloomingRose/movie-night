@@ -52,7 +52,7 @@ class Api::V1::SuggestionsController < ApplicationController
   private
 
   def set_suggestion
-    @suggestion = Suggestion.find(params[:id]).includes(:movie, :user, :likes)
+    @suggestion = Suggestion.find(params[:id])
   end
 
   def suggestion_params
