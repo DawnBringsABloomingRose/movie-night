@@ -3,7 +3,7 @@ class Api::V1::SuggestionsController < ApplicationController
   skip_before_action :verify_authenticity_token
   def index
     @suggestions = Suggestion.all.includes(:movie)
-    render json: @suggestions, include: [:movie, :user]
+    render json: @suggestions, include: [:movie, :user, :likes]
   end
 
   def show 
@@ -52,7 +52,7 @@ class Api::V1::SuggestionsController < ApplicationController
   private
 
   def set_suggestion
-    @suggestion = Suggestion.find(params[:id]).includes(:movie, :user)
+    @suggestion = Suggestion.find(params[:id]).includes(:movie, :user, :likes)
   end
 
   def suggestion_params

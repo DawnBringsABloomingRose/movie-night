@@ -47,6 +47,7 @@ class Suggestions extends React.Component {
             id: suggestion.id,
             movie: suggestion.movie,
             user: suggestion.user,
+            likes: suggestion.likes
           };
 
           this.setState((prevState) => ({
@@ -79,8 +80,9 @@ class Suggestions extends React.Component {
   };
 
   render() {
+    console.log(this.state.suggestions)
     var movies = this.state.suggestions.map(movie => 
-      <li key={movie.id}><Movie movie = { movie.movie } suggested = {true} user = { movie.user }/></li>
+      <li key={movie.id}><Movie movie = { movie.movie } suggested = {true} user = { movie.user } likes={movie.likes} currentUser={this.props.currentUser}/></li>
     );
     return (
       /*<>

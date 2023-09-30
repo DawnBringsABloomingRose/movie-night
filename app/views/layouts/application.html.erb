@@ -17,10 +17,11 @@
     <%= link_to "Sign up", new_user_registration_path %>
     <% else %>
       <%= button_to "logout", destroy_user_session_path, method: :delete %> 
-       <%= javascript_pack_tag 'index', defer: 'defer' %>
+      <%= javascript_pack_tag 'index', defer: 'defer' %>
     <% end %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+    <div id="current_user" data-value=<%=current_user.id %> hidden></div>
     <div id='root'>
     <%= yield %>
     </div>

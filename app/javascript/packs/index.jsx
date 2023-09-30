@@ -13,8 +13,9 @@ import App from "../components/App"
 
 
 const container = document.getElementById("root");
+const currentUser = document.getElementById("current_user").getAttribute("data-value");
 const root = createRoot(container); // createRoot(container!) if you use TypeScript
-root.render(<App />);
+root.render(<App currentUser={currentUser}/>);
 
 /*document.addEventListener("DOMContentLoaded", () => {
   render(<App />, document.body.appendChild(document.createElement("div")));

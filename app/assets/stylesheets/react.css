@@ -18,3 +18,8 @@
 .cardtitle img {
     height: 50px;
 }
+
+
+.liked {
+    background-color: aqua;
+}

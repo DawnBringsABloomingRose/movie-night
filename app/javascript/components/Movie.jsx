@@ -2,6 +2,7 @@ import React from "react";
 import { message, Card } from "antd";
 import MovieButtons from "./MovieButtons";
 import pumpkin from '../../assets/images/pumpkin.png'
+import LikeButton from "./LikeButton"
 
 class Movie extends React.Component {
   constructor(props) {
@@ -50,11 +51,13 @@ class Movie extends React.Component {
     if (this.props.movie.halloween) {
       heading =  <h2>{this.props.movie.name} - ({this.props.movie.year}) <bold>FOR HALLOWEEN</bold></h2>;
       cardClass = "halloween";
-      title = <div className="cardtitle"> <h2>{this.props.movie.name + " - " + this.props.movie.year}</h2>
+      title = <div className="cardtitle"><LikeButton suggestion_id={this.props.movie.id} likes={this.props.likes} currentUser={this.props.currentUser}/><h2>{this.props.movie.name + " - " + this.props.movie.year}</h2>
         <img src={pumpkin} alt="A small pumpkin, signifying halloween" /></div>
     }
     else {
       heading =  <h2>{this.props.movie.name} - ({this.props.movie.year})</h2>;
+      title = <div className="cardtitle"><LikeButton suggestion_id={this.props.movie.id} likes={this.props.likes} currentUser={this.props.currentUser}/><h2>{this.props.movie.name + " - " + this.props.movie.year}</h2>
+        </div>
       cardClass = "card"
     }
     

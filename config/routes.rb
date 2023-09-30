@@ -19,6 +19,9 @@ Rails.application.routes.draw do
 
       post 'blocks/', to: 'blocks#create'
       get 'blocks/index' 
+
+      post 'likes/', to: 'likes#create'
+      delete 'likes/:id', to: 'likes#destroy'
     end
   end
 end

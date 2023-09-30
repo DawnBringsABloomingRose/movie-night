@@ -33,13 +33,13 @@ class App extends React.Component {
     render() {
         var mainPage;
         if (this.state.location == "home") {
-            mainPage = (<Suggestions></Suggestions>)
+            mainPage = (<Suggestions currentUser={this.props.currentUser}></Suggestions>)
         }
         else {
-            mainPage = (<Results sendResults={this.state.results} />);
+            mainPage = (<Results sendResults={this.state.results} currentUser={this.props.currentUser}/>);
         }
         return <>
-        <Header sendResults ={this.getResults} sendLocation={this.getLocation}/>
+        <Header sendResults ={this.getResults} sendLocation={this.getLocation} currentUser={this.props.currentUser}/>
         {mainPage}
         </>;
     }
