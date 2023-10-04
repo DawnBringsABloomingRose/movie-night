@@ -90,7 +90,7 @@ class Movie extends React.Component {
       {recdby}
       {line3} 
       {line4}
-      <Tags blocks={this.props.blocks} editable={this.props.user.id == this.props.currentUser} movie_id={this.props.movie.id}/>
+      {this.props.blocks ? <Tags blocks={this.props.blocks} editable={this.props.user.id == this.props.currentUser} movie_id={this.props.movie.id}/> : <></>}
       </Card>
     </>);
   }

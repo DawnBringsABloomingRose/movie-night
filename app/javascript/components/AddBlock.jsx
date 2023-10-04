@@ -24,7 +24,8 @@ class AddBlock extends React.Component {
               return data.json();
             }
             throw new Error("Network error.");
-          });
+          })
+          .then((data) => { this.returnBlocks(data)});
 
     };
     showModal = () => {
@@ -39,6 +40,9 @@ class AddBlock extends React.Component {
         });
     };
 
+    returnBlocks = (blocks) => {
+      
+    }
     render() {
 
         return (

@@ -15,7 +15,7 @@ class MovieButtons extends React.Component {
     }
 
     componentDidMount() {
-      this.loadblocks();
+      //this.loadblocks();
     }
 
     loadblocks = () => {
@@ -72,6 +72,7 @@ class MovieButtons extends React.Component {
         this.setState({
           visible: true,
         });
+        this.loadblocks();
     };
     
     handleCancel = () => {
@@ -88,12 +89,12 @@ class MovieButtons extends React.Component {
                 Create New +
             </Button>
             <Modal open={this.state.visible} title="Suggest movie" okText="Submit" cancelText="Cancel" onCancel={this.handleCancel} footer={null}>
-                <Form ref={this.formRef} name="suggestion" onFinish={this.submitForm}>
+                <Form ref={this.formRef} name={"suggestion" + this.props.name} onFinish={this.submitForm}>
                     <Form.Item name="halloween" label="For Spooky month?" valuePropName="checked">
                         <Checkbox></Checkbox>
                     </Form.Item>
                     <Form.Item name="blocks" label="Suggested Blocks:">
-                      <Select mode="multiple" allowClear placeholder="None is also an option" options={this.state.blockOptions} />
+                      <Select mode="multiple" allowClear placeholder="None is also an option" options={this.state.blockOptions} optionFilterProp="label" />
                     </Form.Item>
                     <Form.Item>
 							<Button type="primary" htmlType="submit">

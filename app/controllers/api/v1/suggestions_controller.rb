@@ -28,10 +28,11 @@ class Api::V1::SuggestionsController < ApplicationController
       @suggestion = Suggestion.new(movie_id: @movie.id, user_id: current_user.id)
     end
     #@suggestion = Suggestion.new(suggestion_params)
-    if params[:block]
-    params[:blocks].each do |block|
-      @movie.block_movies.build(block_id: block).save
-    end
+    if params[:blocks]
+      puts "hello"
+      params[:blocks].each do |block|
+        @movie.block_movies.build(block_id: block).save
+      end
     end
 
     if @suggestion.save

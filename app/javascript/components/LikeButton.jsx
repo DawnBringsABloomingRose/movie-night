@@ -8,6 +8,7 @@ class LikeButton extends React.Component {
         status: "nolike",
         style: {},
         onClickEvent: this.createLike,
+        likes: [],
     }
 
     createLike = () => {
@@ -22,54 +23,72 @@ class LikeButton extends React.Component {
         })
           .then((data) => {
             if (data.ok) {
+              this.getLikes();
               return data.json();
             }
             throw new Error("Network error.");
           });
-        this.setState((prevState) => ({
-            status: "liked",
-            style: {background: "aqua", borderColor: "red"},
-            onClickevent: this.deleteLike,
-        }));
     }
 
     deleteLike = () => {
-        const id = this.props.likes.find((el) => el.user_id == this.props.currentUser).id;
+        const id = this.state.likes.find((el) => el.user_id == this.props.currentUser).id;
         const url = `api/v1/likes/${id}`;
         fetch(url, {
           method: "delete",
         })
           .then((data) => {
             if (data.ok) {
-    
+              this.getLikes();
               return data.json();
             }
             throw new Error("Network error.");
           });
-        this.setState((prevState) => ({
-            status: "nolike",
-            style: {},
-            onClickEvent: this.createLike,
-        }));
     }
 
+    getLikes = () => {
+      const url = 'api/v1/likes/index/' + this.props.suggestion_id
+      fetch(url, {
+        method: 'get',
+      }).then((data) => {
+        if(data.ok) {
+          return data.json();
+        }
+        throw new Error('Network error.')
+      }).then((data)=> {
+        this.updateState(data)
+      }); 
+    }
+
+    updateState = (likes) => {
+      //console.log(likes)
+      this.setState(() => ({
+        likes: likes,
+      }))
+
+      if (likes.some((el) => {
+        return el.user_id == this.props.currentUser
+      })) {
+        this.setState(() => ({
+            status:"liked",
+            style: {background: "aqua", borderColor: "red"},
+            onClickEvent: this.deleteLike,
+        }));
+    }
+    else {
+      //console.log(likes);
+        this.setState(() => ({
+            status:"nolike",
+            style: {},
+            onClickEvent: this.createLike
+        }))
+    }
+
+    };
+
+    //call update on load, and everytime create or delete likes
+    //update: get all the likes, set the state depending on whether the currentuser liked it
     componentDidMount() {
-        if (this.props.likes.some((el) => {
-            return el.user_id == this.props.currentUser
-        })) {
-            this.setState((prevState) => ({
-                status:"liked",
-                style: {background: "aqua", borderColor: "red"},
-                onClickEvent: this.deleteLike,
-            }));
-        }
-        else {
-            this.setState((prevState) => ({
-                status:"nolike",
-                style: {},
-                onClickEvent: this.createLike
-            }))
-        }
+        this.getLikes();
     }
 
     likeHandler = () => {
@@ -83,7 +102,7 @@ class LikeButton extends React.Component {
 
     render() {
         return(<>
-        <Button shape="circle" onClick={this.state.onClickEvent} icon={<ArrowUpOutlined />} className={this.state.status} style={this.state.style}>{this.props.likes.length}</Button>
+        <Button shape="circle" onClick={this.state.onClickEvent} icon={<ArrowUpOutlined />} className={this.state.status} style={this.state.style}>{this.state.likes.length}</Button>
         </>)
     }
 }

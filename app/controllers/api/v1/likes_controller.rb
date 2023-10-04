@@ -3,7 +3,8 @@ class Api::V1::LikesController < ApplicationController
     skip_before_action :verify_authenticity_token
 
     def index
-        @likes = Like.all
+        #movie = Suggestion.where(movie_id: params[:suggestion_id])
+        @likes = Like.where(suggestion_id: params[:id])
         render json: @likes
     end
 
