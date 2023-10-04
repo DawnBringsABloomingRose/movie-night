@@ -22,6 +22,9 @@ Rails.application.routes.draw do
 
       post 'likes/', to: 'likes#create'
       delete 'likes/:id', to: 'likes#destroy'
+
+      delete 'blockmovies/', to: 'block_movies#destroy'
+      post 'blockmovies/', to: 'block_movies#create'
     end
   end
 end

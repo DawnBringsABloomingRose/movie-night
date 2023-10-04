@@ -35,10 +35,13 @@ class SearchsController < ApplicationController
       temphash["year"] = temphash["release_date"]
 
 
-      search = Movie.all.where(tmdb_ref: movie["id"]).first 
-      if search
+      search = Movie.all.where(tmdb_ref: movie["id"]).first
+      suggest = Suggestion.all.where(movie: search).first if search 
+      if suggest
         temphash["suggested"] = true
         temphash["user"] = search.user
+        temphash["likes"] = suggest.likes
+        temphash["blocks"] = suggest.blocks
       else
          temphash["suggested"] = false
          temphash["user"] = ''

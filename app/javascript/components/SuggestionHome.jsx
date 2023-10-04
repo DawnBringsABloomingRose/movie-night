@@ -1,6 +1,7 @@
 import { message, Popconfirm, List } from "antd";
 import React from "react";
 import Movie from "./Movie";
+import Api from "./helpers/api";
 
 class Suggestions extends React.Component {
   columns = [
@@ -30,6 +31,25 @@ class Suggestions extends React.Component {
     this.loadsuggestions();
   }
 
+  /*loadsuggestions = () => {
+    api = new Api();
+    api.getCall('suggestions/index').then((data) => 
+    data.forEach((suggestion) => {
+      const newEl = {
+        key: suggestion.id,
+        id: suggestion.id,
+        movie: suggestion.movie,
+        user: suggestion.user,
+        likes: suggestion.likes,
+        blocks: suggestion.blocks,
+      };
+
+      this.setState((prevState) => ({
+        suggestions: [...prevState.suggestions, newEl],
+      }));
+    }));
+  } */
+
   loadsuggestions = () => {
     const url = "api/v1/suggestions/index";
     fetch(url)
@@ -40,14 +60,14 @@ class Suggestions extends React.Component {
         throw new Error("Network error.");
       })
       .then((data) => {
-        console.log(data)
         data.forEach((suggestion) => {
           const newEl = {
             key: suggestion.id,
             id: suggestion.id,
             movie: suggestion.movie,
             user: suggestion.user,
-            likes: suggestion.likes
+            likes: suggestion.likes,
+            blocks: suggestion.blocks,
           };
 
           this.setState((prevState) => ({
@@ -80,9 +100,10 @@ class Suggestions extends React.Component {
   };
 
   render() {
-    console.log(this.state.suggestions)
     var movies = this.state.suggestions.map(movie => 
-      <li key={movie.id}><Movie movie = { movie.movie } suggested = {true} user = { movie.user } likes={movie.likes} currentUser={this.props.currentUser} id={movie.id}/></li>
+      <li key={movie.id}><Movie movie = { movie.movie } suggested = {true} user = { movie.user } 
+                                likes={movie.likes} currentUser={this.props.currentUser} id={movie.id}
+                                blocks={movie.blocks}/></li>
     );
     return (
       /*<>

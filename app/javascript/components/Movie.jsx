@@ -4,6 +4,7 @@ import MovieButtons from "./MovieButtons";
 import pumpkin from '../../assets/images/pumpkin.png'
 import LikeButton from "./LikeButton";
 import DeleteSuggestion from "./DeleteSuggestion";
+import Tags from "./Tags";
 
 class Movie extends React.Component {
   constructor(props) {
@@ -26,7 +27,6 @@ class Movie extends React.Component {
         throw new Error("Network error.");
       })
       .then((data) => {
-        console.log(data)
         tmdb_info = data;
         this.setState((prevState) => ({
           tmdb_info: data,}))
@@ -37,6 +37,10 @@ class Movie extends React.Component {
 
   componentDidMount() {
     this.loadtmdb();
+  }
+
+  getBlocks() {
+
   }
 
   render() {
@@ -53,12 +57,12 @@ class Movie extends React.Component {
     if (this.props.movie.halloween) {
       heading =  <h2>{this.props.movie.name} - ({this.props.movie.year}) <bold>FOR HALLOWEEN</bold></h2>;
       cardClass = "halloween";
-      title = <div className="cardtitle"><LikeButton suggestion_id={this.props.movie.id} likes={this.props.likes} currentUser={this.props.currentUser}/><h2>{this.props.movie.name + " - " + this.props.movie.year}</h2>
+      title = <div className="cardtitle"><LikeButton suggestion_id={this.props.id} likes={this.props.likes} currentUser={this.props.currentUser}/><h2>{this.props.movie.name + " - " + this.props.movie.year}</h2>
         <img src={pumpkin} alt="A small pumpkin, signifying halloween" /></div>
     }
-    else {
+    else if (this.props.suggested) {
       heading =  <h2>{this.props.movie.name} - ({this.props.movie.year})</h2>;
-      title = <div className="cardtitle"><LikeButton suggestion_id={this.props.movie.id} likes={this.props.likes} currentUser={this.props.currentUser}/><h2>{this.props.movie.name + " - " + this.props.movie.year}</h2>
+      title = <div className="cardtitle"><LikeButton suggestion_id={this.props.id} likes={this.props.likes} currentUser={this.props.currentUser}/><h2>{this.props.movie.name + " - " + this.props.movie.year}</h2>
         </div>
       cardClass = "card"
     }
@@ -86,6 +90,7 @@ class Movie extends React.Component {
       {recdby}
       {line3} 
       {line4}
+      <Tags blocks={this.props.blocks} editable={this.props.user.id == this.props.currentUser} movie_id={this.props.movie.id}/>
       </Card>
     </>);
   }
