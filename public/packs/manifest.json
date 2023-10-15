@@ -1,0 +1,25 @@
+{
+  "entrypoints": {
+    "hello_react": {
+      "js": [
+        "/packs/js/hello_react-fa70ec3f3a370f9ca70d.js"
+      ],
+      "js.map": [
+        "/packs/js/hello_react-fa70ec3f3a370f9ca70d.js.map"
+      ]
+    },
+    "index": {
+      "js": [
+        "/packs/js/index-1cb9800948de88cb7422.js"
+      ],
+      "js.map": [
+        "/packs/js/index-1cb9800948de88cb7422.js.map"
+      ]
+    }
+  },
+  "hello_react.js": "/packs/js/hello_react-fa70ec3f3a370f9ca70d.js",
+  "hello_react.js.map": "/packs/js/hello_react-fa70ec3f3a370f9ca70d.js.map",
+  "index.js": "/packs/js/index-1cb9800948de88cb7422.js",
+  "index.js.map": "/packs/js/index-1cb9800948de88cb7422.js.map",
+  "media/images/pumpkin.png": "/packs/media/images/pumpkin-3f9cc57a.png"
+}
