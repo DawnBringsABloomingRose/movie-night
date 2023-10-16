@@ -5,14 +5,53 @@ import pumpkin from '../../assets/images/pumpkin.png'
 import LikeButton from "./LikeButton";
 import DeleteSuggestion from "./DeleteSuggestion";
 import Tags from "./Tags";
+import UserLink from "./UserLink";
+import InfoTab from "./InfoTab";
 
 class Movie extends React.Component {
+
+  state = {
+    activeTab: 'basic',
+    tmdb_info: {genres:[]},
+    imagePath: 'https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'
+  }
   constructor(props) {
     super(props);
     var tmdb_info;
+    if (this.props.user.id == this.props.currentUser || this.props.user.admin) {
+      this.tabList.push( {
+        key: 'edit',
+        label: 'Edit Info'
+      },)
+    }
     //this.loadtmdb();
   }
 
+  tabList = [
+    {
+      key: 'basic',
+      label: 'Basic Info',
+    },
+    {
+      key: 'tmdb',
+      label: 'TMDB Info'
+    },
+  ]
+
+  basicInfo = <></>;
+  tmdbInfo = <></>;
+  editInfo = <></>;
+
+  tabContent = {
+    basic: this.basicInfo,
+    tmdb: this.tmdbInfo,
+    edit: this.editInfo,
+  }
+
+  onTabChange = (key) => {
+    this.setState(() =>
+    ({activeTab: key}));
+  }
   loadtmdb = () => {
     if (this.props.movie.tmdb_ref == null) {
       return
@@ -29,7 +68,8 @@ class Movie extends React.Component {
       .then((data) => {
         tmdb_info = data;
         this.setState((prevState) => ({
-          tmdb_info: data,}))
+          tmdb_info: data,
+          imagePath: 'https://www.themoviedb.org/t/p/original/' + data.poster_path}))
 
       })
       .catch((err) => message.error("Error: " + err));
@@ -37,13 +77,57 @@ class Movie extends React.Component {
 
   componentDidMount() {
     this.loadtmdb();
+    if (!this.props.suggested) {
+      this.setState(() => ({
+        imagePath: 'https://www.themoviedb.org/t/p/original/' + this.props.movie.poster_path
+      }))
+    }
   }
 
   getBlocks() {
 
   }
 
+  updateTabContents = () => {
+    var leftContent;
+    var information
+    if (this.props.suggested && this.props.user != null) {
+      leftContent = <p className="user-rec">Recommended by <UserLink name={this.props.user.name} id={this.props.user.id} /></p>
+      information = this.state.tmdb_info
+    } 
+    else {
+      leftContent = <></>;
+      information = this.props.movie;
+    }
+
+    this.basicInfo = <>
+    <div className="basic-tab">
+      <img src={this.state.imagePath}/>
+      {leftContent}
+      <p>{this.props.movie.runtime}{this.props.movie.length_in_mins} minutes long</p>
+      <div className="movie-tags">
+        {this.props.blocks ? <Tags blocks={this.props.blocks} editable={this.props.user.id == this.props.currentUser} movie_id={this.props.movie.id}/> : <></>}
+        </div>
+      </div></>;
+
+
+    
+    this.tmdbInfo = <><InfoTab info={information}/></>;
+
+    this.editInfo = <><div className="editor">
+        <DeleteSuggestion id={this.props.id}/>
+        {this.props.blocks ? <Tags blocks={this.props.blocks} editable={this.props.user.id == this.props.currentUser} movie_id={this.props.movie.id}/> : <></>}
+      </div></>;
+
+    this.tabContent = {
+      basic: this.basicInfo,
+      tmdb: this.tmdbInfo,
+      edit: this.editInfo,
+    };
+  }
+
   render() {
+    this.updateTabContents();
     //console.log(this.props)
     //title, year, HIGHLIGHTED HALLOWEEN
     //rec'd by
@@ -86,11 +170,14 @@ class Movie extends React.Component {
     }
     return (
     <>
-    <Card style={{width: '100%'}} title={title} className={cardClass} extra={extra}>
-      {recdby}
-      {line3} 
-      {line4}
-      {this.props.blocks ? <Tags blocks={this.props.blocks} editable={this.props.user.id == this.props.currentUser} movie_id={this.props.movie.id}/> : <></>}
+    <Card style={{width: '100%'}} 
+          title={title} 
+          className={cardClass} 
+          extra={extra}
+          tabList={this.tabList}
+          activeTabKey={this.state.activeTab}
+          onTabChange={this.onTabChange}>
+      {this.tabContent[this.state.activeTab]}      
       </Card>
     </>);
   }

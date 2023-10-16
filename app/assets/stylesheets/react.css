@@ -6,8 +6,9 @@
     color: orange;
 }
 
-.halloween h2 {
+.halloween * {
     color: orange;
+    border-color: orange;
 }
 
 .cardtitle {
@@ -22,4 +23,25 @@
 
 .liked {
     background-color: aqua;
+}
+
+.basic-tab {
+    display: grid;
+    grid-template-columns: 200px auto;
+    grid-template-rows: auto auto 50%;
+    grid-gap: 10px;
+    align-items: start;
+    justify-items: start;
+    height: 100%;
+}
+
+.basic-tab img {
+    grid-area: 1 / 1 / span 3 / span 1;
+    width: 200px;
+    height: 300px;
+}
+
+.editor {
+    display:flex;
+    flex-direction: column;
 }
