@@ -96,7 +96,7 @@ class Movie extends React.Component {
       information = this.state.tmdb_info
     } 
     else {
-      leftContent = <></>;
+      leftContent = <MovieButtons name={this.props.movie.name} year={this.props.movie.year} runtime={this.props.movie.runtime} tmdb_ref={this.props.movie.id}></MovieButtons>;;
       information = this.props.movie;
     }
 

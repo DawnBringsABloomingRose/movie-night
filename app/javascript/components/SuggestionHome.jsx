@@ -1,9 +1,16 @@
-import { message, Popconfirm, List } from "antd";
+import { message, Popconfirm, List, Button } from "antd";
 import React from "react";
+import { useEffect } from "react";
 import Movie from "./Movie";
 import Api from "./helpers/api";
 
 class Suggestions extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.offset = 0;
+    this.isLoading = true;
+  }
   columns = [
     {
       title: "Movie",
@@ -51,7 +58,8 @@ class Suggestions extends React.Component {
   } */
 
   loadsuggestions = () => {
-    const url = "api/v1/suggestions/index";
+    let query = "offset=" + this.offset
+    const url = "api/v1/suggestions/index?" + query + '&format=json';
     fetch(url)
       .then((data) => {
         if (data.ok) {
@@ -74,6 +82,8 @@ class Suggestions extends React.Component {
             suggestions: [...prevState.suggestions, newEl],
           }));
         });
+        this.isLoading = false;
+        this.offset += 1;
       })
       .catch((err) => message.error("Error: " + err));
   };
@@ -99,6 +109,22 @@ class Suggestions extends React.Component {
       .catch((err) => message.error("Error: " + err));
   };
 
+  onLoadMore = () => {
+    this.isLoading = true;
+    this.loadsuggestions();
+  }
+
+  loadMore = !this.isLoading ? (<div
+    style={{
+      textAlign: 'center',
+      marginTop: 12,
+      height: 32,
+      lineHeight: '32px',
+    }}
+  >
+    <Button onClick={this.onLoadMore}>Load More Suggestions</Button>
+  </div>) : null;
+
   render() {
     var movies = this.state.suggestions.map(movie => 
       <li key={movie.id}><Movie movie = { movie.movie } suggested = {true} user = { movie.user } 
@@ -112,7 +138,10 @@ class Suggestions extends React.Component {
         <AddSuggestionModal reloadsuggestions={this.reloadsuggestions} />
       </> */
       <>
-      <List>{movies}</List>
+      <List
+        className="suggestion-list"
+        loading={this.isLoading}
+        loadMore={this.loadMore}>{movies}</List>
       </> 
     );
   }

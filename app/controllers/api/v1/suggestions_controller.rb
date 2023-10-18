@@ -1,8 +1,11 @@
 class Api::V1::SuggestionsController < ApplicationController
   before_action :set_suggestion, only: [:show, :edit, :update, :destroy]
   skip_before_action :verify_authenticity_token
+
   def index
-    @suggestions = Suggestion.all.includes(:movie)
+    @suggestions = Suggestion.all.includes(:movie, :blocks)
+    @suggestions = @suggestions.offset(10*params[:offset].to_i).limit(10)
+    puts @suggestions
     render json: @suggestions, include: [:movie, :user, :likes, :blocks]
   end
 
