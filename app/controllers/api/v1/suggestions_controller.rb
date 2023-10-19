@@ -3,9 +3,24 @@ class Api::V1::SuggestionsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-    @suggestions = Suggestion.all.includes(:movie, :blocks)
+
+    @suggestions = Suggestion.all.includes(:movie, :blocks) #or order("created_at DESC")
+
+    if params[:order_by] == 'likes'
+      @suggestions = @suggestions.left_joins(:likes).group(:id).order("COUNT(likes.id) #{params[:direction]}, suggestions.created_at #{params[:direction]}")
+    elsif params[:order_by] == 'age'
+      @suggestions = @suggestions.order("suggestions.created_at #{params[:direction]}")
+    end
+
+    if params[:halloween] == 'true'
+      @suggestions = @suggestions.where(movie: {halloween: true} ).group("movie.id, suggestions.id, blocks.id")
+    end
+
+    if params[:tags] != 'undefined' and defined?(params[:tags])
+      @suggestions = @suggestions.where(blocks: {id: params[:tags]})
+    end
+
     @suggestions = @suggestions.offset(10*params[:offset].to_i).limit(10)
-    puts @suggestions
     render json: @suggestions, include: [:movie, :user, :likes, :blocks]
   end
 

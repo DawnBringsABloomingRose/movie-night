@@ -3,6 +3,7 @@ import React from "react";
 import { useEffect } from "react";
 import Movie from "./Movie";
 import Api from "./helpers/api";
+import SuggestionFilter from "./SuggestionFilter";
 
 class Suggestions extends React.Component {
 
@@ -10,32 +11,29 @@ class Suggestions extends React.Component {
     super(props);
     this.offset = 0;
     this.isLoading = true;
+    this.getParams = this.getParams.bind(this)
   }
-  columns = [
-    {
-      title: "Movie",
-      dataIndex: "movie",
-      key: "movie",
-    },
-    {
-      title: "",
-      key: "action",
-      render: (_text, record) => (
-        <Popconfirm title="Are you sure to delete this suggestion?" onConfirm={() => this.deletesuggestion(record.id)} okText="Yes" cancelText="No">
-          <a href="#" type="danger">
-            Delete{" "}
-          </a>
-        </Popconfirm>
-      ),
-    },
-  ];
+
+
 
   state = {
     suggestions: [],
+    params: {
+      halloween: false,
+      tags: undefined,
+      order_by: 'age',
+      direction: 'desc',
+    }
   };
 
   componentDidMount() {
     this.loadsuggestions();
+  }
+
+  getParams(val) {
+    this.setState((prevState) => ({
+      params: val,
+  }), this.reloadsuggestions)
   }
 
   /*loadsuggestions = () => {
@@ -58,9 +56,14 @@ class Suggestions extends React.Component {
   } */
 
   loadsuggestions = () => {
-    let query = "offset=" + this.offset
-    const url = "api/v1/suggestions/index?" + query + '&format=json';
-    fetch(url)
+    let query = "offset=" + this.offset + '&' +  new URLSearchParams(this.state.params);
+    const url = "api/v1/suggestions/index?" + query;
+    fetch(url, {
+        method: "get",
+        headers: {
+        "Content-Type": "application/json",
+        },
+    })
       .then((data) => {
         if (data.ok) {
           return data.json();
@@ -90,6 +93,7 @@ class Suggestions extends React.Component {
 
   reloadsuggestions = () => {
     this.setState({ suggestions: [] });
+    this.offset = 0;
     this.loadsuggestions();
   };
 
@@ -132,12 +136,8 @@ class Suggestions extends React.Component {
                                 blocks={movie.blocks}/></li>
     );
     return (
-      /*<>
-        <Table className="table-striped-rows" dataSource={this.state.suggestions} columns={this.columns} pagination={{ pageSize: 5 }} />
-
-        <AddSuggestionModal reloadsuggestions={this.reloadsuggestions} />
-      </> */
       <>
+      <SuggestionFilter sendParams={this.getParams}/>
       <List
         className="suggestion-list"
         loading={this.isLoading}
