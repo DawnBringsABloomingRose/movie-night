@@ -3,8 +3,7 @@ class Api::V1::SuggestionsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-
-    @suggestions = Suggestion.all.includes(:movie, :blocks) #or order("created_at DESC")
+    @suggestions = Suggestion.all.includes(:movie, :blocks)
 
     if params[:order_by] == 'likes'
       @suggestions = @suggestions.left_joins(:likes).group(:id).order("COUNT(likes.id) #{params[:direction]}, suggestions.created_at #{params[:direction]}")
@@ -13,11 +12,15 @@ class Api::V1::SuggestionsController < ApplicationController
     end
 
     if params[:halloween] == 'true'
+      # group by in postgres requires all ids included in the select to either the group by statement or in an aggregate function
+      # therefore we include all of them in the group by statement...
+      # does this or the requirement make sense? no. does it work? seemingly so
       @suggestions = @suggestions.where(movie: {halloween: true} ).group("movie.id, suggestions.id, blocks.id")
     end
 
     if params[:tags] != 'undefined' and defined?(params[:tags])
-      @suggestions = @suggestions.where(blocks: {id: params[:tags]})
+      @suggestions = @suggestions.where(blocks: {id: params[:tags]}).group("movies.id, suggestions.id, blocks.id") unless params[:halloween] == 'true'
+      @suggestions = @suggestions.where(blocks: {id: params[:tags]}).group("movie.id, suggestions.id, blocks.id") if params[:halloween] == 'true'
     end
 
     @suggestions = @suggestions.offset(10*params[:offset].to_i).limit(10)
