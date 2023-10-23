@@ -45,7 +45,7 @@ class MovieButtons extends React.Component {
 
     submitForm = (values) => {
         values.name = this.props.name;
-        values.length_in_minutes = this.props.runtime;
+        values.length_in_mins = this.props.runtime;
         values.year = this.props.year;
         values.tmdb_ref = this.props.tmdb_ref;
         console.log(values);

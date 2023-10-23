@@ -2,6 +2,7 @@ import React from "react";
 import {message, Button, Space} from "antd";
 import { SearchOutlined } from '@ant-design/icons';
 import AddBlock from "./AddBlock";
+import AddMovie from "./AddMovie";
 
 class Header extends React.Component {
     constructor(props){
@@ -49,11 +50,11 @@ class Header extends React.Component {
     }
 
     render() {
-      //this.props.sendLocation(this.state.location);
         return (<div className="header">
           <Space>
             <Button type="primary" onClick={this.backToHome.bind(this)}>Home</Button>
             <AddBlock />
+            <AddMovie />
           </Space>
           <br />
           <Space>

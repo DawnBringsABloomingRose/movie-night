@@ -43,8 +43,8 @@ class Api::V1::SuggestionsController < ApplicationController
   end
 
   def create
-    @movie = Movie.where(tmdb_ref: params[:tmdb_ref]).first
-    @movie = Movie.new(name: params[:name], year: params[:year], tmdb_ref: params[:tmdb_ref], halloween: params[:halloween], length_in_mins: params[:length_in_minutes]) unless @movie
+    @movie = Movie.where(tmdb_ref: params[:tmdb_ref]).first if params[:tmdb_ref]
+    @movie = Movie.new(name: params[:name], year: params[:year], tmdb_ref: params[:tmdb_ref], halloween: params[:halloween], length_in_mins: params[:length_in_mins]) unless @movie
     if @movie.save
       @suggestion = Suggestion.new(movie_id: @movie.id, user_id: current_user.id)
     end

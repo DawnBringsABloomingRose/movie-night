@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_22_135447) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_23_124717) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -46,6 +46,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_22_135447) do
     t.boolean "halloween", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image"
+    t.string "link"
+    t.boolean "watched", default: false
     t.index ["name"], name: "index_movies_on_name"
     t.index ["tmdb_ref"], name: "index_movies_on_tmdb_ref", unique: true
   end
