@@ -10,16 +10,16 @@
     },
     "index": {
       "js": [
-        "/packs/js/index-ef17eef0115c307c0560.js"
+        "/packs/js/index-5c4852d98c525325a3d4.js"
       ],
       "js.map": [
-        "/packs/js/index-ef17eef0115c307c0560.js.map"
+        "/packs/js/index-5c4852d98c525325a3d4.js.map"
       ]
     }
   },
   "hello_react.js": "/packs/js/hello_react-fa70ec3f3a370f9ca70d.js",
   "hello_react.js.map": "/packs/js/hello_react-fa70ec3f3a370f9ca70d.js.map",
-  "index.js": "/packs/js/index-ef17eef0115c307c0560.js",
-  "index.js.map": "/packs/js/index-ef17eef0115c307c0560.js.map",
+  "index.js": "/packs/js/index-5c4852d98c525325a3d4.js",
+  "index.js.map": "/packs/js/index-5c4852d98c525325a3d4.js.map",
   "media/images/pumpkin.png": "/packs/media/images/pumpkin-3f9cc57a.png"
 }

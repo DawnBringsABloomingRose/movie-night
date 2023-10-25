@@ -19,7 +19,7 @@ class Movie extends React.Component {
     super(props);
     var tmdb_info;
     //wrong this needs to be currentuser.admin
-    if (this.props.user.id == this.props.currentUser.id || this.props.currentUser.admin) {
+    if ((this.props.user.id == this.props.currentUser.id || this.props.currentUser.admin) && this.props.suggested) {
       this.tabList.push( {
         key: 'edit',
         label: 'Edit Info'
@@ -55,6 +55,7 @@ class Movie extends React.Component {
   }
   loadtmdb = () => {
     if (this.props.movie.tmdb_ref == null) {
+      this.setImage();
       return
     }
     
@@ -70,11 +71,26 @@ class Movie extends React.Component {
         tmdb_info = data;
         this.setState((prevState) => ({
           tmdb_info: data,
-          imagePath: 'https://www.themoviedb.org/t/p/original/' + data.poster_path}))
+          imagePath: 'https://www.themoviedb.org/t/p/original/' + data.poster_path}));
+        
+        this.setImage();
 
       })
       .catch((err) => message.error("Error: " + err));
   };
+
+  setImage() {
+    if (!this.props.suggested) {
+      this.setState(() => ({
+        imagePath: 'https://www.themoviedb.org/t/p/original/' + this.props.movie.poster_path
+      }))
+    }
+    if (this.props.movie.image != null) {
+      this.setState(() => ({
+        imagePath: this.props.movie.image,
+      }))
+    }
+  }
 
   componentDidMount() {
     this.loadtmdb();
@@ -114,7 +130,7 @@ class Movie extends React.Component {
 
     
     this.tmdbInfo = <><InfoTab info={information}/></>;
-    if (this.props.currentUser.admin || this.props.currentUser.id == this.props.user.id) {
+    if ((this.props.currentUser.admin || this.props.currentUser.id == this.props.user.id) && this.props.suggested) {
       this.editInfo = <><div className="editor">
           <DeleteSuggestion id={this.props.id}/>
           {this.props.blocks ? <Tags blocks={this.props.blocks} editable={true} movie_id={this.props.movie.id}/> : <></>}

@@ -5,7 +5,8 @@ import { List } from "antd";
 class Results extends React.Component {
     render() {
         var movies = this.props.sendResults.map(movie => 
-            <li key={movie.id}><Movie movie = { movie } suggested = {movie.suggested} user = { movie.user } likes={movie.likes} blocks={movie.blocks}/></li>
+            <li key={movie.id}><Movie movie = { movie } suggested = {movie.suggested} user = { movie.user } likes={movie.likes} blocks={movie.blocks}
+            currentUser={this.props.currentUser}/></li>
           );
       
         return <>
