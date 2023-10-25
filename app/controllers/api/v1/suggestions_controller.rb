@@ -3,7 +3,7 @@ class Api::V1::SuggestionsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-    @suggestions = Suggestion.all.includes(:movie, :blocks).where(movie: {watched: false} )
+    @suggestions = Suggestion.all.includes(:movie, :blocks).where(movie: {watched: [false, nil]} )
 
     if params[:order_by] == 'likes'
       @suggestions = @suggestions.left_joins(:likes).group("suggestions.id, movie.id, blocks.id").order("COUNT(likes.id) #{params[:direction]}, suggestions.created_at #{params[:direction]}")

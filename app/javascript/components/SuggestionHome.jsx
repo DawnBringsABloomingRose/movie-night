@@ -73,8 +73,8 @@ class Suggestions extends React.Component {
       .then((data) => {
         data.forEach((suggestion) => {
           const newEl = {
-            key: suggestion.id,
-            id: suggestion.id,
+            key: suggestion.movie.id,
+            id: suggestion.movie.id,
             movie: suggestion.movie,
             user: suggestion.user,
             likes: suggestion.likes,

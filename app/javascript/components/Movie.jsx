@@ -1,5 +1,5 @@
 import React from "react";
-import { message, Card } from "antd";
+import { message, Card, Button } from "antd";
 import MovieButtons from "./MovieButtons";
 import pumpkin from '../../assets/images/pumpkin.png'
 import LikeButton from "./LikeButton";
@@ -105,6 +105,22 @@ class Movie extends React.Component {
 
   }
 
+  updateWatchStatus = () => {
+    const url = "api/v1/movies/" + this.props.id;
+    fetch(url, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({watched: true,}),
+    }).then((data) => {
+      if (data.ok) {
+        return data.json();
+      }
+      throw new Error("Network error.");
+    })
+  }
+
   updateTabContents = () => {
     var leftContent;
     var information
@@ -124,16 +140,21 @@ class Movie extends React.Component {
       <p>{this.props.movie.runtime}{this.props.movie.length_in_mins} minutes long</p>
       <div className="movie-tags">
         {this.props.blocks ? <Tags blocks={this.props.blocks} editable={this.props.user.id == this.props.currentUser.id} movie_id={this.props.movie.id}/> : <></>}
-        </div>
-      </div></>;
+      </div>
+    </div></>;
 
-
-    
     this.tmdbInfo = <><InfoTab info={information}/></>;
+
+    var watchedButton = <></>;
+    if (this.props.currentUser.admin) {
+      watchedButton = <Button onClick={this.updateWatchStatus} >Set to Watched</Button>
+    }
+
     if ((this.props.currentUser.admin || this.props.currentUser.id == this.props.user.id) && this.props.suggested) {
       this.editInfo = <><div className="editor">
           <DeleteSuggestion id={this.props.id}/>
           {this.props.blocks ? <Tags blocks={this.props.blocks} editable={true} movie_id={this.props.movie.id}/> : <></>}
+          {watchedButton}
         </div></>;
     }
 
