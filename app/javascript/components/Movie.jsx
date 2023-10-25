@@ -19,7 +19,7 @@ class Movie extends React.Component {
     super(props);
     var tmdb_info;
     //wrong this needs to be currentuser.admin
-    if (this.props.user.id == this.props.currentUser || this.props.user.admin) {
+    if (this.props.user.id == this.props.currentUser.id || this.props.currentUser.admin) {
       this.tabList.push( {
         key: 'edit',
         label: 'Edit Info'
@@ -107,17 +107,17 @@ class Movie extends React.Component {
       {leftContent}
       <p>{this.props.movie.runtime}{this.props.movie.length_in_mins} minutes long</p>
       <div className="movie-tags">
-        {this.props.blocks ? <Tags blocks={this.props.blocks} editable={this.props.user.id == this.props.currentUser} movie_id={this.props.movie.id}/> : <></>}
+        {this.props.blocks ? <Tags blocks={this.props.blocks} editable={this.props.user.id == this.props.currentUser.id} movie_id={this.props.movie.id}/> : <></>}
         </div>
       </div></>;
 
 
     
     this.tmdbInfo = <><InfoTab info={information}/></>;
-    if (this.props.movie.tmdbInfo) {
+    if (this.props.currentUser.admin || this.props.currentUser.id == this.props.user.id) {
       this.editInfo = <><div className="editor">
           <DeleteSuggestion id={this.props.id}/>
-          {this.props.blocks ? <Tags blocks={this.props.blocks} editable={this.props.user.id == this.props.currentUser} movie_id={this.props.movie.id}/> : <></>}
+          {this.props.blocks ? <Tags blocks={this.props.blocks} editable={true} movie_id={this.props.movie.id}/> : <></>}
         </div></>;
     }
 
@@ -143,19 +143,19 @@ class Movie extends React.Component {
     if (this.props.movie.halloween) {
       heading =  <h2>{this.props.movie.name} - ({this.props.movie.year}) <bold>FOR HALLOWEEN</bold></h2>;
       cardClass = "halloween";
-      title = <div className="cardtitle"><LikeButton suggestion_id={this.props.id} likes={this.props.likes} currentUser={this.props.currentUser}/><h2>{this.props.movie.name + " - " + this.props.movie.year}</h2>
+      title = <div className="cardtitle"><LikeButton suggestion_id={this.props.id} likes={this.props.likes} currentUser={this.props.currentUser.id}/><h2>{this.props.movie.name + " - " + this.props.movie.year}</h2>
         <img src={pumpkin} alt="A small pumpkin, signifying halloween" /></div>
     }
     else if (this.props.suggested) {
       heading =  <h2>{this.props.movie.name} - ({this.props.movie.year})</h2>;
-      title = <div className="cardtitle"><LikeButton suggestion_id={this.props.id} likes={this.props.likes} currentUser={this.props.currentUser}/><h2>{this.props.movie.name + " - " + this.props.movie.year}</h2>
+      title = <div className="cardtitle"><LikeButton suggestion_id={this.props.id} likes={this.props.likes} currentUser={this.props.currentUser.id}/><h2>{this.props.movie.name + " - " + this.props.movie.year}</h2>
         </div>
       cardClass = "card"
     }
     
     if (this.props.suggested && this.props.user !== null) {
       recdby = <p>Recommended by {this.props.user.name}</p>;
-      if (this.props.user.id == this.props.currentUser) {
+      if (this.props.user.id == this.props.currentUser.id) {
         extra = <DeleteSuggestion id={this.props.id}/>
       }
     }

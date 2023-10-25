@@ -26,6 +26,8 @@ Rails.application.routes.draw do
 
       delete 'blockmovies/', to: 'block_movies#destroy'
       post 'blockmovies/', to: 'block_movies#create'
+      
+      get 'currentuser/', to: 'current_users#show'
     end
   end
 end

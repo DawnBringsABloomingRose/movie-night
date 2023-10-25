@@ -13,7 +13,8 @@ class App extends React.Component {
 
     state = {
         results: [],
-        location: "home"
+        location: "home",
+        currentUser: {},
     }
     
     getResults(val) {
@@ -29,17 +30,37 @@ class App extends React.Component {
             location: val
         }))
     }
+    
+    getCurrentUser() {
+        const url = "api/v1/currentuser"
+
+        fetch(url)
+          .then((data) => {
+            if (data.ok) {
+              return data.json();
+            }
+            throw new Error("Network error.");
+          }).then((data) => {
+            this.setState(() => ({
+                currentUser: data,
+            }))
+          })
+    }
+
+    componentDidMount() {
+        this.getCurrentUser();
+    }
 
     render() {
         var mainPage;
         if (this.state.location == "home") {
-            mainPage = (<Suggestions currentUser={this.props.currentUser}></Suggestions>)
+            mainPage = (<Suggestions currentUser={this.state.currentUser}></Suggestions>)
         }
         else {
-            mainPage = (<Results sendResults={this.state.results} currentUser={this.props.currentUser}/>);
+            mainPage = (<Results sendResults={this.state.results} currentUser={this.state.currentUser}/>);
         }
         return <>
-        <Header sendResults ={this.getResults} sendLocation={this.getLocation} currentUser={this.props.currentUser}/>
+        <Header sendResults ={this.getResults} sendLocation={this.getLocation} currentUser={this.state.currentUser}/>
         {mainPage}
         </>;
     }
