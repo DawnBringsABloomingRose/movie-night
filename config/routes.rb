@@ -28,6 +28,7 @@ Rails.application.routes.draw do
       post 'blockmovies/', to: 'block_movies#create'
       
       get 'currentuser/', to: 'current_users#show'
+      get 'watched/', to: 'movies#index'
     end
   end
 end

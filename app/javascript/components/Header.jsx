@@ -49,10 +49,19 @@ class Header extends React.Component {
       this.props.sendLocation("home");
     }
 
+    watchedMovies() {
+      this.setState((prevState) => ({
+        location: "watched",
+      }))
+
+      this.props.sendLocation("watched");
+    }
+
     render() {
         return (<div className="header">
           <Space>
             <Button type="primary" onClick={this.backToHome.bind(this)}>Home</Button>
+            <Button type="primary" onClick={this.watchedMovies.bind(this)}>Watched Movies</Button>
             <AddBlock />
             <AddMovie />
           </Space>

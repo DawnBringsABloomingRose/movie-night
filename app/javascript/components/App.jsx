@@ -2,6 +2,7 @@ import React from "react";
 import Header from "./Header"
 import Results from "./Results"
 import Suggestions from "./SuggestionHome";
+import WatchedMovies from "./WatchedMovies";
 
 class App extends React.Component {
     constructor(props) {
@@ -56,8 +57,11 @@ class App extends React.Component {
         if (this.state.location == "home") {
             mainPage = (<Suggestions currentUser={this.state.currentUser}></Suggestions>)
         }
-        else {
+        else if (this.state.location == "search"){
             mainPage = (<Results sendResults={this.state.results} currentUser={this.state.currentUser}/>);
+        }
+        else if (this.state.location == "watched"){
+            mainPage = (<WatchedMovies currentUser={this.state.currentUser} />);
         }
         return <>
         <Header sendResults ={this.getResults} sendLocation={this.getLocation} currentUser={this.state.currentUser}/>
