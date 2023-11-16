@@ -21,3 +21,7 @@ root.render(<App currentUser={currentUser}/>);
   render(<App />, document.body.appendChild(document.createElement("div")));
   console.log('hello');
 });*/
+
+
+//add react router
+//https://reactrouter.com/en/main/start/tutorial

@@ -65,7 +65,10 @@ class App extends React.Component {
         }
         return <>
         <Header sendResults ={this.getResults} sendLocation={this.getLocation} currentUser={this.state.currentUser}/>
+        <div className="main-content">
         {mainPage}
+        </div>
+        <div className="sidebar"></div>
         </>;
     }
 }
