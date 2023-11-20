@@ -3,6 +3,8 @@ import Header from "./Header"
 import Results from "./Results"
 import Suggestions from "./SuggestionHome";
 import WatchedMovies from "./WatchedMovies";
+import { Outlet } from "react-router-dom";
+import SideBar from "./SideBar";
 
 class App extends React.Component {
     constructor(props) {
@@ -66,9 +68,9 @@ class App extends React.Component {
         return <>
         <Header sendResults ={this.getResults} sendLocation={this.getLocation} currentUser={this.state.currentUser}/>
         <div className="main-content">
-        {mainPage}
+            <Outlet />
         </div>
-        <div className="sidebar"></div>
+        <SideBar />
         </>;
     }
 }
