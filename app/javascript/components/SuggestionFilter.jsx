@@ -40,6 +40,7 @@ class SuggestionFilter extends React.Component {
     }
     render() {
         return (
+          <div className="params-bar">
         <Form
           style={{}}
           layout="inline"
@@ -68,7 +69,7 @@ class SuggestionFilter extends React.Component {
                     <Radio value="desc"> Desc </Radio>
                 </Radio.Group>
             </Form.Item>
-          </Form>)
+          </Form></div>)
     }
 }
 

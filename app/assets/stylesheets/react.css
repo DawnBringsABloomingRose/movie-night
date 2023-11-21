@@ -89,6 +89,13 @@
     height: 10vh;
 }
 
+.params-bar {
+    position:sticky;
+    top: 10px;
+    z-index: 1;
+    background-color: var(--main-bg-color);
+}
+
 
 
 
