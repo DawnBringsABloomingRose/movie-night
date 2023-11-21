@@ -8,7 +8,7 @@ class SideBar extends React.Component {
 
         return ( <>
         <div className="sidebar">
-            <SideBarLink location={`/`} text="Home" />
+            <SideBarLink location={`/`} text="Suggestions" />
             <SideBarLink location={`watched`} text="Watched" />
             <SideBarLink location={`search`} text="Search" />
             <SideBarLink location={`search`} text="New Custom Movie" />

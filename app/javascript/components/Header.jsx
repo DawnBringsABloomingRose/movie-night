@@ -5,6 +5,7 @@ import AddBlock from "./AddBlock";
 import AddMovie from "./AddMovie";
 
 class Header extends React.Component {
+  token = document.getElementsByName('csrf-token')[0].content
     constructor(props){
         super(props);
         var searchQuery = "";
@@ -66,15 +67,6 @@ class Header extends React.Component {
             <AddMovie />
           </Space>
           <br />
-          <Space>
-            <form method="post" onSubmit={this.getSearchResults.bind(this)}>
-              <Space>
-               <label htmlFor="movie_name">
-                  Movie Name Or TMDB ID: <input name="movie_name" type="text" id="movie_name" />
-                </label>
-                <Button type="primary" shape="circle" icon={<SearchOutlined />} htmlType="submit"/></Space>
-            </form>
-          </Space>
         </div>)
     }
 }

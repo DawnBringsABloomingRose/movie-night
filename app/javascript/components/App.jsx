@@ -5,6 +5,7 @@ import Suggestions from "./SuggestionHome";
 import WatchedMovies from "./WatchedMovies";
 import { Outlet } from "react-router-dom";
 import SideBar from "./SideBar";
+import HeaderLogo from "./HeaderLogo";
 
 class App extends React.Component {
     constructor(props) {
@@ -66,7 +67,7 @@ class App extends React.Component {
             mainPage = (<WatchedMovies currentUser={this.state.currentUser} />);
         }
         return <>
-        <Header sendResults ={this.getResults} sendLocation={this.getLocation} currentUser={this.state.currentUser}/>
+        <HeaderLogo></HeaderLogo>
         <div className="main-content">
             <Outlet />
         </div>

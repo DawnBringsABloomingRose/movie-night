@@ -16,7 +16,6 @@
     <%= link_to "sign in", new_user_session_path %>
     <%= link_to "Sign up", new_user_registration_path %>
     <% else %>
-      <%= button_to "logout", destroy_user_session_path, method: :delete %> 
     <div id="current_user" data-value=<%=current_user.id %> hidden></div>
       <%= javascript_pack_tag 'index', defer: 'defer' %>
     <% end %>

@@ -64,7 +64,7 @@
 .sidebar {
     grid-area: 2 / 1 / span 1 / span 1;
     position: sticky;
-    top: 30px;
+    top: 1px;
     height: 50vh;
 }
 
@@ -80,7 +80,14 @@
     border-bottom: 1px solid var(--main-accent-color);
 }
 
+.header a {
+    display:block;
+    text-align: center;
+}
 
+.logo {
+    height: 10vh;
+}
 
 
 
