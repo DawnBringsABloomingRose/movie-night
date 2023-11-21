@@ -12,14 +12,15 @@ class Results extends React.Component {
     state = {
         searchResults: [],
         moviesList: [],
+        isLoading: false,
     }
 
     getSearchResults(e) {
-        var test = 0;
+        this.setState({isLoading: true, text:""})
         e.preventDefault();
         var results;
         var query = new FormData(e.target).get("movie_name");
-        console.log(query);
+        console.log(this);
         const url = "search?movie_name=" + query + '&format=json';
         fetch(url)
             .then((data) => {
@@ -41,7 +42,7 @@ class Results extends React.Component {
         }) */;
         console.log(data);
         this.setState({searchResults: data});
-
+        this.setState({isLoading: false})
         //this.props.sendResults(data);
         //this.props.sendLocation("search");
       })
@@ -49,7 +50,12 @@ class Results extends React.Component {
     }
 
 
-    loadMore = !this.state.isLoading ? (<div
+
+    onLoadMore = () => {
+
+    }
+
+    loadMore = !true ? (<div
         style={{
           textAlign: 'center',
           marginTop: 12,
@@ -63,6 +69,7 @@ class Results extends React.Component {
       componentDidMount() {
         this.setState(() => ({ searchResults:[],
             moviesList: [],
+            text: "Enter a Search now!"
         }))
         console.log(this.state);
       }
@@ -71,10 +78,14 @@ class Results extends React.Component {
             <li key={movie.id}><Movie movie = { movie } suggested = {movie.suggested} user = { movie.user } likes={movie.likes} blocks={movie.blocks}
             currentUser={this.props.currentUser}/></li>
           );
-      
+        
         return <>
             <SearchBar onSubmit={this.getSearchResults}></SearchBar>
-            <List>{ movies }</List>
+            <List
+             className="suggestion-list"
+             loading={this.state.isLoading}
+             loadMore={this.loadMore}>{ movies }</List>
+             {this.state.text}
         </>
     }
 }
