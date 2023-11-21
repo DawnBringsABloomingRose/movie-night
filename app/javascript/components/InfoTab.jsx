@@ -9,7 +9,9 @@ class InfoTab extends React.Component {
     }
 
     setDescriptions(info) {
-        var genres = info.genres.map(genre => genre.name+ ',');
+        try {
+        var genres = info.genres.map(genre => genre.name+ ','); }
+        catch(e) {}
 
         const items = [
             {

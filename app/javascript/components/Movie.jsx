@@ -19,7 +19,7 @@ class Movie extends React.Component {
     super(props);
     var tmdb_info;
     //wrong this needs to be currentuser.admin
-    if ((this.props.user.id == this.props.currentUser.id || this.props.currentUser.admin) && this.props.suggested) {
+    if ((this.props.user.id == this.props.currentUser || this.props.currentUser.admin) && this.props.suggested) {
       this.tabList.push( {
         key: 'edit',
         label: 'Edit Info'
@@ -149,8 +149,7 @@ class Movie extends React.Component {
     if (this.props.currentUser.admin) {
       watchedButton = <Button onClick={this.updateWatchStatus} >Set to Watched</Button>
     }
-
-    if ((this.props.currentUser.admin || this.props.currentUser.id == this.props.user.id) && this.props.suggested) {
+    if ((this.props.currentUser.admin || parseInt(this.props.currentUser) == this.props.user.id) && this.props.suggested) {
       this.editInfo = <><div className="editor">
           <DeleteSuggestion id={this.props.id}/>
           {this.props.blocks ? <Tags blocks={this.props.blocks} editable={true} movie_id={this.props.movie.id}/> : <></>}
