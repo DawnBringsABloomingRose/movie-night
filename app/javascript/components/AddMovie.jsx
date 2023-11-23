@@ -78,7 +78,7 @@ class AddMovie extends React.Component {
 
         return (
             <>
-            <Button type="default" onClick={this.showModal}>
+            <Button type="default" onClick={this.showModal} className="add-movie">
                 Add Custom Suggestion
             </Button>
             <Modal open={this.state.visible} title="Add Block" okText="Submit" cancelText="Cancel" onCancel={this.handleCancel} footer={null}>

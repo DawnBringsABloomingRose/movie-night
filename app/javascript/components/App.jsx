@@ -29,7 +29,7 @@ class App extends React.Component {
         colorBgContainer: '#212529',
         colorText: '#6c757d',
         colorBorder: "#dee2e6",
-        colorBorderSecondary:"#6A866B"
+        colorBorderSecondary:"#6A866B",
     }
 
     lightTheme = {

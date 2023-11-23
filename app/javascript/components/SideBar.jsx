@@ -12,7 +12,6 @@ class SideBar extends React.Component {
             <SideBarLink location={`/`} text="Suggestions" />
             <SideBarLink location={`watched`} text="Watched" />
             <SideBarLink location={`search`} text="Search" />
-            <SideBarLink location={`search`} text="New Custom Movie" />
             <AddMovie />
             <SideBarLink location={`search`} text="Profile" />
             <SideBarLink location={`search`} text="Settings" />
