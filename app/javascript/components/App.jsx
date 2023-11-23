@@ -3,7 +3,7 @@ import Header from "./Header"
 import Results from "./Results"
 import Suggestions from "./SuggestionHome";
 import WatchedMovies from "./WatchedMovies";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import SideBar from "./SideBar";
 import HeaderLogo from "./HeaderLogo";
 

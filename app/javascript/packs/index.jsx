@@ -17,17 +17,18 @@ import WatchedMovies from "../components/WatchedMovies";
 
 const container = document.getElementById("root");
 const currentUser = document.getElementById("current_user").getAttribute("data-value");
+const currentUserAdmin = document.getElementById("current_user_admin").getAttribute("data-value");
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App currentUser={currentUser} />,
     children: [ 
-      {index: true, element: <Suggestions currentUser={currentUser}/> },
+      {index: true, element: <Suggestions currentUser={currentUser} admin={currentUserAdmin}/> },
       {
       path: "watched", 
-      element: <WatchedMovies currentUser={currentUser} />,
+      element: <WatchedMovies currentUser={currentUser} admin={currentUserAdmin}/>,
       },
-      { path: "search", element: <Results currentUser={currentUser}/>}
+      { path: "search", element: <Results currentUser={currentUser} admin={currentUserAdmin}/>}
     ],
     }
 ])

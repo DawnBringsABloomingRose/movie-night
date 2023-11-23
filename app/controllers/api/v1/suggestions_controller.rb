@@ -67,6 +67,7 @@ class Api::V1::SuggestionsController < ApplicationController
   end
 
   def destroy
+    #@suggestion = Suggestion.includes(:movie).where(movie: {id: params[:id]})
     @suggestion.destroy
     render json: { notice: 'Suggestion eliminated' }
   end
@@ -74,7 +75,8 @@ class Api::V1::SuggestionsController < ApplicationController
   private
 
   def set_suggestion
-    @suggestion = Suggestion.find(params[:id])
+    #@suggestion = Suggestion.find(params[:id])
+    @suggestion = Suggestion.includes(:movie).where(movie: {id: params[:id]}).first
   end
 
   def suggestion_params

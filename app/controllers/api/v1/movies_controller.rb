@@ -7,7 +7,12 @@ class Api::V1::MoviesController < ApplicationController
 
     def update
         @movie = Movie.find(params[:id])
-        @movie.watched = true if params[:watched]
+        if params[:watched]
+            @movie.watched = true 
+        else
+            @movie.update(name: params[:name], length_in_mins: params[:length_in_mins], year: params[:year], link: params[:link], image: params[:image], halloween: params[:halloween])
+        end
+        
         @movie.image = params[:image] if params[:image]
 
 

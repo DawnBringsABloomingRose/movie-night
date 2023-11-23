@@ -132,7 +132,7 @@ class Suggestions extends React.Component {
   render() {
     var movies = this.state.suggestions.map(movie => 
       <li key={movie.id}><Movie movie = { movie.movie } suggested = {true} user = { movie.user } 
-                                likes={movie.likes} currentUser={this.props.currentUser} id={movie.id}
+                                likes={movie.likes} currentUser={this.props.currentUser} admin={this.props.admin} id={movie.id}
                                 blocks={movie.blocks}/></li>
     );
     return (

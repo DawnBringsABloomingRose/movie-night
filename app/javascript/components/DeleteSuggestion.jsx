@@ -21,6 +21,8 @@ class DeleteSuggestion extends React.Component {
             style: {},
             onClickEvent: this.createLike,
         }));
+
+        location.reload();
     }
 
     render() {

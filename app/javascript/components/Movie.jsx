@@ -7,6 +7,7 @@ import DeleteSuggestion from "./DeleteSuggestion";
 import Tags from "./Tags";
 import UserLink from "./UserLink";
 import InfoTab from "./InfoTab";
+import EditTab from "./EditTab";
 
 class Movie extends React.Component {
 
@@ -19,7 +20,7 @@ class Movie extends React.Component {
     super(props);
     var tmdb_info;
     //wrong this needs to be currentuser.admin
-    if ((this.props.user.id == this.props.currentUser || this.props.currentUser.admin) && this.props.suggested) {
+    if ((this.props.user.id == this.props.currentUser || this.props.admin) && this.props.suggested) {
       this.tabList.push( {
         key: 'edit',
         label: 'Edit Info'
@@ -146,22 +147,33 @@ class Movie extends React.Component {
     this.tmdbInfo = <><InfoTab info={information}/></>;
 
     var watchedButton = <></>;
-    if (this.props.currentUser.admin) {
+    if (this.props.admin) {
       watchedButton = <Button onClick={this.updateWatchStatus} >Set to Watched</Button>
     }
-    if ((this.props.currentUser.admin || parseInt(this.props.currentUser) == this.props.user.id) && this.props.suggested) {
+    var tags = this.props.blocks ? <Tags blocks={this.props.blocks} editable={true} movie_id={this.props.movie.id}/> : <></>;
+    if ((this.props.admin || parseInt(this.props.currentUser) == this.props.user.id) && this.props.suggested) {
+      this.editInfo = <EditTab name={this.props.movie.name} 
+        year={this.props.movie.year} 
+        length_in_mins={this.props.movie.length_in_mins} 
+        link={this.props.movie.link}
+        image={this.props.movie.image}
+        halloween={this.props.movie.halloween}
+        id={this.props.id}
+        tags={tags}
+        watched={watchedButton}/>
+      /*
       this.editInfo = <><div className="editor">
           <DeleteSuggestion id={this.props.id}/>
           {this.props.blocks ? <Tags blocks={this.props.blocks} editable={true} movie_id={this.props.movie.id}/> : <></>}
           {watchedButton}
-        </div></>;
+        </div></>; */
     }
 
     this.tabContent = {
       basic: this.basicInfo,
       tmdb: this.tmdbInfo,
       edit: this.editInfo,
-    };
+    }; 
   }
 
   render() {

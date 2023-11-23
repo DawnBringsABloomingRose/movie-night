@@ -24,7 +24,8 @@ class AddMovie extends React.Component {
           .then((data) => {
             if (data.ok) {
               this.handleCancel();
-    
+
+              location.reload();
               return data.json();
             }
             throw new Error("Network error.");
