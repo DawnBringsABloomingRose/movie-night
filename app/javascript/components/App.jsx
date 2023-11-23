@@ -6,6 +6,7 @@ import WatchedMovies from "./WatchedMovies";
 import { Outlet, useNavigate } from "react-router-dom";
 import SideBar from "./SideBar";
 import HeaderLogo from "./HeaderLogo";
+import { ConfigProvider } from "antd";
 
 class App extends React.Component {
     constructor(props) {
@@ -13,12 +14,31 @@ class App extends React.Component {
         this.results = [];
         this.getResults = this.getResults.bind(this);
         this.getLocation = this.getLocation.bind(this);
+        this.getTheme = this.getTheme.bind(this);
     }
 
     state = {
         results: [],
         location: "home",
         currentUser: {},
+        theme: 'dark',
+    }
+
+    darkTheme = {
+        colorPrimary: '#6A866B',
+        colorBgContainer: '#212529',
+        colorText: '#6c757d',
+        colorBorder: "#dee2e6",
+        colorBorderSecondary:"#6A866B"
+    }
+
+    lightTheme = {
+        colorPrimary: '#6A866B',
+        colorBgContainer: '#fafafa',
+        colorPrimaryText: '#555', 
+        colorText: '#555',
+        colorBorder: "#6A866B",
+        colorBorderSecondary:"#866A85"
     }
     
     getResults(val) {
@@ -27,6 +47,10 @@ class App extends React.Component {
             results: val 
         }))
         return this.state.results;
+    }
+    getTheme(val) {
+        this.setState({theme: val});
+        return this.state.theme
     }
 
     getLocation(val) {
@@ -66,12 +90,14 @@ class App extends React.Component {
         else if (this.state.location == "watched"){
             mainPage = (<WatchedMovies currentUser={this.state.currentUser} />);
         }
-        return <>
-        <HeaderLogo></HeaderLogo>
-        <div className="main-content">
-            <Outlet />
-        </div>
-        <SideBar />
+        return <><ConfigProvider 
+            theme={{token: this.state.theme == 'dark' ? this.darkTheme : this.lightTheme }}>
+            <HeaderLogo sendTheme={this.getTheme}></HeaderLogo>
+            <div className="main-content">
+                <Outlet />
+            </div>
+            <SideBar />
+        </ConfigProvider>
         </>;
     }
 }

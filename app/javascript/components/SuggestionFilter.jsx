@@ -1,5 +1,6 @@
 import React from "react";
 import { Form, Select, Radio, Switch } from "antd";
+import { DownCircleTwoTone, CaretDownOutlined, CloseOutlined } from '@ant-design/icons'
 
 class SuggestionFilter extends React.Component {
 
@@ -54,11 +55,15 @@ class SuggestionFilter extends React.Component {
                 <Switch />
             </Form.Item>
             <Form.Item label="Tags" name="tags">
-                <Select allowClear options={this.state.blockOptions} optionFilterProp="label" />
+                <Select className="select" 
+                allowClear={<CloseOutlined style={{color: '#6A866B'}} />} options={this.state.blockOptions} 
+                optionFilterProp="label" style={{ width: 150 }}
+                suffixIcon={<CaretDownOutlined style={{color: '#6A866B'}} />}
+                />
             </Form.Item>
 
             <Form.Item label="Order by" name="order_by">
-                <Select >
+                <Select className="select" suffixIcon={<CaretDownOutlined style={{color: '#6A866B'}} />}>
                     <Select.Option value="age">Age</Select.Option>
                     <Select.Option value="likes">Likes</Select.Option>
                 </Select>

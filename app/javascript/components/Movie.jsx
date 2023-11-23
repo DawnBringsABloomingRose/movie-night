@@ -116,6 +116,7 @@ class Movie extends React.Component {
       body: JSON.stringify({watched: true,}),
     }).then((data) => {
       if (data.ok) {
+        location.reload();
         return data.json();
       }
       throw new Error("Network error.");

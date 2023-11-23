@@ -10,17 +10,17 @@
     },
     "index": {
       "js": [
-        "/packs/js/index-60d9bc2e25d3c12a6dab.js"
+        "/packs/js/index-f47d5737ca5c5bbc8b91.js"
       ],
       "js.map": [
-        "/packs/js/index-60d9bc2e25d3c12a6dab.js.map"
+        "/packs/js/index-f47d5737ca5c5bbc8b91.js.map"
       ]
     }
   },
   "hello_react.js": "/packs/js/hello_react-fa70ec3f3a370f9ca70d.js",
   "hello_react.js.map": "/packs/js/hello_react-fa70ec3f3a370f9ca70d.js.map",
-  "index.js": "/packs/js/index-60d9bc2e25d3c12a6dab.js",
-  "index.js.map": "/packs/js/index-60d9bc2e25d3c12a6dab.js.map",
-  "media/images/Movie-night.png": "/packs/media/images/Movie-night-66c445bb.png",
+  "index.js": "/packs/js/index-f47d5737ca5c5bbc8b91.js",
+  "index.js.map": "/packs/js/index-f47d5737ca5c5bbc8b91.js.map",
+  "media/images/Movie-night.png": "/packs/media/images/Movie-night-146d8919.png",
   "media/images/pumpkin.png": "/packs/media/images/pumpkin-3f9cc57a.png"
 }

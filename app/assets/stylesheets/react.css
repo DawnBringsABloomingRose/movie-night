@@ -1,13 +1,23 @@
 /*Colour variables*/
-:root {
-    --main-bg-color: white;
-    --main-text-color: black;
-    --main-accent-color: grey;
-}
+
+
+    [data-theme="light"] {
+        --main-bg-color: #fafafa;
+        --main-text-color: #555;
+        --main-accent-color: grey;
+    }
+    [data-theme="dark"]
+    {
+        --main-bg-color: #212529;
+        --main-text-color: #6c757d;
+        --main-accent-color: #dee2e6;
+    }
 
 
 .header {
     grid-area: 1 / 1 / span 1 / span 2;
+    display: flex;
+    justify-content: center;
 }
 
 .halloween {
@@ -24,6 +34,12 @@
     display: flex;
     align-items: center;
 }
+
+body {
+    background-color: var(--main-bg-color);
+    color: var(--main-text-color)
+}
+
 
 .cardtitle img {
     height: 50px;
@@ -103,6 +119,9 @@
     background-color: var(--main-bg-color);
 }
 
+.select > div > span {
+    color: var(--main-text-color)
+}
 
 
 /* CSS reset */
