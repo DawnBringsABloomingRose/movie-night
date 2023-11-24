@@ -94,7 +94,7 @@ class App extends React.Component {
         }
         return <><ConfigProvider 
             theme={{token: this.state.theme == 'dark' ? this.darkTheme : this.lightTheme }}>
-            <HeaderLogo sendTheme={this.getTheme}></HeaderLogo>
+            <HeaderLogo sendTheme={this.getTheme} userName={this.props.userName}></HeaderLogo>
             <div className="main-content">
                 <Outlet />
             </div>

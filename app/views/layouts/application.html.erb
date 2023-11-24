@@ -11,6 +11,8 @@
     
   </head>
   <body>
+
+  <%= yield %>
   <% unless user_signed_in? %>
     <p>Sign in or Create an account</p>
     <%= link_to "sign in", new_user_session_path %>
@@ -18,12 +20,12 @@
     <% else %>
     <div id="current_user" data-value=<%=current_user.id %> hidden></div>
     <div id="current_user_admin" data-value=<%=current_user.admin %> hidden></div>
+    <div id="current_user_name" data-value=<%=current_user.name %> hidden></div>
       <%= javascript_pack_tag 'index', defer: 'defer' %>
     <% end %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <div id='root'>
-    <%= yield %>
     </div>
   </body>
 </html>

@@ -30,7 +30,7 @@
 .header {
     grid-area: 1 / 1 / span 1 / span 2;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 
 .logo {
@@ -45,6 +45,15 @@
 .halloween * {
     color: orange;
     border-color: orange;
+}
+
+.logout {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+}
+.logout >* {
+    margin: 5px;
 }
 
 .cardtitle {

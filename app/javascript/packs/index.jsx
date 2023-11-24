@@ -19,10 +19,11 @@ import UserProfile from '../components/UserProfile';
 const container = document.getElementById("root");
 const currentUser = document.getElementById("current_user").getAttribute("data-value");
 const currentUserAdmin = document.getElementById("current_user_admin").getAttribute("data-value");
+const currentUserName = document.getElementById("current_user_name").getAttribute("data-value");
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App currentUser={currentUser} />,
+    element: <App currentUser={currentUser} userName={currentUserName}/>,
     children: [ 
       {index: true, element: <Suggestions currentUser={currentUser} admin={currentUserAdmin}/> },
       {

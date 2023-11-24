@@ -1,10 +1,8 @@
 import React from "react";
 import Logo from '../../assets/images/Movie-night.png';
 import { Link } from "react-router-dom";
-import { Switch } from "antd";
-import Sun from "../../assets/images/sun.svg"
-import Moon from "../../assets/images/moon.svg"
-import ThemeSwitch from "./ThemeSwitch";
+import { Button } from "antd";
+import LogoutButton from "./LogoutButton";
 
 class HeaderLogo extends React.Component {
     constructor(props) {
@@ -52,6 +50,10 @@ class HeaderLogo extends React.Component {
 
         return (<>
         <div className="header"><Link to={`/`}><img src={Logo} alt="Movie Night Logo" className="logo" height={100}/></Link>
+        <div className="logout">
+            <span>Welcome, {this.props.userName}</span>
+            <LogoutButton />
+        </div>
         </div>
         </>)
     }
