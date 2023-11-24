@@ -13,7 +13,7 @@ class LikeButton extends React.Component {
 
     createLike = () => {
         let like = {suggestion_id: this.props.suggestion_id};
-        const url = "api/v1/likes";
+        const url = "/api/v1/likes";
         fetch(url, {
           method: "post",
           headers: {
@@ -32,7 +32,7 @@ class LikeButton extends React.Component {
 
     deleteLike = () => {
         const id = this.state.likes.find((el) => el.user_id == this.props.currentUser).id;
-        const url = `api/v1/likes/${id}`;
+        const url = `/api/v1/likes/${id}`;
         fetch(url, {
           method: "delete",
         })
@@ -46,7 +46,7 @@ class LikeButton extends React.Component {
     }
 
     getLikes = () => {
-      const url = 'api/v1/likes/index/' + this.props.suggestion_id
+      const url = '/api/v1/likes/index/' + this.props.suggestion_id
       fetch(url, {
         method: 'get',
       }).then((data) => {

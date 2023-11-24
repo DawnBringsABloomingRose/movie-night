@@ -14,6 +14,7 @@ import { createBrowserRouter, RouterProvider, } from 'react-router-dom';
 import Results from "../components/Results"
 import Suggestions from "../components/SuggestionHome";
 import WatchedMovies from "../components/WatchedMovies";
+import UserProfile from '../components/UserProfile';
 
 const container = document.getElementById("root");
 const currentUser = document.getElementById("current_user").getAttribute("data-value");
@@ -28,7 +29,8 @@ const router = createBrowserRouter([
       path: "watched", 
       element: <WatchedMovies currentUser={currentUser} admin={currentUserAdmin}/>,
       },
-      { path: "search", element: <Results currentUser={currentUser} admin={currentUserAdmin}/>}
+      { path: "search", element: <Results currentUser={currentUser} admin={currentUserAdmin}/>},
+      {path: "profile/:id", element: <UserProfile currentUser={currentUser} admin={currentUserAdmin}/>}
     ],
     }
 ])

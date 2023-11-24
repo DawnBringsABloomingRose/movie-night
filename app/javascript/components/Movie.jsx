@@ -60,7 +60,7 @@ class Movie extends React.Component {
       return
     }
     
-    const url = "search/" + this.props.movie.tmdb_ref + '.json';
+    const url = "/search/" + this.props.movie.tmdb_ref + '.json';
     fetch(url)
       .then((data) => {
         if (data.ok) {
@@ -107,7 +107,7 @@ class Movie extends React.Component {
   }
 
   updateWatchStatus = () => {
-    const url = "api/v1/movies/" + this.props.id;
+    const url = "/api/v1/movies/" + this.props.id;
     fetch(url, {
       method: "PUT",
       headers: {

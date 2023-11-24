@@ -7,6 +7,7 @@ import { Outlet, useNavigate } from "react-router-dom";
 import SideBar from "./SideBar";
 import HeaderLogo from "./HeaderLogo";
 import { ConfigProvider } from "antd";
+import UserProfile from "./UserProfile";
 
 class App extends React.Component {
     constructor(props) {
@@ -96,7 +97,7 @@ class App extends React.Component {
             <div className="main-content">
                 <Outlet />
             </div>
-            <SideBar />
+            <SideBar currentUser={this.props.currentUser}/>
         </ConfigProvider>
         </>;
     }

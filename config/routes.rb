@@ -30,6 +30,7 @@ Rails.application.routes.draw do
       get 'currentuser/', to: 'current_users#show'
       get 'watched/', to: 'movies#index'
       put 'movies/:id', to: 'movies#update'
+      get 'user/:id', to: 'users#show'
     end
   end
 end

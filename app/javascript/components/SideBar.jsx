@@ -13,7 +13,7 @@ class SideBar extends React.Component {
             <SideBarLink location={`watched`} text="Watched" />
             <SideBarLink location={`search`} text="Search" />
             <AddMovie />
-            <SideBarLink location={`search`} text="Profile" />
+            <SideBarLink location={`profile/` + this.props.currentUser } text="Profile" />
             <SideBarLink location={`search`} text="Settings" />
         </div>
         </>)
