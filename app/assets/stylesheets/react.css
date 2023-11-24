@@ -4,7 +4,7 @@
     [data-theme="light"] {
         --main-bg-color: #fafafa;
         --main-text-color: #555;
-        --main-accent-color: grey;
+        --main-accent-color: #dee2e6;
     }
     [data-theme="dark"]
     {
@@ -13,6 +13,16 @@
         --main-accent-color: #dee2e6;
     }
 
+    .theme-switch > img {
+        filter: invert(51%) sepia(12%) saturate(686%) hue-rotate(73deg) brightness(94%) contrast(86%);
+        margin: 5px;
+    }
+
+    .theme-switch {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
     :root {
         font-size: 16px;
@@ -20,7 +30,7 @@
 .header {
     grid-area: 1 / 1 / span 1 / span 2;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 .halloween {

@@ -10,17 +10,19 @@
     },
     "index": {
       "js": [
-        "/packs/js/index-d729e02e0c698a50ab45.js"
+        "/packs/js/index-11d3ecf906efcb48f428.js"
       ],
       "js.map": [
-        "/packs/js/index-d729e02e0c698a50ab45.js.map"
+        "/packs/js/index-11d3ecf906efcb48f428.js.map"
       ]
     }
   },
   "hello_react.js": "/packs/js/hello_react-fa70ec3f3a370f9ca70d.js",
   "hello_react.js.map": "/packs/js/hello_react-fa70ec3f3a370f9ca70d.js.map",
-  "index.js": "/packs/js/index-d729e02e0c698a50ab45.js",
-  "index.js.map": "/packs/js/index-d729e02e0c698a50ab45.js.map",
+  "index.js": "/packs/js/index-11d3ecf906efcb48f428.js",
+  "index.js.map": "/packs/js/index-11d3ecf906efcb48f428.js.map",
   "media/images/Movie-night.png": "/packs/media/images/Movie-night-146d8919.png",
-  "media/images/pumpkin.png": "/packs/media/images/pumpkin-3f9cc57a.png"
+  "media/images/moon.svg": "/packs/media/images/moon-dce06127.svg",
+  "media/images/pumpkin.png": "/packs/media/images/pumpkin-3f9cc57a.png",
+  "media/images/sun.svg": "/packs/media/images/sun-75ad86a5.svg"
 }
