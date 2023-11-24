@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Switch } from "antd";
 import Sun from "../../assets/images/sun.svg"
 import Moon from "../../assets/images/moon.svg"
+import ThemeSwitch from "./ThemeSwitch";
 
 class HeaderLogo extends React.Component {
     constructor(props) {
@@ -50,12 +51,7 @@ class HeaderLogo extends React.Component {
     render() {
 
         return (<>
-        <div className="header"><div></div><Link to={`/`}><img src={Logo} alt="Movie Night Logo" className="logo" /></Link>
-            <div className="theme-switch">
-                <img src={Sun} height={25}/>
-                <Switch onChange={this.changeTheme} defaultChecked={this.darkTheme}/> 
-                <img src={Moon} height={25}/>
-            </div>
+        <div className="header"><Link to={`/`}><img src={Logo} alt="Movie Night Logo" className="logo" height={100}/></Link>
         </div>
         </>)
     }

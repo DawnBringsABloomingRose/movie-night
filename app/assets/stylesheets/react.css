@@ -33,6 +33,10 @@
     justify-content: space-evenly;
 }
 
+.logo {
+    width: 20vw;
+}
+
 .halloween {
     background-color: black;
     color: orange;

@@ -31,6 +31,7 @@ class App extends React.Component {
         colorText: '#6c757d',
         colorBorder: "#dee2e6",
         colorBorderSecondary:"#6A866B",
+        colorBgElevated: '#212529',
     }
 
     lightTheme = {
@@ -97,7 +98,7 @@ class App extends React.Component {
             <div className="main-content">
                 <Outlet />
             </div>
-            <SideBar currentUser={this.props.currentUser}/>
+            <SideBar currentUser={this.props.currentUser} sendTheme={this.getTheme}/>
         </ConfigProvider>
         </>;
     }
